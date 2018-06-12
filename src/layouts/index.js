@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Header from '../components/header';
-import './index.css';
+import './index.scss';
 
 const Layout = ({ children, data }) => (
   <div>
@@ -13,14 +13,17 @@ const Layout = ({ children, data }) => (
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
-    />
-    <Header siteTitle={data.site.siteMetadata.title} />
+      link={[
+        { rel: 'stylesheet', href: 'https://use.typekit.net/mdx0cer.css' },
+      ]}
+  />
+    {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
     <div
       style={{
         margin: '0 auto',
         maxWidth: 960,
         padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
+        paddingTop: 200,
       }}
     >
       {children()}
