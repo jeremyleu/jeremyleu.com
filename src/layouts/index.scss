@@ -1,4 +1,4 @@
-$dark: hsla(0,0%,0%,0.8);
+@import '../utils/variables';
 
 body {
   background-color: #eee;
@@ -35,13 +35,6 @@ body {
   margin: 0 auto;
 }
 
-hr {
-  background-color: $dark;
-  height: 3px;
-  width: 46px;
-  margin: 40px 0;
-}
-
 a {
   font-family: 'brandon-grotesque';
   position: relative;
@@ -76,4 +69,23 @@ a {
 
 .home-link {
   font-size: 1.2em;
+}
+
+.scroll-container {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+
+  width: 10000px;
+  height: 100vh;
+}
+
+.line {
+  background-color: $dark;
+  height: 2px;
+  margin: 0 -2000px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
 }

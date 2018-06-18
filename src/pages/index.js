@@ -1,13 +1,30 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import './index.scss';
+
 const IndexPage = () => (
-  <div>
-    {/* <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link> */}
-    <h1>Under Construction</h1>
+  <div className="components-container">
+    {/* <div className="main-title grid">
+      <div className="row">
+        <div className="cell">J</div>
+        <div className="cell">E</div>
+        <div className="cell">R</div>
+      </div>
+      <div className="row">
+        <div className="cell">E</div>
+        <div className="cell">M</div>
+        <div className="cell">Y</div>
+      </div>
+      <div className="row">
+        <div className="cell">L</div>
+        <div className="cell">E</div>
+        <div className="cell">U</div>
+      </div>
+    </div> */}
+    <div className="main-title">
+      Jeremy Leu
+    </div>
   </div>
 );
 
