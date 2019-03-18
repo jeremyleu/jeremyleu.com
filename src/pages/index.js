@@ -22,9 +22,8 @@ const IndexPage = () => (
         <div className="cell">U</div>
       </div>
     </div> */}
-    <div className="main-title">
-      Jeremy Leu
-    </div>
+    <div className="main-title">Jeremy Leu</div>
+    <div className="sub-title">This site is under construction.</div>
   </div>
 );
 

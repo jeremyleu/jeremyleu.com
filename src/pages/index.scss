@@ -3,7 +3,7 @@
 .main-title {
   background-color: $background-gray;
   padding: 24px;
-  font-family: 'franklin-gothic-urw-con-sc', serif;
+  font-family: 'brandon-grotesque', serif;
   text-transform: uppercase;
   font-size: 3.6em;
   z-index: 2;
@@ -36,4 +36,11 @@
   display: flex;
   align-items: center;
   padding: 30px 120px;
+}
+
+.sub-title {
+  background-color: $background-gray;
+  padding: 20px;
+  z-index: 1;
+  margin-left: 20px;
 }
