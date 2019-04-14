@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { mq } from '../utils/constants';
 
 export const SectionContainer = styled('div')`
   width: 100vw;
@@ -10,7 +11,10 @@ export const SectionContainer = styled('div')`
 
 export const Section = styled('section')`
   display: flex;
+  padding: 20px 20px 80px 20px;
   flex-direction: column;
-  max-width: 840px;
-  padding: 20px;
+
+  ${mq[1]} {
+    max-width: 840px;
+  }
 `;

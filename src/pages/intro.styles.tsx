@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
+import { mq } from '../utils/constants';
 
 export const SkillsList = styled('ul')`
   margin-top: 10px;
@@ -22,6 +23,13 @@ export const FlexSection = styled('div')<FlexSectionProps>`
   margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
   font-size: 1.6em;
   display: flex;
+`;
+
+export const ResponsiveFlexSection = styled(FlexSection)`
+  flex-direction: column;
+  ${mq[1]} {
+    flex-direction: row;
+  }
 `;
 
 export const Title = styled('header')`

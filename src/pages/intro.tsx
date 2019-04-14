@@ -5,6 +5,7 @@ import {
   SkillsListItem,
   EqualFlexColumn,
   FlexSection,
+  ResponsiveFlexSection,
   Title,
   MyFace,
 } from './Intro.styles';
@@ -43,7 +44,7 @@ const Intro = () => (
               marginTop={20}
               dangerouslySetInnerHTML={{ __html: data.dataJson.content }}
             />
-            <FlexSection marginTop={50}>
+            <ResponsiveFlexSection marginTop={50}>
               <EqualFlexColumn>
                 I'm most familiar with:
                 <SkillsList>
@@ -60,7 +61,7 @@ const Intro = () => (
                   ))}
                 </SkillsList>
               </EqualFlexColumn>
-            </FlexSection>
+            </ResponsiveFlexSection>
             <FlexSection marginTop={30}>
               At the same time, I'm eager to learn the right tool for the job.
             </FlexSection>
