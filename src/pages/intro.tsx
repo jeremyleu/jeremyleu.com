@@ -10,18 +10,26 @@ import {
   MyFace,
   FlexContainer,
 } from './Intro.styles';
-import { SectionContainer, Section } from './common.styles';
+import { Section } from './common.styles';
 
-import { useExpander } from '../hooks';
 import { IntroJson } from '../schema/graphql';
 import { ExpandableSection, NavButtons } from '../components';
+
+type IntroProps = {
+  currentSectionIdx: number;
+  prevSectionIdx: number;
+  goToNextSection: () => void;
+  goToPrevSection: () => void;
+};
+
+type IntroWithDataProps = IntroProps & { data: IntroJson };
 
 const query = graphql`
   query getIntroData {
     dataJson(key: { eq: "intro" }) {
       title
       content
-      image {
+      faces {
         id
         childImageSharp {
           fluid {
@@ -42,8 +50,52 @@ const query = graphql`
   }
 `;
 
-const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
-  const sections = [
+const IntroWithData = ({
+  data: introData,
+  goToPrevSection,
+  goToNextSection,
+  currentSectionIdx,
+  prevSectionIdx,
+}: IntroWithDataProps) => {
+  const [isMoving, setIsMoving] = React.useState<boolean>(false);
+
+  return (
+    <Section>
+      <Title>
+        {introData.title}
+        <MyFace
+          fluid={introData.faces[isMoving ? 1 : 0].childImageSharp!.fluid!}
+        />
+      </Title>
+      <FlexSection
+        marginTop={20}
+        dangerouslySetInnerHTML={{ __html: introData.content }}
+      />
+      <NavButtons
+        goToNextSection={goToNextSection}
+        goToPrevSection={goToPrevSection}
+        numSections={Intro.sections.length}
+        currentSectionIdx={currentSectionIdx}
+      />
+      <ExpandableSection
+        sections={Intro.sections.map((IntroSection, idx) => (
+          <IntroSection key={idx} introData={introData} />
+        ))}
+        currentSectionIdx={currentSectionIdx}
+        prevSectionIdx={prevSectionIdx}
+        setIsMoving={setIsMoving}
+      />
+    </Section>
+  );
+};
+
+const Intro = (props: IntroProps) => {
+  const data = useStaticQuery(query);
+  return <IntroWithData {...props} data={data.dataJson} />;
+};
+
+Intro.sections = [
+  ({ introData }: { introData: IntroJson }) => (
     <FlexContainer>
       <ResponsiveFlexSection marginTop={50}>
         <EqualFlexColumn>
@@ -64,46 +116,8 @@ const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
         </EqualFlexColumn>
       </ResponsiveFlexSection>
       <FlexSection marginTop={30}>{introData.footer}</FlexSection>
-    </FlexContainer>,
-  ];
-
-  const {
-    currentSectionIdx,
-    prevSectionIdx,
-    goToNextSection,
-    goToPrevSection,
-  } = useExpander(sections.length);
-
-  return (
-    <SectionContainer>
-      <Section>
-        <Title>
-          {introData.title}
-          <MyFace fluid={introData.image.childImageSharp!.fluid!} />
-        </Title>
-        <FlexSection
-          marginTop={20}
-          dangerouslySetInnerHTML={{ __html: introData.content }}
-        />
-        <NavButtons
-          goToNextSection={goToNextSection}
-          goToPrevSection={goToPrevSection}
-          numSections={sections.length}
-          currentSectionIdx={currentSectionIdx}
-        />
-        <ExpandableSection
-          sections={sections}
-          currentSectionIdx={currentSectionIdx}
-          prevSectionIdx={prevSectionIdx}
-        />
-      </Section>
-    </SectionContainer>
-  );
-};
-
-const Intro = () => {
-  const data = useStaticQuery(query);
-  return <IntroWithData data={data.dataJson} />;
-};
+    </FlexContainer>
+  ),
+];
 
 export default Intro;

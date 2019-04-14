@@ -11,7 +11,7 @@ export const Button = styled('button')`
   cursor: pointer;
   padding: 12px;
   outline-color: #aaa;
-  :not(:first-child) {
+  :not(:first-of-type) {
     margin-left: 20px;
   }
 `;

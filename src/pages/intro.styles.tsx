@@ -14,7 +14,7 @@ export const SkillsListItem = styled('li')`
 
 export const EqualFlexColumn = styled('div')`
   flex: 1 1 0;
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-top: 20px;
     ${mq[1]} {
       margin-top: 0;

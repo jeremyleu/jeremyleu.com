@@ -1,33 +1,50 @@
 import React from 'react';
 
-export function useExpander(numSections: number) {
-  const [prevSectionIdx, setPrevSectionIdx] = React.useState<number>(-1);
-  const [currentSectionIdx, setCurrentSectionIdx] = React.useState<number>(-1);
+export function useExpander(
+  numsSections: Array<number>,
+  currentPageIdx: number,
+  setIsMoving?: React.Dispatch<React.SetStateAction<boolean>>
+) {
+  const [prevSections, setPrevSections] = React.useState<Array<number>>(
+    Array(numsSections.length).fill(-1)
+  );
+  const [currentSections, setCurrentSections] = React.useState<Array<number>>(
+    Array(numsSections.length).fill(-1)
+  );
 
   const goToNextSection = () => {
-    setCurrentSectionIdx(originalSectionIdx => {
-      const nextSectionIdx = originalSectionIdx + 1;
-      if (nextSectionIdx < numSections) {
-        setPrevSectionIdx(originalSectionIdx);
-        return nextSectionIdx;
+    setCurrentSections(originalSections => {
+      const newSections = [...originalSections];
+      newSections[currentPageIdx] += 1;
+      if (newSections[currentPageIdx] < numsSections[currentPageIdx]) {
+        setPrevSections(originalSections);
+        if (originalSections[currentPageIdx] === -1 && setIsMoving) {
+          setIsMoving(true);
+        }
+        return newSections;
       }
-      return originalSectionIdx;
+      return originalSections;
     });
   };
 
   const goToPrevSection = () => {
-    setCurrentSectionIdx(originalSectionIdx => {
-      if (originalSectionIdx === -1) {
-        return -1;
+    setCurrentSections(originalSections => {
+      if (originalSections[currentPageIdx] === -1) {
+        return originalSections;
       }
-      setPrevSectionIdx(originalSectionIdx);
-      return originalSectionIdx - 1;
+      setPrevSections(originalSections);
+      if (originalSections[currentPageIdx] === 0 && setIsMoving) {
+        setIsMoving(true);
+      }
+      const newSections = [...originalSections];
+      newSections[currentPageIdx] -= 1;
+      return newSections;
     });
   };
 
   return {
-    currentSectionIdx,
-    prevSectionIdx,
+    currentSections,
+    prevSections,
     goToNextSection,
     goToPrevSection,
   };

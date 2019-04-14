@@ -11,13 +11,39 @@ const ExpandableSection = ({
   sections,
   currentSectionIdx,
   prevSectionIdx,
+  setIsMoving,
 }: {
   sections: Array<React.ReactNode>;
   prevSectionIdx: number;
   currentSectionIdx: number;
+  setIsMoving?: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const expandableSectionWrapper = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (!setIsMoving) {
+      return;
+    }
+    const stopMoving = () => {
+      setIsMoving(false);
+    };
+
+    expandableSectionWrapper.current!.addEventListener(
+      'transitionend',
+      stopMoving
+    );
+
+    return () => {
+      expandableSectionWrapper.current!.removeEventListener(
+        'transitionend',
+        stopMoving
+      );
+    };
+  }, []);
   return (
-    <ExpandableSectionWrapper currentSectionIdx={currentSectionIdx}>
+    <ExpandableSectionWrapper
+      currentSectionIdx={currentSectionIdx}
+      ref={expandableSectionWrapper}
+    >
       {sections.map((section, idx) => (
         <Transition
           in={idx === currentSectionIdx}

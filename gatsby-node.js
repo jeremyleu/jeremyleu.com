@@ -18,7 +18,7 @@ exports.sourceNodes = ({ actions }) => {
       # However Node fields are optional and you don't have to add them
       title: String!
       content: String!
-      image: File!
+      faces: [File!]!
       familiarSkills: Skills!
       otherSkills: Skills!
       footer: String!

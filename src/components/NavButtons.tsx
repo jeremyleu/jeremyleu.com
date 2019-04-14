@@ -31,9 +31,10 @@ const NavButtons = ({
 
   return (
     <NavButtonContainer>
-      {buttons.map(button => (
+      {buttons.map((button, idx) => (
         <Button
           onClick={button.isNextButton ? goToNextSection : goToPrevSection}
+          key={idx}
         >
           <ButtonIcon
             isNextButton={button.isNextButton}

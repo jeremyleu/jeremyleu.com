@@ -6,7 +6,7 @@ import {
   ENTERING,
 } from 'react-transition-group/Transition';
 
-import { mq } from '../utils/constants';
+import { mq, getTransformFromDifference } from '../utils';
 
 export const ExpandableSectionWrapper = styled('div')<{
   currentSectionIdx: number;
@@ -19,15 +19,6 @@ export const ExpandableSectionWrapper = styled('div')<{
     }
   `
 );
-
-const getTransformFromDifference = (difference: number) => {
-  if (difference < 0) {
-    return -100;
-  } else if (difference > 0) {
-    return 100;
-  }
-  return 0;
-};
 
 interface ScrollingSectionProps {
   difference: number;
@@ -44,12 +35,13 @@ export const ScrollingSection = styled('div')<ScrollingSectionProps>(
       transform = `translateY(${getTransformFromDifference(prevDifference)}%)`;
     }
     return `
+      width: 100%;
       ${mq[1]} {
         transform: ${transform};
         opacity: ${status === ENTERED ? 1 : 0};
         display: ${status === EXITED ? 'none' : 'block'};
         position: absolute;
-        transition: 0.4s all ease-in-out;
+        transition: 0.4s opacity ease-in-out, 0.4s transform ease-in-out;
       }
     `;
   }
