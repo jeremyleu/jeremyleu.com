@@ -20,6 +20,8 @@ type IntroProps = {
   prevSectionIdx: number;
   goToNextSection: () => void;
   goToPrevSection: () => void;
+  isMoving: boolean;
+  setIsMoving: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type IntroWithDataProps = IntroProps & { data: IntroJson };
@@ -56,9 +58,9 @@ const IntroWithData = ({
   goToNextSection,
   currentSectionIdx,
   prevSectionIdx,
+  isMoving,
+  setIsMoving,
 }: IntroWithDataProps) => {
-  const [isMoving, setIsMoving] = React.useState<boolean>(false);
-
   return (
     <Section>
       <Title>

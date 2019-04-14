@@ -18,6 +18,8 @@ const IndexPage = () => {
     prevSections,
     goToNextSection,
     goToPrevSection,
+    isMoving,
+    setIsMoving,
   } = useExpander(pages.map(page => page.sections.length), currentPageIdx);
 
   return (
@@ -40,6 +42,8 @@ const IndexPage = () => {
                   prevSectionIdx={prevSections[idx]}
                   goToNextSection={goToNextSection}
                   goToPrevSection={goToPrevSection}
+                  isMoving={isMoving}
+                  setIsMoving={setIsMoving}
                 />
               }
             </PageWrapper>

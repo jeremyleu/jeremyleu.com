@@ -2,8 +2,7 @@ import React from 'react';
 
 export function useExpander(
   numsSections: Array<number>,
-  currentPageIdx: number,
-  setIsMoving?: React.Dispatch<React.SetStateAction<boolean>>
+  currentPageIdx: number
 ) {
   const [prevSections, setPrevSections] = React.useState<Array<number>>(
     Array(numsSections.length).fill(-1)
@@ -11,6 +10,7 @@ export function useExpander(
   const [currentSections, setCurrentSections] = React.useState<Array<number>>(
     Array(numsSections.length).fill(-1)
   );
+  const [isMoving, setIsMoving] = React.useState<boolean>(false);
 
   const goToNextSection = () => {
     setCurrentSections(originalSections => {
@@ -47,5 +47,7 @@ export function useExpander(
     prevSections,
     goToNextSection,
     goToPrevSection,
+    isMoving,
+    setIsMoving,
   };
 }
