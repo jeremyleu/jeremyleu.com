@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   SkillsList,
   SkillsListItem,
@@ -11,11 +11,36 @@ import {
 } from './Intro.styles';
 import { SectionContainer, Section } from './common.styles';
 
-import { getIntroData } from '../graphql';
 import { useExpander } from '../hooks';
+import { IntroJson } from '../schema/graphql';
 
-const IntroWithData = (data: any) => {
-  const introData = data;
+const query = graphql`
+  query getIntroData {
+    dataJson(key: { eq: "intro" }) {
+      title
+      content
+      image {
+        id
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      familiarSkills {
+        description
+        skills
+      }
+      otherSkills {
+        description
+        skills
+      }
+      footer
+    }
+  }
+`;
+
+const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
   const sections = [
     <ResponsiveFlexSection marginTop={50}>
       <EqualFlexColumn>
@@ -38,6 +63,8 @@ const IntroWithData = (data: any) => {
     </ResponsiveFlexSection>,
   ];
 
+  const { currentSection } = useExpander(sections);
+
   return (
     <SectionContainer>
       <Section>
@@ -49,16 +76,15 @@ const IntroWithData = (data: any) => {
           marginTop={20}
           dangerouslySetInnerHTML={{ __html: introData.content }}
         />
-        {sections[0]}
+        {currentSection}
       </Section>
     </SectionContainer>
   );
 };
 
 const Intro = () => {
-  const { currentSectionIdx } = useExpander(sections);
-  const { dataJson } = useStaticQuery(getIntroData);
-  return <IntroWithData data={dataJson} />;
+  const data = useStaticQuery(query);
+  return <IntroWithData data={data.dataJson} />;
 };
 
 export default Intro;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-export function useExpander(numSections: number) {
+export function useExpander(sections: Array<React.ReactNode>) {
   const [currentSectionIdx, setCurrentSectionIdx] = React.useState<number>(-1);
 
   const goToNextSection = () => {
     setCurrentSectionIdx(originalSectionIdx => {
       const nextSectionIdx = originalSectionIdx + 1;
-      if (nextSectionIdx < numSections) {
+      if (nextSectionIdx < sections.length) {
         return nextSectionIdx;
       }
       return originalSectionIdx;
@@ -23,7 +23,7 @@ export function useExpander(numSections: number) {
   };
 
   return {
-    currentSectionIdx,
+    currentSection: sections[currentSectionIdx] || null,
     goToNextSection,
     goToPrevSection,
   };
