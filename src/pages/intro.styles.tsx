@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
-import { mq } from '../utils/constants';
+import { mq, vmq } from '../utils/constants';
 
 export const SkillsList = styled('ul')`
   margin-top: 10px;
+  margin-bottom: 0;
 `;
 
 export const SkillsListItem = styled('li')`
@@ -13,6 +14,13 @@ export const SkillsListItem = styled('li')`
 
 export const EqualFlexColumn = styled('div')`
   flex: 1 1 0;
+  &:not(:first-child) {
+    margin-top: 20px;
+    ${mq[1]} {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+  }
 `;
 
 interface FlexSectionProps {
@@ -25,7 +33,10 @@ export const FlexContainer = styled('div')`
 `;
 
 export const FlexSection = styled('div')<FlexSectionProps>`
-  margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
+  margin-top: ${(props: FlexSectionProps) => props.marginTop / 2}px;
+  ${vmq[0]} {
+    margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
+  }
   font-size: 1.6em;
   display: flex;
 `;

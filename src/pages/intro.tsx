@@ -14,7 +14,7 @@ import { SectionContainer, Section } from './common.styles';
 
 import { useExpander } from '../hooks';
 import { IntroJson } from '../schema/graphql';
-import { ExpandableSection } from '../components';
+import { ExpandableSection, NavButtons } from '../components';
 
 const query = graphql`
   query getIntroData {
@@ -65,27 +65,6 @@ const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
       </ResponsiveFlexSection>
       <FlexSection marginTop={30}>{introData.footer}</FlexSection>
     </FlexContainer>,
-    <FlexContainer>
-      <ResponsiveFlexSection marginTop={50}>
-        <EqualFlexColumn>
-          {introData.familiarSkills.description}
-          <SkillsList>
-            {introData.familiarSkills.skills.map((skill: string) => (
-              <SkillsListItem key={skill}>{skill}</SkillsListItem>
-            ))}
-          </SkillsList>
-        </EqualFlexColumn>
-        <EqualFlexColumn>
-          {introData.otherSkills.description}
-          <SkillsList>
-            {introData.otherSkills.skills.map((skill: string) => (
-              <SkillsListItem key={skill}>{skill}</SkillsListItem>
-            ))}
-          </SkillsList>
-        </EqualFlexColumn>
-      </ResponsiveFlexSection>
-      <FlexSection marginTop={30}>{introData.footer}</FlexSection>
-    </FlexContainer>,
   ];
 
   const {
@@ -106,8 +85,12 @@ const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
           marginTop={20}
           dangerouslySetInnerHTML={{ __html: introData.content }}
         />
-        <button onClick={goToPrevSection}>Prev Section</button>
-        <button onClick={goToNextSection}>Next Section</button>
+        <NavButtons
+          goToNextSection={goToNextSection}
+          goToPrevSection={goToPrevSection}
+          numSections={sections.length}
+          currentSectionIdx={currentSectionIdx}
+        />
         <ExpandableSection
           sections={sections}
           currentSectionIdx={currentSectionIdx}

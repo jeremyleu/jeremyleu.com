@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { mq } from '../utils/constants';
+import { mq, vmq } from '../utils/constants';
 
 export const Main = styled('main')`
   ${mq[1]} {
@@ -15,8 +15,13 @@ export const Main = styled('main')`
 
 export const globalStyles = css`
   body {
+    font-size: 0.6em;
+    transition: font-size 0.18s ease-in-out;
     ${mq[1]} {
       overflow: hidden;
+    }
+    ${vmq[0]} {
+      font-size: 0.8em;
     }
   }
 `;

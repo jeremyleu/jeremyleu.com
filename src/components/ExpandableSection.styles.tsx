@@ -6,13 +6,17 @@ import {
   ENTERING,
 } from 'react-transition-group/Transition';
 
+import { mq } from '../utils/constants';
+
 export const ExpandableSectionWrapper = styled('div')<{
   currentSectionIdx: number;
 }>(
   ({ currentSectionIdx }: { currentSectionIdx: number }) => `
-    position: relative;
-    height: ${currentSectionIdx >= 0 ? '400px' : 0};
-    transition: 0.4s height ease-in-out;
+    ${mq[1]} {
+      position: relative;
+      height: ${currentSectionIdx >= 0 ? '400px' : 0};
+      transition: 0.4s height ease-in-out;
+    }
   `
 );
 
@@ -40,11 +44,13 @@ export const ScrollingSection = styled('div')<ScrollingSectionProps>(
       transform = `translateY(${getTransformFromDifference(prevDifference)}%)`;
     }
     return `
-      transform: ${transform};
-      opacity: ${status === ENTERED ? 1 : 0};
-      display: ${status === EXITED ? 'none' : 'block'};
-      position: absolute;
-      transition: 0.4s all ease-in-out;
+      ${mq[1]} {
+        transform: ${transform};
+        opacity: ${status === ENTERED ? 1 : 0};
+        display: ${status === EXITED ? 'none' : 'block'};
+        position: absolute;
+        transition: 0.4s all ease-in-out;
+      }
     `;
   }
 );
