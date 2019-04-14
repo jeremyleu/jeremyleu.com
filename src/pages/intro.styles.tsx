@@ -1,6 +1,19 @@
 import styled from '@emotion/styled';
-import Image from 'gatsby-image';
-import { mq, vmq } from '../utils/constants';
+import { keyframes } from '@emotion/core';
+
+const scoreAnimation = keyframes`
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10%, 80% {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 
 export const SkillsList = styled('ul')`
   margin-top: 10px;
@@ -12,52 +25,18 @@ export const SkillsListItem = styled('li')`
   font-size: 0.8em;
 `;
 
-export const EqualFlexColumn = styled('div')`
-  flex: 1 1 0;
-  &:not(:first-of-type) {
-    margin-top: 20px;
-    ${mq[1]} {
-      margin-top: 0;
-      margin-left: 20px;
-    }
-  }
-`;
-
-interface FlexSectionProps {
-  marginTop: number;
-}
-
-export const FlexContainer = styled('div')`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const FlexSection = styled('div')<FlexSectionProps>`
-  margin-top: ${(props: FlexSectionProps) => props.marginTop / 2}px;
-  ${vmq[0]} {
-    margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
-  }
-  font-size: 1.6em;
-  display: flex;
-`;
-
-export const ResponsiveFlexSection = styled(FlexSection)`
-  flex-direction: column;
-  ${mq[1]} {
-    flex-direction: row;
-  }
-`;
-
-export const Title = styled('header')`
-  font-family: 'brandon-grotesque', sans-serif;
-  text-transform: uppercase;
-  font-size: 4.8em;
-  font-weight: 700;
-`;
-
-export const MyFace = styled(Image)`
+export const MyFaceContainer = styled('div')`
   width: 80px;
+  height: 142px;
   margin-left: 40px;
-  margin-bottom: -20px;
   display: inline-block;
+`;
+
+export const ScoreContainer = styled(MyFaceContainer)`
+  font-size: 0.4em;
+  font-family: ocr-a-std, monospace;
+  animation: ${scoreAnimation} 3s ease-in-out forwards;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 `;

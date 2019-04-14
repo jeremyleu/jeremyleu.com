@@ -28,7 +28,8 @@ export const PageWrapper = styled('div')<PageWrapperProps>(
       ${mq[1]} {
         transform: ${transform};
         opacity: ${status === ENTERED ? 1 : 0};
-        display: ${status === EXITED ? 'none' : 'flex'};
+        display: flex;
+        visibility: ${status === EXITED ? 'hidden' : 'visible'};
         position: absolute;
         transition: 0.4s opacity ease-in-out, 0.4s transform ease-in-out;
         width: 100vw;
@@ -52,8 +53,8 @@ export const ArrowButtonsContainer = styled('div')`
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     position: absolute;
-    right: 60px;
-    bottom: 60px;
+    right: 40px;
+    bottom: 40px;
     grid-gap: ${GRID_GAP}px;
   }
 `;
@@ -76,4 +77,17 @@ export const ArrowButton = styled(Button)<ArrowButtonProps>`
     }
     return 2;
   }};
+`;
+
+export const ScoreDisplay = styled('div')`
+  display: none;
+  ${mq[1]} {
+    display: block;
+    position: absolute;
+    text-transform: uppercase;
+    top: 40px;
+    right: 40px;
+    font-family: ocr-a-std, monospace;
+    font-size: 1.6em;
+  }
 `;

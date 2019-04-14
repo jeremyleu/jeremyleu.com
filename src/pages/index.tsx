@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Transition } from 'react-transition-group';
 import { TransitionStatus } from 'react-transition-group/Transition';
 
@@ -6,14 +7,16 @@ import {
   PageWrapper,
   ArrowButtonsContainer,
   ArrowButton,
+  ScoreDisplay,
 } from './index.styles';
 import Layout from '../layouts';
 import { useExpander } from '../hooks';
 import Intro from './Intro';
 import School from './School';
+import Work from './Work';
 import { Direction } from '../utils';
 
-const pages = [Intro, School];
+const pages = [Intro, School, Work];
 
 interface ArrowButtonsProps {
   onUp: () => void;
@@ -42,6 +45,7 @@ const ArrowButtons = ({ onUp, onDown, onLeft, onRight }: ArrowButtonsProps) => (
 const IndexPage = () => {
   const [currentPageIdx, setCurrentPageIdx] = React.useState<number>(0);
   const [prevPageIdx, setPrevPageIdx] = React.useState<number>(0);
+  const [score, setScore] = React.useState<number>(0);
   const {
     currentSections,
     prevSections,
@@ -114,18 +118,27 @@ const IndexPage = () => {
                   goToPrevSection={goToPrevSection}
                   isMoving={isMoving}
                   setIsMoving={setIsMoving}
+                  setScore={setScore}
                 />
               }
             </PageWrapper>
           )}
         </Transition>
       ))}
-      <ArrowButtons
-        onUp={goToNextSection}
-        onLeft={goToPrevPage}
-        onDown={goToPrevSection}
-        onRight={goToNextPage}
-      />
+      {ReactDOM.createPortal(
+        <ArrowButtons
+          onUp={goToNextSection}
+          onLeft={goToPrevPage}
+          onDown={goToPrevSection}
+          onRight={goToNextPage}
+        />,
+        document.body
+      )}
+      {!!score &&
+        ReactDOM.createPortal(
+          <ScoreDisplay>Score: {score}</ScoreDisplay>,
+          document.body
+        )}
     </Layout>
   );
 };

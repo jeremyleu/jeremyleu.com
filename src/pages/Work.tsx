@@ -2,17 +2,17 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { Section, FlexContainer, FlexSection, Title } from '../components';
-import { Geisel } from './School.styles';
 
 const query = graphql`
-  query getSchoolData {
-    dataJson(key: { eq: "school" }) {
+  query getWorkData {
+    dataJson(key: { eq: "work" }) {
       title
       content
-      geisel {
+      description
+      leetCodeLogo {
         childImageSharp {
-          fixed(width: 180) {
-            ...GatsbyImageSharpFixed
+          fluid {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -20,24 +20,25 @@ const query = graphql`
   }
 `;
 
-const School = () => {
+const Work = () => {
   const data = useStaticQuery(query);
   return (
     <Section>
       <FlexContainer>
-        <Title>School</Title>
+        <Title>School & Work</Title>
         <FlexSection marginTop={20}>
-          <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }} />
-          <Geisel fixed={data.dataJson.geisel.childImageSharp.fixed} />
+          <div dangerouslySetInnerHTML={{ __html: data.dataJson.content }} />
         </FlexSection>
         <FlexSection marginTop={30}>
-          <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[1] }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: data.dataJson.description }}
+          />
         </FlexSection>
       </FlexContainer>
     </Section>
   );
 };
 
-School.sections = [];
+Work.sections = [];
 
-export default School;
+export default Work;

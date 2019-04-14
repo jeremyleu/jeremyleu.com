@@ -41,31 +41,31 @@ body {
   margin: 0 auto;
 }
 
-a {
-  font-family: 'brandon-grotesque';
-  position: relative;
+// a {
+//   font-family: 'brandon-grotesque';
+//   position: relative;
 
-  &:active, &:hover, &:link, &:focus, &:visited {
-    color: $dark;
-    text-decoration: none;
-  }
+//   &:active, &:hover, &:link, &:focus, &:visited {
+//     color: $dark;
+//     text-decoration: none;
+//   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: $dark;
-    transition: 0.3s ease-in-out all 0s;
-    -webkit-transition: 0.3s ease-in-out all 0s;
-  }
+//   &:before {
+//     content: '';
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     height: 2px;
+//     width: 0;
+//     background-color: $dark;
+//     transition: 0.3s ease-in-out all 0s;
+//     -webkit-transition: 0.3s ease-in-out all 0s;
+//   }
 
-  &:hover:before {
-    width: 100%;
-  }
-}
+//   &:hover:before {
+//     width: 100%;
+//   }
+// }
 
 .footer {
   font-size: 1.4em;

@@ -3,14 +3,18 @@ import { useStaticQuery, graphql } from 'gatsby';
 import {
   SkillsList,
   SkillsListItem,
+  MyFaceContainer,
+  ScoreContainer,
+} from './Intro.styles';
+import {
+  Section,
   EqualFlexColumn,
   FlexSection,
   ResponsiveFlexSection,
-  Title,
-  MyFace,
   FlexContainer,
-} from './Intro.styles';
-import { Section } from '../components';
+  Title,
+} from '../components';
+import Image from 'gatsby-image';
 
 import { IntroJson } from '../schema/graphql';
 import { ExpandableSection, NavButtons } from '../components';
@@ -22,6 +26,7 @@ type IntroProps = {
   goToPrevSection: () => void;
   isMoving: boolean;
   setIsMoving: React.Dispatch<React.SetStateAction<boolean>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
 };
 
 type IntroWithDataProps = IntroProps & { data: IntroJson };
@@ -34,8 +39,8 @@ const query = graphql`
       faces {
         id
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+          fixed(width: 80) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -60,19 +65,37 @@ const IntroWithData = ({
   prevSectionIdx,
   isMoving,
   setIsMoving,
+  setScore,
 }: IntroWithDataProps) => {
+  const [points, setPoints] = React.useState<number>(0);
+  const addScore = React.useCallback(() => {
+    const pointsGained = isMoving ? 500 : 50;
+    setScore(prevScore => prevScore + pointsGained);
+    setPoints(pointsGained);
+    setTimeout(() => {
+      setPoints(0);
+    }, Math.random() * 30000 + 30000);
+  }, [isMoving]);
+  console.log(points);
   return (
     <Section>
       <Title>
         {introData.title}
-        <MyFace
-          fluid={introData.faces[isMoving ? 1 : 0].childImageSharp!.fluid!}
-        />
+        {!!points ? (
+          <ScoreContainer>+{points}</ScoreContainer>
+        ) : (
+          <MyFaceContainer onClick={addScore}>
+            <Image
+              fixed={introData.faces[isMoving ? 1 : 0].childImageSharp!.fixed!}
+            />
+          </MyFaceContainer>
+        )}
       </Title>
-      <FlexSection
-        marginTop={20}
-        dangerouslySetInnerHTML={{ __html: introData.content }}
-      />
+      <FlexSection marginTop={20} column={true}>
+        {introData.content.map((contentPiece: string, idx: number) => (
+          <div key={idx}>{contentPiece}</div>
+        ))}
+      </FlexSection>
       <NavButtons
         goToNextSection={goToNextSection}
         goToPrevSection={goToPrevSection}

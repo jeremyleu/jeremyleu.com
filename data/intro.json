@@ -1,7 +1,10 @@
 {
   "key": "intro",
   "title": "Hi, I'm Jeremy.",
-  "content": "I'm a software engineer currently based in Cupertino, CA. <br />I really really really like the feeling of people enjoying things I built.",
+  "content": [
+    "I'm a software engineer currently based in Cupertino, CA.",
+    "I really really really like the feeling of people enjoying things I built."
+  ],
   "faces": ["./images/face.png", "./images/face2.png"],
   "familiarSkills": {
     "description": "I'm most familiar with:",

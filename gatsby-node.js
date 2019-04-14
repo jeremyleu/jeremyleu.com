@@ -17,7 +17,7 @@ exports.sourceNodes = ({ actions }) => {
     type IntroJson implements Node {
       # However Node fields are optional and you don't have to add them
       title: String!
-      content: String!
+      content: [String!]!
       faces: [File!]!
       familiarSkills: Skills!
       otherSkills: Skills!

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { mq } from '../utils/constants';
+import { vmq, mq } from '../utils/constants';
 
 export const Section = styled('section')`
   display: flex;
@@ -20,4 +20,52 @@ export const Button = styled('button')`
   text-transform: uppercase;
   cursor: pointer;
   outline-color: #aaa;
+`;
+
+export const EqualFlexColumn = styled('div')`
+  flex: 1 1 0;
+  &:not(:first-of-type) {
+    margin-top: 20px;
+    ${mq[1]} {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+  }
+`;
+
+export const FlexContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+`;
+
+interface FlexSectionProps {
+  marginTop: number;
+  column?: boolean;
+}
+
+export const FlexSection = styled('div')<FlexSectionProps>`
+  margin-top: ${(props: FlexSectionProps) => props.marginTop / 2}px;
+  ${vmq[0]} {
+    margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
+  }
+  font-size: 1.6em;
+  display: flex;
+  flex-direction: ${({ column }: FlexSectionProps) =>
+    column ? 'column' : 'row'};
+`;
+
+export const ResponsiveFlexSection = styled(FlexSection)`
+  flex-direction: column;
+  ${mq[1]} {
+    flex-direction: row;
+  }
+`;
+
+export const Title = styled('header')`
+  font-family: 'brandon-grotesque', sans-serif;
+  text-transform: uppercase;
+  font-size: 4.8em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
 `;
