@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Section } from './common.styles';
+import { Section } from '../components';
 
 const School = () => (
   <Section>

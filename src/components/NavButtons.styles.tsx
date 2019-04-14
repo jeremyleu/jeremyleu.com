@@ -1,19 +1,12 @@
 import styled from '@emotion/styled';
 import { mq } from '../utils/constants';
+import { Button } from './common.styles';
 
-export const Button = styled('button')`
-  background: rgb(0, 0, 0, 0.8);
-  border-radius: 3px;
-  color: white;
-  font-family: 'brandon-grotesque', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 12px;
-  outline-color: #aaa;
+export const NavButton = styled(Button)`
   :not(:first-of-type) {
     margin-left: 20px;
   }
+  padding: 12px;
 `;
 
 interface ButtonIconProps {

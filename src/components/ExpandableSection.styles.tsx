@@ -14,7 +14,7 @@ export const ExpandableSectionWrapper = styled('div')<{
   ({ currentSectionIdx }: { currentSectionIdx: number }) => `
     ${mq[1]} {
       position: relative;
-      height: ${currentSectionIdx >= 0 ? '400px' : 0};
+      height: ${currentSectionIdx >= 0 ? '370px' : 0};
       transition: 0.4s height ease-in-out;
     }
   `

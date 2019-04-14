@@ -12,7 +12,7 @@ export function useExpander(
   );
   const [isMoving, setIsMoving] = React.useState<boolean>(false);
 
-  const goToNextSection = () => {
+  const goToNextSection = React.useCallback(() => {
     setCurrentSections(originalSections => {
       const newSections = [...originalSections];
       newSections[currentPageIdx] += 1;
@@ -25,9 +25,9 @@ export function useExpander(
       }
       return originalSections;
     });
-  };
+  }, [currentPageIdx]);
 
-  const goToPrevSection = () => {
+  const goToPrevSection = React.useCallback(() => {
     setCurrentSections(originalSections => {
       if (originalSections[currentPageIdx] === -1) {
         return originalSections;
@@ -40,7 +40,7 @@ export function useExpander(
       newSections[currentPageIdx] -= 1;
       return newSections;
     });
-  };
+  }, [currentPageIdx]);
 
   return {
     currentSections,

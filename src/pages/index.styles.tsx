@@ -5,8 +5,9 @@ import {
   ENTERED,
   EXITED,
 } from 'react-transition-group/Transition';
+import { Button } from '../components';
 
-import { getTransformFromDifference, mq } from '../utils';
+import { getTransformFromDifference, mq, Direction } from '../utils';
 
 interface PageWrapperProps {
   difference: number;
@@ -16,7 +17,6 @@ interface PageWrapperProps {
 
 export const PageWrapper = styled('div')<PageWrapperProps>(
   ({ difference, prevDifference, status }: PageWrapperProps) => {
-    console.log(status);
     let transform = 'translateX(0)';
     if (difference !== 0) {
       transform = `translateX(${getTransformFromDifference(difference)}%)`;
@@ -39,3 +39,41 @@ export const PageWrapper = styled('div')<PageWrapperProps>(
     `;
   }
 );
+
+const GRID_GAP = 5;
+const BUTTON_SIZE = 50;
+
+export const ArrowButtonsContainer = styled('div')`
+  display: none;
+  ${mq[1]} {
+    width: ${BUTTON_SIZE * 3 + GRID_GAP * 2}px;
+    height: ${BUTTON_SIZE * 2 + GRID_GAP}px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    grid-gap: ${GRID_GAP}px;
+  }
+`;
+
+interface ArrowButtonProps {
+  direction: Direction;
+}
+
+export const ArrowButton = styled(Button)<ArrowButtonProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: ${({ direction }: ArrowButtonProps) =>
+    direction === Direction.Up ? 1 : 2};
+  grid-column: ${({ direction }: ArrowButtonProps) => {
+    if (direction === Direction.Left) {
+      return 1;
+    } else if (direction === Direction.Right) {
+      return 3;
+    }
+    return 2;
+  }};
+`;

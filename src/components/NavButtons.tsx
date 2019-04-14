@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonIcon, NavButtonContainer } from './NavButtons.styles';
+import { NavButton, ButtonIcon, NavButtonContainer } from './NavButtons.styles';
 
 interface NavButtonsProps {
   numSections: number;
@@ -32,7 +32,7 @@ const NavButtons = ({
   return (
     <NavButtonContainer>
       {buttons.map((button, idx) => (
-        <Button
+        <NavButton
           onClick={button.isNextButton ? goToNextSection : goToPrevSection}
           key={idx}
         >
@@ -41,7 +41,7 @@ const NavButtons = ({
             className="fas fa-caret-up"
           />
           {button.buttonText}
-        </Button>
+        </NavButton>
       ))}
     </NavButtonContainer>
   );

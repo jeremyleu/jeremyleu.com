@@ -10,7 +10,7 @@ import {
   MyFace,
   FlexContainer,
 } from './Intro.styles';
-import { Section } from './common.styles';
+import { Section } from '../components';
 
 import { IntroJson } from '../schema/graphql';
 import { ExpandableSection, NavButtons } from '../components';

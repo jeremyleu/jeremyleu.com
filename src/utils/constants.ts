@@ -9,3 +9,10 @@ export const VERTICAL_BREAKPOINTS = [800];
 export const vmq = VERTICAL_BREAKPOINTS.map(
   bp => `@media only screen and (min-height: ${bp}px)`
 );
+
+export enum Direction {
+  Up,
+  Left,
+  Down,
+  Right,
+}
