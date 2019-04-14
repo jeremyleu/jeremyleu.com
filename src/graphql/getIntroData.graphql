@@ -1,0 +1,27 @@
+query getIntroData {
+  dataJson(key: { eq: "intro" }) {
+    title
+    content
+    image {
+      id
+      childImageSharp {
+        fluid {
+          src
+          srcSet
+          aspectRatio
+          sizes
+          base64
+        }
+      }
+    }
+    familiarSkills {
+      description
+      skills
+    }
+    otherSkills {
+      description
+      skills
+    }
+    footer
+  }
+}
