@@ -11,5 +11,6 @@ export const SectionContainer = styled('div')`
 export const Section = styled('section')`
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 840px;
+  padding: 20px;
 `;
