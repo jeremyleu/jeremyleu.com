@@ -1,18 +1,15 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { MyFaceContainer, ScoreContainer } from './Intro.styles';
 import {
-  SkillsList,
-  SkillsListItem,
-  MyFaceContainer,
-  ScoreContainer,
-} from './Intro.styles';
-import {
+  List,
+  ListItem,
   Section,
   EqualFlexColumn,
   FlexSection,
   ResponsiveFlexSection,
   FlexContainer,
-  Title,
+  BigTitle,
 } from '../components';
 import Image from 'gatsby-image';
 
@@ -76,10 +73,9 @@ const IntroWithData = ({
       setPoints(0);
     }, Math.random() * 30000 + 30000);
   }, [isMoving]);
-  console.log(points);
   return (
     <Section>
-      <Title>
+      <BigTitle>
         {introData.title}
         {!!points ? (
           <ScoreContainer>+{points}</ScoreContainer>
@@ -90,7 +86,7 @@ const IntroWithData = ({
             />
           </MyFaceContainer>
         )}
-      </Title>
+      </BigTitle>
       <FlexSection marginTop={20} column={true}>
         {introData.content.map((contentPiece: string, idx: number) => (
           <div key={idx}>{contentPiece}</div>
@@ -122,22 +118,22 @@ const Intro = (props: IntroProps) => {
 Intro.sections = [
   ({ introData }: { introData: IntroJson }) => (
     <FlexContainer>
-      <ResponsiveFlexSection marginTop={50}>
+      <ResponsiveFlexSection marginTop={30}>
         <EqualFlexColumn>
           {introData.familiarSkills.description}
-          <SkillsList>
+          <List>
             {introData.familiarSkills.skills.map((skill: string) => (
-              <SkillsListItem key={skill}>{skill}</SkillsListItem>
+              <ListItem key={skill}>{skill}</ListItem>
             ))}
-          </SkillsList>
+          </List>
         </EqualFlexColumn>
         <EqualFlexColumn>
           {introData.otherSkills.description}
-          <SkillsList>
+          <List>
             {introData.otherSkills.skills.map((skill: string) => (
-              <SkillsListItem key={skill}>{skill}</SkillsListItem>
+              <ListItem key={skill}>{skill}</ListItem>
             ))}
-          </SkillsList>
+          </List>
         </EqualFlexColumn>
       </ResponsiveFlexSection>
       <FlexSection marginTop={30}>{introData.footer}</FlexSection>

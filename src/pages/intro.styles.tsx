@@ -15,16 +15,6 @@ const scoreAnimation = keyframes`
   }
 `;
 
-export const SkillsList = styled('ul')`
-  margin-top: 10px;
-  margin-bottom: 0;
-`;
-
-export const SkillsListItem = styled('li')`
-  margin-bottom: 0;
-  font-size: 0.8em;
-`;
-
 export const MyFaceContainer = styled('div')`
   width: 80px;
   height: 142px;

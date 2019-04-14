@@ -25,7 +25,7 @@ const Work = () => {
   return (
     <Section>
       <FlexContainer>
-        <Title>School & Work</Title>
+        <Title>{data.dataJson.title}</Title>
         <FlexSection marginTop={20}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content }} />
         </FlexSection>

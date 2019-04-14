@@ -2,7 +2,6 @@
   "key": "work",
   "title": "Work",
   "content": [
-    "I graduated from UC San Diego with a B.S. in Computer Science in 2017.",
     "I worked at <a href=\"https://leetcode.com/\">LeetCode</a> from November 2017 to April 2019."
   ],
   "description": "LeetCode is a web application designed to help software engineers prepare for technical interviews and land their dream jobs. As <a href=\"https://www.reddit.com/r/leetcode/comments/bcfp33/leetcode_is_like_gym_for_your_brain_agreedisagree/\">one redditor put it</a>, \"LeetCode is like gym for your brain.\"",

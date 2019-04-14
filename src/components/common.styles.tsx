@@ -64,8 +64,22 @@ export const ResponsiveFlexSection = styled(FlexSection)`
 export const Title = styled('header')`
   font-family: 'brandon-grotesque', sans-serif;
   text-transform: uppercase;
-  font-size: 4.8em;
+  font-size: 3.6em;
   font-weight: 700;
   display: flex;
   align-items: center;
+`;
+
+export const BigTitle = styled(Title)`
+  font-size: 4.8em;
+`;
+
+export const List = styled('ul')`
+  margin-top: 10px;
+  margin-bottom: 0;
+`;
+
+export const ListItem = styled('li')`
+  margin-bottom: 0;
+  font-size: 0.8em;
 `;
