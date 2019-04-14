@@ -8,11 +8,13 @@ import {
   ResponsiveFlexSection,
   Title,
   MyFace,
+  FlexContainer,
 } from './Intro.styles';
 import { SectionContainer, Section } from './common.styles';
 
 import { useExpander } from '../hooks';
 import { IntroJson } from '../schema/graphql';
+import { ExpandableSection } from '../components';
 
 const query = graphql`
   query getIntroData {
@@ -42,28 +44,56 @@ const query = graphql`
 
 const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
   const sections = [
-    <ResponsiveFlexSection marginTop={50}>
-      <EqualFlexColumn>
-        {introData.familiarSkills.description}
-        <SkillsList>
-          {introData.familiarSkills.skills.map((skill: string) => (
-            <SkillsListItem key={skill}>{skill}</SkillsListItem>
-          ))}
-        </SkillsList>
-      </EqualFlexColumn>
-      <EqualFlexColumn>
-        {introData.otherSkills.description}
-        <SkillsList>
-          {introData.otherSkills.skills.map((skill: string) => (
-            <SkillsListItem key={skill}>{skill}</SkillsListItem>
-          ))}
-        </SkillsList>
-      </EqualFlexColumn>
+    <FlexContainer>
+      <ResponsiveFlexSection marginTop={50}>
+        <EqualFlexColumn>
+          {introData.familiarSkills.description}
+          <SkillsList>
+            {introData.familiarSkills.skills.map((skill: string) => (
+              <SkillsListItem key={skill}>{skill}</SkillsListItem>
+            ))}
+          </SkillsList>
+        </EqualFlexColumn>
+        <EqualFlexColumn>
+          {introData.otherSkills.description}
+          <SkillsList>
+            {introData.otherSkills.skills.map((skill: string) => (
+              <SkillsListItem key={skill}>{skill}</SkillsListItem>
+            ))}
+          </SkillsList>
+        </EqualFlexColumn>
+      </ResponsiveFlexSection>
       <FlexSection marginTop={30}>{introData.footer}</FlexSection>
-    </ResponsiveFlexSection>,
+    </FlexContainer>,
+    <FlexContainer>
+      <ResponsiveFlexSection marginTop={50}>
+        <EqualFlexColumn>
+          {introData.familiarSkills.description}
+          <SkillsList>
+            {introData.familiarSkills.skills.map((skill: string) => (
+              <SkillsListItem key={skill}>{skill}</SkillsListItem>
+            ))}
+          </SkillsList>
+        </EqualFlexColumn>
+        <EqualFlexColumn>
+          {introData.otherSkills.description}
+          <SkillsList>
+            {introData.otherSkills.skills.map((skill: string) => (
+              <SkillsListItem key={skill}>{skill}</SkillsListItem>
+            ))}
+          </SkillsList>
+        </EqualFlexColumn>
+      </ResponsiveFlexSection>
+      <FlexSection marginTop={30}>{introData.footer}</FlexSection>
+    </FlexContainer>,
   ];
 
-  const { currentSection } = useExpander(sections);
+  const {
+    currentSectionIdx,
+    prevSectionIdx,
+    goToNextSection,
+    goToPrevSection,
+  } = useExpander(sections.length);
 
   return (
     <SectionContainer>
@@ -76,7 +106,13 @@ const IntroWithData = ({ data: introData }: { data: IntroJson }) => {
           marginTop={20}
           dangerouslySetInnerHTML={{ __html: introData.content }}
         />
-        {currentSection}
+        <button onClick={goToPrevSection}>Prev Section</button>
+        <button onClick={goToNextSection}>Next Section</button>
+        <ExpandableSection
+          sections={sections}
+          currentSectionIdx={currentSectionIdx}
+          prevSectionIdx={prevSectionIdx}
+        />
       </Section>
     </SectionContainer>
   );

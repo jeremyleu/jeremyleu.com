@@ -19,6 +19,11 @@ interface FlexSectionProps {
   marginTop: number;
 }
 
+export const FlexContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const FlexSection = styled('div')<FlexSectionProps>`
   margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
   font-size: 1.6em;
