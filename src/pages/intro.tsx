@@ -13,7 +13,8 @@ import { SectionContainer, Section } from './common.styles';
 
 const query = graphql`
   query {
-    dataJson {
+    dataJson(key: { eq: "intro" }) {
+      title
       content
       image {
         id
@@ -23,8 +24,15 @@ const query = graphql`
           }
         }
       }
-      familiarSkills
-      otherSkills
+      familiarSkills {
+        description
+        skills
+      }
+      otherSkills {
+        description
+        skills
+      }
+      footer
     }
   }
 `;
@@ -33,38 +41,37 @@ const Intro = () => (
   <StaticQuery
     query={query}
     render={data => {
+      const introData = data.dataJson;
       return (
         <SectionContainer>
           <Section>
             <Title>
-              Hi, I'm Jeremy.
-              <MyFace fluid={data.dataJson.image.childImageSharp.fluid} />
+              {introData.title}
+              <MyFace fluid={introData.image.childImageSharp.fluid} />
             </Title>
             <FlexSection
               marginTop={20}
-              dangerouslySetInnerHTML={{ __html: data.dataJson.content }}
+              dangerouslySetInnerHTML={{ __html: introData.content }}
             />
             <ResponsiveFlexSection marginTop={50}>
               <EqualFlexColumn>
-                I'm most familiar with:
+                {introData.familiarSkills.description}
                 <SkillsList>
-                  {data.dataJson.familiarSkills.map((skill: string) => (
+                  {introData.familiarSkills.skills.map((skill: string) => (
                     <SkillsListItem key={skill}>{skill}</SkillsListItem>
                   ))}
                 </SkillsList>
               </EqualFlexColumn>
               <EqualFlexColumn>
-                I've also worked with:
+                {introData.otherSkills.description}
                 <SkillsList>
-                  {data.dataJson.otherSkills.map((skill: string) => (
+                  {introData.otherSkills.skills.map((skill: string) => (
                     <SkillsListItem key={skill}>{skill}</SkillsListItem>
                   ))}
                 </SkillsList>
               </EqualFlexColumn>
             </ResponsiveFlexSection>
-            <FlexSection marginTop={30}>
-              At the same time, I'm eager to learn the right tool for the job.
-            </FlexSection>
+            <FlexSection marginTop={30}>{introData.footer}</FlexSection>
           </Section>
         </SectionContainer>
       );

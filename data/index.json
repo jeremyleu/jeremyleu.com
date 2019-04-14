@@ -1,6 +1,0 @@
-{
-    "content": "I'm a software engineer currently based in Cupertino, CA. <br />I really really really like the feeling of people enjoying things I built.",
-    "image": "./images/face.png",
-    "familiarSkills": ["JavaScript (ES6+)", "TypeScript", "React", "Apollo GraphQL", "HTML5", "CSS3/Less/Sass"],
-    "otherSkills": ["Python", "Django", "Java", "node.js", "SQL", "MongoDB"]
-}
