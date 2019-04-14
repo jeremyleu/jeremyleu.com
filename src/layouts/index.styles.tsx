@@ -24,4 +24,24 @@ export const globalStyles = css`
       font-size: 0.8em;
     }
   }
+
+  a,
+  a:focus,
+  a:visited,
+  a:active,
+  a:hover {
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a,
+  a:focus,
+  a:visited {
+    color: rgba(34, 92, 183, 0.8);
+  }
+
+  a:hover,
+  a:active {
+    color: rgba(63, 137, 229, 0.8);
+  }
 `;

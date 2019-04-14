@@ -13,13 +13,12 @@
       "TypeScript",
       "React",
       "Apollo GraphQL",
-      "HTML5",
-      "CSS3/Less/Sass"
+      "HTML5 + CSS3/Less/Sass"
     ]
   },
   "otherSkills": {
     "description": "I've also worked with:",
-    "skills": ["Python", "Django", "Java", "node.js", "SQL", "MongoDB"]
+    "skills": ["Python + Django", "Java", "node.js", "SQL", "MongoDB"]
   },
   "footer": "I'm always looking to learn more!"
 }
