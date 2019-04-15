@@ -3,8 +3,6 @@ import Helmet from 'react-helmet';
 import { Global } from '@emotion/core';
 import { Main, globalStyles } from './index.styles';
 
-import './index.scss';
-
 const Layout = ({ children }: { children: ReactNode }) => (
   <>
     <Helmet
