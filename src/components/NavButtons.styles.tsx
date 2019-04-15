@@ -4,7 +4,7 @@ import { Button } from './common.styles';
 
 export const NavButton = styled(Button)`
   :not(:first-of-type) {
-    margin-left: 20px;
+    margin-left: 15px;
   }
   padding: 12px;
 `;

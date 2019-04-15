@@ -30,6 +30,7 @@ const query = graphql`
         }
       }
       courses
+      numSections
     }
   }
 `;
@@ -44,6 +45,36 @@ interface SchoolProps {
 interface SchoolData {
   dataJson: SchoolJson;
 }
+
+const SchoolSectionTemplate = ({ schoolData }: { schoolData: SchoolJson }) => {
+  const { courses } = schoolData;
+  const midpoint = Math.ceil(courses.length / 2);
+  const coursesLeft = courses.slice(0, midpoint);
+  const coursesRight = courses.slice(midpoint);
+  return (
+    <FlexColumnContainer>
+      <ResponsiveFlexSection marginTop={50}>
+        Some classes I took:
+      </ResponsiveFlexSection>
+      <ResponsiveFlexSection marginTop={10}>
+        <EqualFlexColumn>
+          <List>
+            {coursesLeft.map((course: string) => (
+              <ListItem key={course}>{course}</ListItem>
+            ))}
+          </List>
+        </EqualFlexColumn>
+        <EqualFlexColumn>
+          <List>
+            {coursesRight.map((course: string) => (
+              <ListItem key={course}>{course}</ListItem>
+            ))}
+          </List>
+        </EqualFlexColumn>
+      </ResponsiveFlexSection>
+    </FlexColumnContainer>
+  );
+};
 
 const School = ({
   currentSectionIdx,
@@ -69,50 +100,20 @@ const School = ({
       <NavButtons
         goToNextSection={goToNextSection}
         goToPrevSection={goToPrevSection}
-        numSections={School.sections.length}
+        numSections={data.dataJson.numSections}
         currentSectionIdx={currentSectionIdx}
       />
       <ExpandableSection
-        sections={School.sections.map((SchoolSection, idx) => (
-          <SchoolSection key={idx} schoolData={data.dataJson} />
-        ))}
+        sections={Array(data.dataJson.numSections)
+          .fill(null)
+          .map((_, idx) => (
+            <SchoolSectionTemplate key={idx} schoolData={data.dataJson} />
+          ))}
         currentSectionIdx={currentSectionIdx}
         prevSectionIdx={prevSectionIdx}
       />
     </Section>
   );
 };
-
-School.sections = [
-  ({ schoolData }: { schoolData: SchoolJson }) => {
-    const { courses } = schoolData;
-    const midpoint = Math.ceil(courses.length / 2);
-    const coursesLeft = courses.slice(0, midpoint);
-    const coursesRight = courses.slice(midpoint);
-    return (
-      <FlexColumnContainer>
-        <ResponsiveFlexSection marginTop={50}>
-          Relevant coursework:
-        </ResponsiveFlexSection>
-        <ResponsiveFlexSection marginTop={10}>
-          <EqualFlexColumn>
-            <List>
-              {coursesLeft.map((course: string) => (
-                <ListItem key={course}>{course}</ListItem>
-              ))}
-            </List>
-          </EqualFlexColumn>
-          <EqualFlexColumn>
-            <List>
-              {coursesRight.map((course: string) => (
-                <ListItem key={course}>{course}</ListItem>
-              ))}
-            </List>
-          </EqualFlexColumn>
-        </ResponsiveFlexSection>
-      </FlexColumnContainer>
-    );
-  },
-];
 
 export default School;

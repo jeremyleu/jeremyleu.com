@@ -50,9 +50,34 @@ const query = graphql`
         skills
       }
       footer
+      numSections
     }
   }
 `;
+
+const IntroSectionTemplate = ({ introData }: { introData: IntroJson }) => (
+  <FlexColumnContainer>
+    <ResponsiveFlexSection marginTop={30}>
+      <EqualFlexColumn>
+        {introData.familiarSkills.description}
+        <List>
+          {introData.familiarSkills.skills.map((skill: string) => (
+            <ListItem key={skill}>{skill}</ListItem>
+          ))}
+        </List>
+      </EqualFlexColumn>
+      <EqualFlexColumn>
+        {introData.otherSkills.description}
+        <List>
+          {introData.otherSkills.skills.map((skill: string) => (
+            <ListItem key={skill}>{skill}</ListItem>
+          ))}
+        </List>
+      </EqualFlexColumn>
+    </ResponsiveFlexSection>
+    <FlexSection marginTop={30}>{introData.footer}</FlexSection>
+  </FlexColumnContainer>
+);
 
 const IntroWithData = ({
   data: introData,
@@ -73,6 +98,7 @@ const IntroWithData = ({
       setPoints(0);
     }, Math.random() * 30000 + 30000);
   }, [isMoving]);
+
   return (
     <Section>
       <BigTitle>
@@ -95,13 +121,15 @@ const IntroWithData = ({
       <NavButtons
         goToNextSection={goToNextSection}
         goToPrevSection={goToPrevSection}
-        numSections={Intro.sections.length}
+        numSections={introData.numSections}
         currentSectionIdx={currentSectionIdx}
       />
       <ExpandableSection
-        sections={Intro.sections.map((IntroSection, idx) => (
-          <IntroSection key={idx} introData={introData} />
-        ))}
+        sections={Array(introData.numSections)
+          .fill(null)
+          .map((_, idx) => (
+            <IntroSectionTemplate key={idx} introData={introData} />
+          ))}
         currentSectionIdx={currentSectionIdx}
         prevSectionIdx={prevSectionIdx}
         setIsMoving={setIsMoving}
@@ -118,31 +146,5 @@ const Intro = (props: IntroProps) => {
   const data = useStaticQuery<IntroData>(query);
   return <IntroWithData {...props} data={data.dataJson} />;
 };
-
-Intro.sections = [
-  ({ introData }: { introData: IntroJson }) => (
-    <FlexColumnContainer>
-      <ResponsiveFlexSection marginTop={30}>
-        <EqualFlexColumn>
-          {introData.familiarSkills.description}
-          <List>
-            {introData.familiarSkills.skills.map((skill: string) => (
-              <ListItem key={skill}>{skill}</ListItem>
-            ))}
-          </List>
-        </EqualFlexColumn>
-        <EqualFlexColumn>
-          {introData.otherSkills.description}
-          <List>
-            {introData.otherSkills.skills.map((skill: string) => (
-              <ListItem key={skill}>{skill}</ListItem>
-            ))}
-          </List>
-        </EqualFlexColumn>
-      </ResponsiveFlexSection>
-      <FlexSection marginTop={30}>{introData.footer}</FlexSection>
-    </FlexColumnContainer>
-  ),
-];
 
 export default Intro;
