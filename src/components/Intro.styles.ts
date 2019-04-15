@@ -38,9 +38,15 @@ const Container = styled('div')`
   margin-left: 40px;
 `;
 
-export const MyFaceContainer = styled(Container)`
+interface MyFaceContainerProps {
+  status: TransitionStatus;
+}
+
+export const MyFaceContainer = styled(Container)<MyFaceContainerProps>`
   overflow: hidden;
   display: inline-block;
+  ${({ status }: MyFaceProps) =>
+    `display: ${status === EXITED || status === EXITING ? 'none' : 'block'};`}
 `;
 
 interface MyFaceProps {

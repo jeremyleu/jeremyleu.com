@@ -119,7 +119,7 @@ const IntroWithData = ({
       if (Math.random() < 0.2) {
         setIsGold(true);
       }
-    }, Math.random() * 30000 + 30000);
+    }, Math.random() * 0 + 5000);
   }, [isMoving, isGold]);
 
   let face = 0;
@@ -135,25 +135,28 @@ const IntroWithData = ({
       <BigTitle>
         {introData.title}
         {!!points && <ScoreContainer>+{points}</ScoreContainer>}
-        <MyFaceContainer onClick={addScore}>
-          <Transition appear in={!points} timeout={{ enter: 2000, exit: 0 }}>
-            {(status: TransitionStatus) => {
-              return status === ENTERING ? (
-                <MyRisingFace>
-                  <Image
-                    fixed={introData.faces[face].childImageSharp!.fixed!}
-                  />
-                </MyRisingFace>
-              ) : (
-                <MyFace status={status}>
-                  <Image
-                    fixed={introData.faces[face].childImageSharp!.fixed!}
-                  />
-                </MyFace>
-              );
-            }}
-          </Transition>
-        </MyFaceContainer>
+
+        <Transition appear in={!points} timeout={{ enter: 2000, exit: 0 }}>
+          {(status: TransitionStatus) => {
+            return (
+              <MyFaceContainer status={status} onClick={addScore}>
+                {status === ENTERING ? (
+                  <MyRisingFace>
+                    <Image
+                      fixed={introData.faces[face].childImageSharp!.fixed!}
+                    />
+                  </MyRisingFace>
+                ) : (
+                  <MyFace status={status}>
+                    <Image
+                      fixed={introData.faces[face].childImageSharp!.fixed!}
+                    />
+                  </MyFace>
+                )}
+              </MyFaceContainer>
+            );
+          }}
+        </Transition>
       </BigTitle>
       <FlexSection marginTop={20} column={true}>
         {introData.content.map((contentPiece: string, idx: number) => (
