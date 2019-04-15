@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Transition } from 'react-transition-group';
 import { TransitionStatus } from 'react-transition-group/Transition';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -9,14 +8,14 @@ import {
   ArrowButtonsContainer,
   ArrowButton,
   ScoreDisplay,
-} from './index.styles';
+} from '../components/index.styles';
 import Layout from '../layouts';
 import { useExpander } from '../hooks';
-import Intro from './Intro';
-import School from './School';
-import Work from './Work';
-import Projects from './Projects';
-import Contact from './Contact';
+import Intro from '../components/Intro';
+import School from '../components/School';
+import Work from '../components/Work';
+import Projects from '../components/Projects';
+import Contact from '../components/Contact';
 import { Direction } from '../utils';
 
 const pages = [
@@ -121,8 +120,10 @@ const IndexPage = () => {
           break;
       }
     }
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    if (document) {
+      document.addEventListener('keydown', onKeyDown);
+    }
+    return () => document && document.removeEventListener('keydown', onKeyDown);
   }, [currentPageIdx]);
 
   return (
@@ -154,20 +155,13 @@ const IndexPage = () => {
           )}
         </Transition>
       ))}
-      {ReactDOM.createPortal(
-        <ArrowButtons
-          onUp={goToNextSection}
-          onLeft={goToPrevPage}
-          onDown={goToPrevSection}
-          onRight={goToNextPage}
-        />,
-        document.body
-      )}
-      {!!score &&
-        ReactDOM.createPortal(
-          <ScoreDisplay>Score: {score}</ScoreDisplay>,
-          document.body
-        )}
+      <ArrowButtons
+        onUp={goToNextSection}
+        onLeft={goToPrevPage}
+        onDown={goToPrevSection}
+        onRight={goToNextPage}
+      />
+      {!!score && <ScoreDisplay>Score: {score}</ScoreDisplay>}
     </Layout>
   );
 };

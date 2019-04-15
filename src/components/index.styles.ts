@@ -5,7 +5,7 @@ import {
   ENTERED,
   EXITED,
 } from 'react-transition-group/Transition';
-import { Button } from '../components';
+import { Button } from './common.styles';
 
 import { getTransformFromDifference, mq, Direction } from '../utils';
 

@@ -6,7 +6,7 @@ import {
   EXITING,
 } from 'react-transition-group/Transition';
 
-import { Button } from '../components';
+import { Button } from './common.styles';
 
 const rise = keyframes`
   from {

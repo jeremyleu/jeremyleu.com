@@ -7,15 +7,15 @@ import {
   FlexColumnContainer,
   FlexSection,
   Title,
-  ExpandableSection,
   ResponsiveFlexSection,
   EqualFlexColumn,
   List,
   ListItem,
-  NavButtons,
-} from '../components';
+} from './common.styles';
 import { SchoolJson } from '../schema/graphql';
 import { Geisel } from './School.styles';
+import ExpandableSection from './ExpandableSection';
+import NavButtons from './NavButtons';
 
 const query = graphql`
   query getSchoolData {

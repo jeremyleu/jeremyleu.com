@@ -7,12 +7,12 @@ import {
   FlexColumnContainer,
   FlexSection,
   Title,
-  ExpandableSection,
-  NavButtons,
   SmallTitle,
-} from '../components';
+} from './common.styles';
 
 import { LaunchButton, LaunchButtonAnchor } from './Projects.styles';
+import ExpandableSection from './ExpandableSection';
+import NavButtons from './NavButtons';
 
 const query = graphql`
   query getProjectsData {

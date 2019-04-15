@@ -9,7 +9,7 @@ import {
   FlexSection,
   Title,
   FlexRowContainer,
-} from '../components';
+} from './common.styles';
 
 import { LeetCodeLogo } from './Work.styles';
 

@@ -21,10 +21,11 @@ import {
   ResponsiveFlexSection,
   FlexColumnContainer,
   BigTitle,
-} from '../components';
+} from './common.styles';
 
 import { IntroJson } from '../schema/graphql';
-import { ExpandableSection, NavButtons } from '../components';
+import ExpandableSection from './ExpandableSection';
+import NavButtons from './NavButtons';
 
 type IntroProps = {
   currentSectionIdx: number;

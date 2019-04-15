@@ -7,7 +7,7 @@ import {
   FlexColumnContainer,
   FlexSection,
   Title,
-} from '../components';
+} from './common.styles';
 import { SocialMediaAnchor, SocialMediaIcon } from './Contact.styles';
 
 const query = graphql`
