@@ -19,6 +19,7 @@ const query = graphql`
       gitHub
       instagram
       email
+      footer
     }
   }
 `;
@@ -51,6 +52,9 @@ const Contact = () => {
           <SocialMediaAnchor href={data.dataJson.email} target="_blank">
             <SocialMediaIcon className="fas fa-envelope" />
           </SocialMediaAnchor>
+        </FlexSection>
+        <FlexSection marginTop={30}>
+          <div dangerouslySetInnerHTML={{ __html: data.dataJson.footer }} />
         </FlexSection>
       </FlexColumnContainer>
     </Section>

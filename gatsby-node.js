@@ -54,6 +54,7 @@ exports.sourceNodes = ({ actions }) => {
       instagram: String!
       gitHub: String!
       email: String!
+      footer: String!
     }
   `;
   createTypes(typeDefs);

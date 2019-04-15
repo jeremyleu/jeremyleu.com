@@ -8,5 +8,6 @@
   "instagram": "https://www.instagram.com/sunshinefactory/",
   "gitHub": "https://github.com/jeremyleu",
   "email": "mailto:jeremy@jeremyleu.com",
+  "footer": "This site was made with <a href=\"https://www.gatsbyjs.org/\" target=\"_blank\">Gatsby</a>. You can see the code <a href=\"https://github.com/jeremyleu/jeremyleu.com\" target=\"_blank\">here</a>.",
   "numSections": 0
 }
