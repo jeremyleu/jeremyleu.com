@@ -46,6 +46,14 @@ exports.sourceNodes = ({ actions }) => {
       projects: [Project!]!
       numSections: Int!
     }
+    type ContactJson implements Node {
+      title: String!
+      content: [String!]!
+      linkedIn: String!
+      instagram: String!
+      gitHub: String!
+      email: String!
+    }
   `;
   createTypes(typeDefs);
 };

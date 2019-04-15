@@ -21,6 +21,163 @@ export type BooleanQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
 
+export type ContactJson = Node & {
+  title: Scalars['String'];
+  content: Array<Scalars['String']>;
+  linkedIn: Scalars['String'];
+  instagram: Scalars['String'];
+  gitHub: Scalars['String'];
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type ContactJsonConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContactJsonEdge>;
+  nodes: Array<ContactJson>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContactJsonGroupConnection>;
+};
+
+export type ContactJsonConnectionDistinctArgs = {
+  field: ContactJsonFieldsEnum;
+};
+
+export type ContactJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContactJsonFieldsEnum;
+};
+
+export type ContactJsonEdge = {
+  next?: Maybe<ContactJson>;
+  node: ContactJson;
+  previous?: Maybe<ContactJson>;
+};
+
+export enum ContactJsonFieldsEnum {
+  Title = 'title',
+  Content = 'content',
+  LinkedIn = 'linkedIn',
+  Instagram = 'instagram',
+  GitHub = 'gitHub',
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+}
+
+export type ContactJsonFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  linkedIn?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  gitHub?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type ContactJsonGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContactJsonEdge>;
+  nodes: Array<ContactJson>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContactJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ContactJsonFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type DataJson = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -29,15 +186,18 @@ export type DataJson = Node & {
   key?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<Scalars['String']>>>;
-  projects?: Maybe<Array<Maybe<DataJsonProjects>>>;
+  linkedIn?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  gitHub?: Maybe<Scalars['String']>;
   numSections?: Maybe<Scalars['Int']>;
+  leetCodeLogo?: Maybe<File>;
   faces?: Maybe<Array<Maybe<File>>>;
   familiarSkills?: Maybe<DataJsonFamiliarSkills>;
   otherSkills?: Maybe<DataJsonOtherSkills>;
   footer?: Maybe<Scalars['String']>;
+  projects?: Maybe<Array<Maybe<DataJsonProjects>>>;
   geisel?: Maybe<File>;
   courses?: Maybe<Array<Maybe<Scalars['String']>>>;
-  leetCodeLogo?: Maybe<File>;
 };
 
 export type DataJsonConnection = {
@@ -165,11 +325,82 @@ export enum DataJsonFieldsEnum {
   Key = 'key',
   Title = 'title',
   Content = 'content',
-  Projects = 'projects',
-  ProjectsTitle = 'projects___title',
-  ProjectsContent = 'projects___content',
-  ProjectsLink = 'projects___link',
+  LinkedIn = 'linkedIn',
+  Instagram = 'instagram',
+  GitHub = 'gitHub',
   NumSections = 'numSections',
+  LeetCodeLogoId = 'leetCodeLogo___id',
+  LeetCodeLogoParentId = 'leetCodeLogo___parent___id',
+  LeetCodeLogoParentParentId = 'leetCodeLogo___parent___parent___id',
+  LeetCodeLogoParentParentChildren = 'leetCodeLogo___parent___parent___children',
+  LeetCodeLogoParentChildren = 'leetCodeLogo___parent___children',
+  LeetCodeLogoParentChildrenId = 'leetCodeLogo___parent___children___id',
+  LeetCodeLogoParentChildrenChildren = 'leetCodeLogo___parent___children___children',
+  LeetCodeLogoParentInternalContent = 'leetCodeLogo___parent___internal___content',
+  LeetCodeLogoParentInternalContentDigest = 'leetCodeLogo___parent___internal___contentDigest',
+  LeetCodeLogoParentInternalDescription = 'leetCodeLogo___parent___internal___description',
+  LeetCodeLogoParentInternalFieldOwners = 'leetCodeLogo___parent___internal___fieldOwners',
+  LeetCodeLogoParentInternalIgnoreType = 'leetCodeLogo___parent___internal___ignoreType',
+  LeetCodeLogoParentInternalMediaType = 'leetCodeLogo___parent___internal___mediaType',
+  LeetCodeLogoParentInternalOwner = 'leetCodeLogo___parent___internal___owner',
+  LeetCodeLogoParentInternalType = 'leetCodeLogo___parent___internal___type',
+  LeetCodeLogoChildren = 'leetCodeLogo___children',
+  LeetCodeLogoChildrenId = 'leetCodeLogo___children___id',
+  LeetCodeLogoChildrenParentId = 'leetCodeLogo___children___parent___id',
+  LeetCodeLogoChildrenParentChildren = 'leetCodeLogo___children___parent___children',
+  LeetCodeLogoChildrenChildren = 'leetCodeLogo___children___children',
+  LeetCodeLogoChildrenChildrenId = 'leetCodeLogo___children___children___id',
+  LeetCodeLogoChildrenChildrenChildren = 'leetCodeLogo___children___children___children',
+  LeetCodeLogoChildrenInternalContent = 'leetCodeLogo___children___internal___content',
+  LeetCodeLogoChildrenInternalContentDigest = 'leetCodeLogo___children___internal___contentDigest',
+  LeetCodeLogoChildrenInternalDescription = 'leetCodeLogo___children___internal___description',
+  LeetCodeLogoChildrenInternalFieldOwners = 'leetCodeLogo___children___internal___fieldOwners',
+  LeetCodeLogoChildrenInternalIgnoreType = 'leetCodeLogo___children___internal___ignoreType',
+  LeetCodeLogoChildrenInternalMediaType = 'leetCodeLogo___children___internal___mediaType',
+  LeetCodeLogoChildrenInternalOwner = 'leetCodeLogo___children___internal___owner',
+  LeetCodeLogoChildrenInternalType = 'leetCodeLogo___children___internal___type',
+  LeetCodeLogoInternalContent = 'leetCodeLogo___internal___content',
+  LeetCodeLogoInternalContentDigest = 'leetCodeLogo___internal___contentDigest',
+  LeetCodeLogoInternalDescription = 'leetCodeLogo___internal___description',
+  LeetCodeLogoInternalFieldOwners = 'leetCodeLogo___internal___fieldOwners',
+  LeetCodeLogoInternalIgnoreType = 'leetCodeLogo___internal___ignoreType',
+  LeetCodeLogoInternalMediaType = 'leetCodeLogo___internal___mediaType',
+  LeetCodeLogoInternalOwner = 'leetCodeLogo___internal___owner',
+  LeetCodeLogoInternalType = 'leetCodeLogo___internal___type',
+  LeetCodeLogoSourceInstanceName = 'leetCodeLogo___sourceInstanceName',
+  LeetCodeLogoAbsolutePath = 'leetCodeLogo___absolutePath',
+  LeetCodeLogoRelativePath = 'leetCodeLogo___relativePath',
+  LeetCodeLogoExtension = 'leetCodeLogo___extension',
+  LeetCodeLogoSize = 'leetCodeLogo___size',
+  LeetCodeLogoPrettySize = 'leetCodeLogo___prettySize',
+  LeetCodeLogoModifiedTime = 'leetCodeLogo___modifiedTime',
+  LeetCodeLogoAccessTime = 'leetCodeLogo___accessTime',
+  LeetCodeLogoChangeTime = 'leetCodeLogo___changeTime',
+  LeetCodeLogoBirthTime = 'leetCodeLogo___birthTime',
+  LeetCodeLogoRoot = 'leetCodeLogo___root',
+  LeetCodeLogoDir = 'leetCodeLogo___dir',
+  LeetCodeLogoBase = 'leetCodeLogo___base',
+  LeetCodeLogoExt = 'leetCodeLogo___ext',
+  LeetCodeLogoName = 'leetCodeLogo___name',
+  LeetCodeLogoRelativeDirectory = 'leetCodeLogo___relativeDirectory',
+  LeetCodeLogoDev = 'leetCodeLogo___dev',
+  LeetCodeLogoMode = 'leetCodeLogo___mode',
+  LeetCodeLogoNlink = 'leetCodeLogo___nlink',
+  LeetCodeLogoUid = 'leetCodeLogo___uid',
+  LeetCodeLogoGid = 'leetCodeLogo___gid',
+  LeetCodeLogoRdev = 'leetCodeLogo___rdev',
+  LeetCodeLogoBlksize = 'leetCodeLogo___blksize',
+  LeetCodeLogoIno = 'leetCodeLogo___ino',
+  LeetCodeLogoBlocks = 'leetCodeLogo___blocks',
+  LeetCodeLogoAtimeMs = 'leetCodeLogo___atimeMs',
+  LeetCodeLogoMtimeMs = 'leetCodeLogo___mtimeMs',
+  LeetCodeLogoCtimeMs = 'leetCodeLogo___ctimeMs',
+  LeetCodeLogoBirthtimeMs = 'leetCodeLogo___birthtimeMs',
+  LeetCodeLogoAtime = 'leetCodeLogo___atime',
+  LeetCodeLogoMtime = 'leetCodeLogo___mtime',
+  LeetCodeLogoCtime = 'leetCodeLogo___ctime',
+  LeetCodeLogoBirthtime = 'leetCodeLogo___birthtime',
+  LeetCodeLogoPublicUrl = 'leetCodeLogo___publicURL',
   Faces = 'faces',
   FacesId = 'faces___id',
   FacesParentId = 'faces___parent___id',
@@ -248,6 +479,10 @@ export enum DataJsonFieldsEnum {
   OtherSkillsDescription = 'otherSkills___description',
   OtherSkillsSkills = 'otherSkills___skills',
   Footer = 'footer',
+  Projects = 'projects',
+  ProjectsTitle = 'projects___title',
+  ProjectsContent = 'projects___content',
+  ProjectsLink = 'projects___link',
   GeiselId = 'geisel___id',
   GeiselParentId = 'geisel___parent___id',
   GeiselParentParentId = 'geisel___parent___parent___id',
@@ -321,78 +556,6 @@ export enum DataJsonFieldsEnum {
   GeiselBirthtime = 'geisel___birthtime',
   GeiselPublicUrl = 'geisel___publicURL',
   Courses = 'courses',
-  LeetCodeLogoId = 'leetCodeLogo___id',
-  LeetCodeLogoParentId = 'leetCodeLogo___parent___id',
-  LeetCodeLogoParentParentId = 'leetCodeLogo___parent___parent___id',
-  LeetCodeLogoParentParentChildren = 'leetCodeLogo___parent___parent___children',
-  LeetCodeLogoParentChildren = 'leetCodeLogo___parent___children',
-  LeetCodeLogoParentChildrenId = 'leetCodeLogo___parent___children___id',
-  LeetCodeLogoParentChildrenChildren = 'leetCodeLogo___parent___children___children',
-  LeetCodeLogoParentInternalContent = 'leetCodeLogo___parent___internal___content',
-  LeetCodeLogoParentInternalContentDigest = 'leetCodeLogo___parent___internal___contentDigest',
-  LeetCodeLogoParentInternalDescription = 'leetCodeLogo___parent___internal___description',
-  LeetCodeLogoParentInternalFieldOwners = 'leetCodeLogo___parent___internal___fieldOwners',
-  LeetCodeLogoParentInternalIgnoreType = 'leetCodeLogo___parent___internal___ignoreType',
-  LeetCodeLogoParentInternalMediaType = 'leetCodeLogo___parent___internal___mediaType',
-  LeetCodeLogoParentInternalOwner = 'leetCodeLogo___parent___internal___owner',
-  LeetCodeLogoParentInternalType = 'leetCodeLogo___parent___internal___type',
-  LeetCodeLogoChildren = 'leetCodeLogo___children',
-  LeetCodeLogoChildrenId = 'leetCodeLogo___children___id',
-  LeetCodeLogoChildrenParentId = 'leetCodeLogo___children___parent___id',
-  LeetCodeLogoChildrenParentChildren = 'leetCodeLogo___children___parent___children',
-  LeetCodeLogoChildrenChildren = 'leetCodeLogo___children___children',
-  LeetCodeLogoChildrenChildrenId = 'leetCodeLogo___children___children___id',
-  LeetCodeLogoChildrenChildrenChildren = 'leetCodeLogo___children___children___children',
-  LeetCodeLogoChildrenInternalContent = 'leetCodeLogo___children___internal___content',
-  LeetCodeLogoChildrenInternalContentDigest = 'leetCodeLogo___children___internal___contentDigest',
-  LeetCodeLogoChildrenInternalDescription = 'leetCodeLogo___children___internal___description',
-  LeetCodeLogoChildrenInternalFieldOwners = 'leetCodeLogo___children___internal___fieldOwners',
-  LeetCodeLogoChildrenInternalIgnoreType = 'leetCodeLogo___children___internal___ignoreType',
-  LeetCodeLogoChildrenInternalMediaType = 'leetCodeLogo___children___internal___mediaType',
-  LeetCodeLogoChildrenInternalOwner = 'leetCodeLogo___children___internal___owner',
-  LeetCodeLogoChildrenInternalType = 'leetCodeLogo___children___internal___type',
-  LeetCodeLogoInternalContent = 'leetCodeLogo___internal___content',
-  LeetCodeLogoInternalContentDigest = 'leetCodeLogo___internal___contentDigest',
-  LeetCodeLogoInternalDescription = 'leetCodeLogo___internal___description',
-  LeetCodeLogoInternalFieldOwners = 'leetCodeLogo___internal___fieldOwners',
-  LeetCodeLogoInternalIgnoreType = 'leetCodeLogo___internal___ignoreType',
-  LeetCodeLogoInternalMediaType = 'leetCodeLogo___internal___mediaType',
-  LeetCodeLogoInternalOwner = 'leetCodeLogo___internal___owner',
-  LeetCodeLogoInternalType = 'leetCodeLogo___internal___type',
-  LeetCodeLogoSourceInstanceName = 'leetCodeLogo___sourceInstanceName',
-  LeetCodeLogoAbsolutePath = 'leetCodeLogo___absolutePath',
-  LeetCodeLogoRelativePath = 'leetCodeLogo___relativePath',
-  LeetCodeLogoExtension = 'leetCodeLogo___extension',
-  LeetCodeLogoSize = 'leetCodeLogo___size',
-  LeetCodeLogoPrettySize = 'leetCodeLogo___prettySize',
-  LeetCodeLogoModifiedTime = 'leetCodeLogo___modifiedTime',
-  LeetCodeLogoAccessTime = 'leetCodeLogo___accessTime',
-  LeetCodeLogoChangeTime = 'leetCodeLogo___changeTime',
-  LeetCodeLogoBirthTime = 'leetCodeLogo___birthTime',
-  LeetCodeLogoRoot = 'leetCodeLogo___root',
-  LeetCodeLogoDir = 'leetCodeLogo___dir',
-  LeetCodeLogoBase = 'leetCodeLogo___base',
-  LeetCodeLogoExt = 'leetCodeLogo___ext',
-  LeetCodeLogoName = 'leetCodeLogo___name',
-  LeetCodeLogoRelativeDirectory = 'leetCodeLogo___relativeDirectory',
-  LeetCodeLogoDev = 'leetCodeLogo___dev',
-  LeetCodeLogoMode = 'leetCodeLogo___mode',
-  LeetCodeLogoNlink = 'leetCodeLogo___nlink',
-  LeetCodeLogoUid = 'leetCodeLogo___uid',
-  LeetCodeLogoGid = 'leetCodeLogo___gid',
-  LeetCodeLogoRdev = 'leetCodeLogo___rdev',
-  LeetCodeLogoBlksize = 'leetCodeLogo___blksize',
-  LeetCodeLogoIno = 'leetCodeLogo___ino',
-  LeetCodeLogoBlocks = 'leetCodeLogo___blocks',
-  LeetCodeLogoAtimeMs = 'leetCodeLogo___atimeMs',
-  LeetCodeLogoMtimeMs = 'leetCodeLogo___mtimeMs',
-  LeetCodeLogoCtimeMs = 'leetCodeLogo___ctimeMs',
-  LeetCodeLogoBirthtimeMs = 'leetCodeLogo___birthtimeMs',
-  LeetCodeLogoAtime = 'leetCodeLogo___atime',
-  LeetCodeLogoMtime = 'leetCodeLogo___mtime',
-  LeetCodeLogoCtime = 'leetCodeLogo___ctime',
-  LeetCodeLogoBirthtime = 'leetCodeLogo___birthtime',
-  LeetCodeLogoPublicUrl = 'leetCodeLogo___publicURL',
 }
 
 export type DataJsonFilterInput = {
@@ -403,15 +566,18 @@ export type DataJsonFilterInput = {
   key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
-  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  linkedIn?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  gitHub?: Maybe<StringQueryOperatorInput>;
   numSections?: Maybe<IntQueryOperatorInput>;
+  leetCodeLogo?: Maybe<FileFilterInput>;
   faces?: Maybe<FileFilterListInput>;
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<DataJsonProjectsFilterListInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
-  leetCodeLogo?: Maybe<FileFilterInput>;
 };
 
 export type DataJsonGroupConnection = {
@@ -2046,6 +2212,8 @@ export type Query = {
   allWorkJson?: Maybe<WorkJsonConnection>;
   projectsJson?: Maybe<ProjectsJson>;
   allProjectsJson?: Maybe<ProjectsJsonConnection>;
+  contactJson?: Maybe<ContactJson>;
+  allContactJson?: Maybe<ContactJsonConnection>;
   file?: Maybe<File>;
   allFile?: Maybe<FileConnection>;
   sitePage?: Maybe<SitePage>;
@@ -2134,6 +2302,25 @@ export type QueryProjectsJsonArgs = {
 export type QueryAllProjectsJsonArgs = {
   filter?: Maybe<ProjectsJsonFilterInput>;
   sort?: Maybe<ProjectsJsonSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryContactJsonArgs = {
+  title?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  linkedIn?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  gitHub?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type QueryAllContactJsonArgs = {
+  filter?: Maybe<ContactJsonFilterInput>;
+  sort?: Maybe<ContactJsonSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2327,15 +2514,18 @@ export type QueryDataJsonArgs = {
   key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
-  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  linkedIn?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  gitHub?: Maybe<StringQueryOperatorInput>;
   numSections?: Maybe<IntQueryOperatorInput>;
+  leetCodeLogo?: Maybe<FileFilterInput>;
   faces?: Maybe<FileFilterListInput>;
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<DataJsonProjectsFilterListInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
-  leetCodeLogo?: Maybe<FileFilterInput>;
 };
 
 export type QueryAllDataJsonArgs = {

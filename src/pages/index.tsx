@@ -16,6 +16,7 @@ import Intro from './Intro';
 import School from './School';
 import Work from './Work';
 import Projects from './Projects';
+import Contact from './Contact';
 import { Direction } from '../utils';
 
 const pages = [
@@ -23,6 +24,7 @@ const pages = [
   { key: 'school', Component: School },
   { key: 'work', Component: Work },
   { key: 'projects', Component: Projects },
+  { key: 'contact', Component: Contact },
 ];
 
 interface ArrowButtonsProps {
