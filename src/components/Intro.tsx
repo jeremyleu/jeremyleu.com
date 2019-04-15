@@ -119,7 +119,7 @@ const IntroWithData = ({
       if (Math.random() < 0.2) {
         setIsGold(true);
       }
-    }, Math.random() * 0 + 5000);
+    }, Math.random() * 30000 + 30000);
   }, [isMoving, isGold]);
 
   let face = 0;
