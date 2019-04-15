@@ -4,7 +4,7 @@ import Image from 'gatsby-image';
 
 import {
   Section,
-  FlexContainer,
+  FlexColumnContainer,
   FlexSection,
   Title,
   ExpandableSection,
@@ -14,6 +14,7 @@ import {
   ListItem,
   NavButtons,
 } from '../components';
+import { SchoolJson } from '../schema/graphql';
 import { Geisel } from './School.styles';
 
 const query = graphql`
@@ -40,27 +41,31 @@ interface SchoolProps {
   goToPrevSection: () => void;
 }
 
+interface SchoolData {
+  dataJson: SchoolJson;
+}
+
 const School = ({
   currentSectionIdx,
   prevSectionIdx,
   goToNextSection,
   goToPrevSection,
 }: SchoolProps) => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery<SchoolData>(query);
   return (
     <Section>
-      <FlexContainer>
+      <FlexColumnContainer>
         <Title>School</Title>
         <FlexSection marginTop={20}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }} />
           <Geisel>
-            <Image fixed={data.dataJson.geisel.childImageSharp.fixed} />
+            <Image fixed={data.dataJson.geisel.childImageSharp!.fixed} />
           </Geisel>
         </FlexSection>
         <FlexSection marginTop={10}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[1] }} />
         </FlexSection>
-      </FlexContainer>
+      </FlexColumnContainer>
       <NavButtons
         goToNextSection={goToNextSection}
         goToPrevSection={goToPrevSection}
@@ -79,13 +84,13 @@ const School = ({
 };
 
 School.sections = [
-  ({ schoolData }: { schoolData: any }) => {
+  ({ schoolData }: { schoolData: SchoolJson }) => {
     const { courses } = schoolData;
     const midpoint = Math.ceil(courses.length / 2);
     const coursesLeft = courses.slice(0, midpoint);
     const coursesRight = courses.slice(midpoint);
     return (
-      <FlexContainer>
+      <FlexColumnContainer>
         <ResponsiveFlexSection marginTop={50}>
           Relevant coursework:
         </ResponsiveFlexSection>
@@ -105,7 +110,7 @@ School.sections = [
             </List>
           </EqualFlexColumn>
         </ResponsiveFlexSection>
-      </FlexContainer>
+      </FlexColumnContainer>
     );
   },
 ];

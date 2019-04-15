@@ -23,6 +23,17 @@ exports.sourceNodes = ({ actions }) => {
       otherSkills: Skills!
       footer: String!
     }
+    type SchoolJson implements Node {
+      title: String!
+      content: [String!]!
+      geisel: File!
+      courses: [String!]!
+    }
+    type WorkJson implements Node {
+      title: String!
+      content: [String!]!
+      leetCodeLogo: File!
+    }
   `;
   createTypes(typeDefs);
 };

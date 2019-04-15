@@ -7,7 +7,7 @@ export const Section = styled('section')`
   flex-direction: column;
 
   ${mq[1]} {
-    max-width: 730px;
+    max-width: 770px;
   }
 `;
 
@@ -33,8 +33,11 @@ export const EqualFlexColumn = styled('div')`
   }
 `;
 
-export const FlexContainer = styled('div')`
+export const FlexRowContainer = styled('div')`
   display: flex;
+`;
+
+export const FlexColumnContainer = styled(FlexRowContainer)`
   flex-direction: column;
 `;
 

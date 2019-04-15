@@ -8,7 +8,7 @@ import {
   EqualFlexColumn,
   FlexSection,
   ResponsiveFlexSection,
-  FlexContainer,
+  FlexColumnContainer,
   BigTitle,
 } from '../components';
 import Image from 'gatsby-image';
@@ -110,14 +110,18 @@ const IntroWithData = ({
   );
 };
 
+interface IntroData {
+  dataJson: IntroJson;
+}
+
 const Intro = (props: IntroProps) => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery<IntroData>(query);
   return <IntroWithData {...props} data={data.dataJson} />;
 };
 
 Intro.sections = [
   ({ introData }: { introData: IntroJson }) => (
-    <FlexContainer>
+    <FlexColumnContainer>
       <ResponsiveFlexSection marginTop={30}>
         <EqualFlexColumn>
           {introData.familiarSkills.description}
@@ -137,7 +141,7 @@ Intro.sections = [
         </EqualFlexColumn>
       </ResponsiveFlexSection>
       <FlexSection marginTop={30}>{introData.footer}</FlexSection>
-    </FlexContainer>
+    </FlexColumnContainer>
   ),
 ];
 
