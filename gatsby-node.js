@@ -38,6 +38,7 @@ exports.sourceNodes = ({ actions }) => {
     }
     type Project {
       title: String!
+      mobileTitle: String
       content: [String!]!
       link: String!
     }

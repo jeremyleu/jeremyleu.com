@@ -1,13 +1,21 @@
 import styled from '@emotion/styled';
 import { vmq, mq } from '../utils/constants';
 
-export const Section = styled('section')`
+interface SectionProps {
+  mobilePaddingBottom?: number;
+}
+
+export const Section = styled('section')<SectionProps>`
   display: flex;
-  padding: 20px 20px 80px 20px;
+  padding: 20px 20px
+    ${({ mobilePaddingBottom }: SectionProps) =>
+      mobilePaddingBottom ? mobilePaddingBottom : 60}px
+    20px;
   flex-direction: column;
 
   ${mq[1]} {
     width: 770px;
+    padding: 20px;
   }
 `;
 
@@ -22,6 +30,7 @@ export const Button = styled('button')`
   outline-color: #aaa;
   font-size: 14.4px;
   padding: 12px;
+  border: 0px;
 `;
 
 export const EqualFlexColumn = styled('div')`
@@ -69,24 +78,39 @@ export const ResponsiveFlexSection = styled(FlexSection)`
 
 interface TitleProps {
   marginTop?: number;
+  mobileJustifyContent?: string;
 }
 
 export const Title = styled('header')<TitleProps>`
   font-family: 'brandon-grotesque', sans-serif;
   text-transform: uppercase;
-  font-size: 3.6em;
+  font-size: 2.8em;
   font-weight: 700;
   display: flex;
+  justify-content: ${({ mobileJustifyContent }: TitleProps) =>
+    mobileJustifyContent || 'flex-start'};
   align-items: center;
   margin-top: ${(props: TitleProps) => props.marginTop || 0}px;
+
+  ${mq[1]} {
+    font-size: 3.6em;
+    justify-content: flex-start;
+  }
 `;
 
 export const BigTitle = styled(Title)`
-  font-size: 4.8em;
+  font-size: 3.4em;
+  ${mq[1]} {
+    font-size: 4.8em;
+  }
 `;
 
 export const SmallTitle = styled(Title)`
-  font-size: 2.4em;
+  font-size: 2em;
+
+  ${mq[1]} {
+    font-size: 2.4em;
+  }
 `;
 
 export const List = styled('ul')`

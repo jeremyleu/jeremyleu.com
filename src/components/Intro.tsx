@@ -9,7 +9,7 @@ import {
   MyFaceContainer,
   ScoreContainer,
   ButtonContainer,
-  ResumeButton,
+  ResumeAnchor,
   MyRisingFace,
 } from './Intro.styles';
 import {
@@ -21,6 +21,7 @@ import {
   ResponsiveFlexSection,
   FlexColumnContainer,
   BigTitle,
+  Button,
 } from './common.styles';
 
 import { IntroJson } from '../schema/graphql';
@@ -166,9 +167,10 @@ const IntroWithData = ({
           numSections={introData.numSections}
           currentSectionIdx={currentSectionIdx}
           marginTop={0}
+          marginRight={20}
         />
-        <a href={introData.resume.publicURL} target="_blank">
-          <ResumeButton>View Résumé</ResumeButton>
+        <a href={introData.resume.publicURL!} target="_blank">
+          <Button>View Résumé</Button>
         </a>
       </ButtonContainer>
       <ExpandableSection

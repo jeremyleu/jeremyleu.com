@@ -6,7 +6,7 @@ import {
   EXITING,
 } from 'react-transition-group/Transition';
 
-import { Button } from './common.styles';
+import { mq } from '../utils';
 
 const rise = keyframes`
   from {
@@ -34,6 +34,7 @@ const scoreAnimation = keyframes`
 const Container = styled('div')`
   width: 80px;
   height: 142px;
+  flex: 0 0 80px;
   margin-left: 40px;
 `;
 
@@ -67,8 +68,4 @@ export const ScoreContainer = styled(Container)`
 export const ButtonContainer = styled('div')`
   margin-top: 20px;
   display: flex;
-`;
-
-export const ResumeButton = styled(Button)`
-  margin-left: 20px;
 `;

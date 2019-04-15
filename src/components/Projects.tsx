@@ -10,7 +10,12 @@ import {
   SmallTitle,
 } from './common.styles';
 
-import { LaunchButton, LaunchButtonAnchor } from './Projects.styles';
+import {
+  LaunchButton,
+  LaunchButtonAnchor,
+  MobileOnly,
+  HideOnMobile,
+} from './Projects.styles';
 import ExpandableSection from './ExpandableSection';
 import NavButtons from './NavButtons';
 
@@ -21,6 +26,7 @@ const query = graphql`
       content
       projects {
         title
+        mobileTitle
         content
         link
       }
@@ -34,8 +40,15 @@ interface ProjectsData {
 
 const ProjectInfoTemplate = ({ project }: { project: Project }) => (
   <FlexColumnContainer>
-    <SmallTitle marginTop={50}>
-      {project.title}
+    <SmallTitle marginTop={50} mobileJustifyContent="space-between">
+      {project.mobileTitle ? (
+        <>
+          <HideOnMobile>{project.title}</HideOnMobile>
+          <MobileOnly>{project.mobileTitle}</MobileOnly>
+        </>
+      ) : (
+        project.title
+      )}
       <LaunchButtonAnchor href={project.link} target="_blank">
         <LaunchButton>Launch Web App</LaunchButton>
       </LaunchButtonAnchor>

@@ -2482,6 +2482,16 @@
                 "defaultValue": null
               },
               {
+                "name": "leetCodeLogo",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "FileFilterInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "geisel",
                 "description": null,
                 "type": {
@@ -2497,16 +2507,6 @@
                 "type": {
                   "kind": "INPUT_OBJECT",
                   "name": "StringQueryOperatorInput",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "leetCodeLogo",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "FileFilterInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -4639,6 +4639,14 @@
             "deprecationReason": null
           },
           {
+            "name": "leetCodeLogo",
+            "description": null,
+            "args": [],
+            "type": { "kind": "OBJECT", "name": "File", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "geisel",
             "description": null,
             "args": [],
@@ -4655,14 +4663,6 @@
               "name": null,
               "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo",
-            "description": null,
-            "args": [],
-            "type": { "kind": "OBJECT", "name": "File", "ofType": null },
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -4761,6 +4761,14 @@
           },
           {
             "name": "link",
+            "description": null,
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "mobileTitle",
             "description": null,
             "args": [],
             "type": { "kind": "SCALAR", "name": "String", "ofType": null },
@@ -11442,6 +11450,16 @@
             "defaultValue": null
           },
           {
+            "name": "mobileTitle",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "content",
             "description": null,
             "type": {
@@ -11619,6 +11637,14 @@
               "name": null,
               "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
             },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "mobileTitle",
+            "description": null,
+            "args": [],
+            "type": { "kind": "SCALAR", "name": "String", "ofType": null },
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -11822,6 +11848,12 @@
           },
           {
             "name": "projects___title",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projects___mobileTitle",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -23682,6 +23714,16 @@
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "mobileTitle",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -23875,6 +23917,16 @@
             "defaultValue": null
           },
           {
+            "name": "leetCodeLogo",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "FileFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "geisel",
             "description": null,
             "type": {
@@ -23890,16 +23942,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "leetCodeLogo",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "FileFilterInput",
               "ofType": null
             },
             "defaultValue": null
@@ -25445,6 +25487,444 @@
             "deprecationReason": null
           },
           {
+            "name": "projects___mobileTitle",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___parent___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___parent___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___children___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___children___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___content",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___contentDigest",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___fieldOwners",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___ignoreType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___mediaType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___owner",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___parent___internal___type",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___parent___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___parent___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___children___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___children___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___content",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___contentDigest",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___fieldOwners",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___ignoreType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___mediaType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___owner",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___children___internal___type",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___content",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___contentDigest",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___fieldOwners",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___ignoreType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___mediaType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___owner",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___internal___type",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___sourceInstanceName",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___absolutePath",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___relativePath",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___extension",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___size",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___prettySize",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___modifiedTime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___accessTime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___changeTime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___birthTime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___root",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___dir",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___base",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___ext",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___relativeDirectory",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___dev",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___mode",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___nlink",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___uid",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___gid",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___rdev",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___blksize",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___ino",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___blocks",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___atimeMs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___mtimeMs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___ctimeMs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___birthtimeMs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___atime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___mtime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___ctime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___birthtime",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "leetCodeLogo___publicURL",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "geisel___id",
             "description": null,
             "isDeprecated": false,
@@ -25878,438 +26358,6 @@
           },
           {
             "name": "courses",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___parent___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___parent___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___children___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___children___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___content",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___contentDigest",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___ignoreType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___mediaType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___owner",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___parent___internal___type",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___parent___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___parent___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___children___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___children___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___content",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___contentDigest",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___ignoreType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___mediaType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___owner",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___children___internal___type",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___content",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___contentDigest",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___ignoreType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___mediaType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___owner",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___internal___type",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___sourceInstanceName",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___absolutePath",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___relativePath",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___extension",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___size",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___prettySize",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___modifiedTime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___accessTime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___changeTime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___birthTime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___root",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___dir",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___base",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___ext",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___name",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___relativeDirectory",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___dev",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___mode",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___nlink",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___uid",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___gid",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___rdev",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___blksize",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___ino",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___blocks",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___atimeMs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___mtimeMs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___ctimeMs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___birthtimeMs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___atime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___mtime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___ctime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___birthtime",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "leetCodeLogo___publicURL",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

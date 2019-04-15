@@ -7,6 +7,7 @@ interface NavButtonsProps {
   goToNextSection: () => void;
   goToPrevSection: () => void;
   marginTop?: number;
+  marginRight?: number;
 }
 
 const NavButtons = ({
@@ -15,6 +16,7 @@ const NavButtons = ({
   goToNextSection,
   goToPrevSection,
   marginTop,
+  marginRight,
 }: NavButtonsProps) => {
   const buttons = [];
 
@@ -32,7 +34,7 @@ const NavButtons = ({
   }
 
   return (
-    <NavButtonContainer marginTop={marginTop}>
+    <NavButtonContainer marginTop={marginTop} marginRight={marginRight}>
       {buttons.map((button, idx) => (
         <NavButton
           onClick={button.isNextButton ? goToNextSection : goToPrevSection}

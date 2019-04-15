@@ -15,10 +15,9 @@ export const Main = styled('main')`
 
 export const globalStyles = css`
   body {
-    font-size: 0.6em;
     transition: font-size 0.18s ease-in-out;
     background-color: #eee;
-    font-size: 16px;
+    font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
       'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
       sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';

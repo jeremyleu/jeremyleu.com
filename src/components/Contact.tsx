@@ -31,7 +31,7 @@ interface ContactData {
 const Contact = () => {
   const data = useStaticQuery<ContactData>(query);
   return (
-    <Section>
+    <Section mobilePaddingBottom={80}>
       <FlexColumnContainer>
         <Title>{data.dataJson.title}</Title>
         <FlexSection marginTop={30} column={true}>

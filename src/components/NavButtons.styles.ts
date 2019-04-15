@@ -22,11 +22,14 @@ export const ButtonIcon = styled('i')<ButtonIconProps>`
 
 interface NavButtonContainerProps {
   marginTop?: number;
+  marginRight?: number;
 }
 
 export const NavButtonContainer = styled('div')<NavButtonContainerProps>`
   margin-top: ${({ marginTop }: NavButtonContainerProps) =>
     marginTop == null ? 20 : marginTop}px;
+  margin-right: ${({ marginRight }: NavButtonContainerProps) =>
+    marginRight == null ? 0 : marginRight}px;
   align-self: flex-start;
   display: none;
 

@@ -29,6 +29,7 @@
     },
     {
       "title": "Mount Tyrannas Directory",
+      "mobileTitle": "MT Directory",
       "content": [
         "I created an online directory of players in the MMORPG <a href=\"http://tera.enmasse.com/\">TERA Online</a> on the server Mount Tyrannas to expedite guild recruitment. The web application was developed in tandem with a Discord bot that notifies the guild of the application. An in-game client saves the applicant's information in a database so that it is available anytime, even when the applicant is offline.",
         "The web application received hundreds of unique monthly users in its peak, and reduced the average response time to a guild application by more than 50%."
