@@ -1,6 +1,17 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { MyFaceContainer, ScoreContainer } from './Intro.styles';
+import Image from 'gatsby-image';
+import { Transition } from 'react-transition-group';
+import { TransitionStatus, ENTERING } from 'react-transition-group/Transition';
+
+import {
+  MyFace,
+  MyFaceContainer,
+  ScoreContainer,
+  ButtonContainer,
+  ResumeButton,
+  MyRisingFace,
+} from './Intro.styles';
 import {
   List,
   ListItem,
@@ -11,7 +22,6 @@ import {
   FlexColumnContainer,
   BigTitle,
 } from '../components';
-import Image from 'gatsby-image';
 
 import { IntroJson } from '../schema/graphql';
 import { ExpandableSection, NavButtons } from '../components';
@@ -50,6 +60,9 @@ const query = graphql`
         skills
       }
       footer
+      resume {
+        publicURL
+      }
       numSections
     }
   }
@@ -90,40 +103,73 @@ const IntroWithData = ({
   setScore,
 }: IntroWithDataProps) => {
   const [points, setPoints] = React.useState<number>(0);
+  const [isGold, setIsGold] = React.useState<boolean>(false);
   const addScore = React.useCallback(() => {
-    const pointsGained = isMoving ? 500 : 50;
+    let pointsGained = isMoving ? 500 : 50;
+    if (isGold) {
+      pointsGained *= 3;
+    }
     setScore(prevScore => prevScore + pointsGained);
     setPoints(pointsGained);
+    setIsGold(false);
     setTimeout(() => {
       setPoints(0);
-    }, Math.random() * 30000 + 30000);
-  }, [isMoving]);
+      if (Math.random() < 0.5) {
+        setIsGold(true);
+      }
+    }, Math.random() * 0 + 5000);
+  }, [isMoving, isGold]);
+
+  let face = 0;
+
+  if (isMoving) {
+    face = isGold ? 3 : 1;
+  } else {
+    face = isGold ? 2 : 0;
+  }
 
   return (
     <Section>
       <BigTitle>
         {introData.title}
-        {!!points ? (
-          <ScoreContainer>+{points}</ScoreContainer>
-        ) : (
-          <MyFaceContainer onClick={addScore}>
-            <Image
-              fixed={introData.faces[isMoving ? 1 : 0].childImageSharp!.fixed!}
-            />
-          </MyFaceContainer>
-        )}
+        {!!points && <ScoreContainer>+{points}</ScoreContainer>}
+        <MyFaceContainer onClick={addScore}>
+          <Transition appear in={!points} timeout={{ enter: 2000, exit: 0 }}>
+            {(status: TransitionStatus) => {
+              return status === ENTERING ? (
+                <MyRisingFace>
+                  <Image
+                    fixed={introData.faces[face].childImageSharp!.fixed!}
+                  />
+                </MyRisingFace>
+              ) : (
+                <MyFace status={status}>
+                  <Image
+                    fixed={introData.faces[face].childImageSharp!.fixed!}
+                  />
+                </MyFace>
+              );
+            }}
+          </Transition>
+        </MyFaceContainer>
       </BigTitle>
       <FlexSection marginTop={20} column={true}>
         {introData.content.map((contentPiece: string, idx: number) => (
           <div key={idx}>{contentPiece}</div>
         ))}
       </FlexSection>
-      <NavButtons
-        goToNextSection={goToNextSection}
-        goToPrevSection={goToPrevSection}
-        numSections={introData.numSections}
-        currentSectionIdx={currentSectionIdx}
-      />
+      <ButtonContainer>
+        <NavButtons
+          goToNextSection={goToNextSection}
+          goToPrevSection={goToPrevSection}
+          numSections={introData.numSections}
+          currentSectionIdx={currentSectionIdx}
+          marginTop={0}
+        />
+        <a href={introData.resume.publicURL} target="_blank">
+          <ResumeButton>View Résumé</ResumeButton>
+        </a>
+      </ButtonContainer>
       <ExpandableSection
         sections={Array(introData.numSections)
           .fill(null)

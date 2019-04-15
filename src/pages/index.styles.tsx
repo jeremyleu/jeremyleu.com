@@ -85,8 +85,9 @@ export const ScoreDisplay = styled('div')`
     display: block;
     position: absolute;
     text-transform: uppercase;
-    top: 40px;
-    right: 40px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: ocr-a-std, monospace;
     font-size: 1.6em;
   }

@@ -18,7 +18,11 @@ export function useExpander(
       newSections[currentPageIdx] += 1;
       if (newSections[currentPageIdx] < numsSections[currentPageIdx]) {
         setPrevSections(originalSections);
-        if (originalSections[currentPageIdx] === -1 && setIsMoving) {
+        if (
+          originalSections[currentPageIdx] === -1 &&
+          currentPageIdx === 0 &&
+          setIsMoving
+        ) {
           setIsMoving(true);
         }
         return newSections;

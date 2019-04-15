@@ -5,7 +5,12 @@
     "I'm a software engineer currently based in Cupertino, CA.",
     "I really really really like the feeling of people enjoying things I built."
   ],
-  "faces": ["./images/face.png", "./images/face2.png"],
+  "faces": [
+    "./images/face.png",
+    "./images/face2.png",
+    "./images/face3.png",
+    "./images/face4.png"
+  ],
   "familiarSkills": {
     "description": "I'm most familiar with:",
     "skills": [
@@ -21,5 +26,6 @@
     "skills": ["Python + Django", "Java", "node.js", "SQL", "MongoDB"]
   },
   "footer": "I'm always looking to learn more!",
+  "resume": "./Jeremy_Leu_Resume.pdf",
   "numSections": 1
 }

@@ -20,8 +20,13 @@ export const ButtonIcon = styled('i')<ButtonIconProps>`
   transition: 0.18s transform ease-in-out;
 `;
 
-export const NavButtonContainer = styled('div')`
-  margin-top: 20px;
+interface NavButtonContainerProps {
+  marginTop?: number;
+}
+
+export const NavButtonContainer = styled('div')<NavButtonContainerProps>`
+  margin-top: ${({ marginTop }: NavButtonContainerProps) =>
+    marginTop == null ? 20 : marginTop}px;
   align-self: flex-start;
   display: none;
 

@@ -20,6 +20,7 @@ exports.sourceNodes = ({ actions }) => {
       familiarSkills: Skills!
       otherSkills: Skills!
       footer: String!
+      resume: File!
       numSections: Int!
     }
     type SchoolJson implements Node {

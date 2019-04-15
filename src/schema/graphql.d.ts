@@ -27,6 +27,7 @@ export type ContactJson = Node & {
   linkedIn: Scalars['String'];
   instagram: Scalars['String'];
   gitHub: Scalars['String'];
+  email: Scalars['String'];
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -64,6 +65,7 @@ export enum ContactJsonFieldsEnum {
   LinkedIn = 'linkedIn',
   Instagram = 'instagram',
   GitHub = 'gitHub',
+  Email = 'email',
   Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
@@ -158,6 +160,7 @@ export type ContactJsonFilterInput = {
   linkedIn?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
   gitHub?: Maybe<StringQueryOperatorInput>;
+  email?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -186,18 +189,20 @@ export type DataJson = Node & {
   key?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<Scalars['String']>>>;
-  linkedIn?: Maybe<Scalars['String']>;
-  instagram?: Maybe<Scalars['String']>;
-  gitHub?: Maybe<Scalars['String']>;
-  numSections?: Maybe<Scalars['Int']>;
   leetCodeLogo?: Maybe<File>;
+  numSections?: Maybe<Scalars['Int']>;
   faces?: Maybe<Array<Maybe<File>>>;
   familiarSkills?: Maybe<DataJsonFamiliarSkills>;
   otherSkills?: Maybe<DataJsonOtherSkills>;
   footer?: Maybe<Scalars['String']>;
-  projects?: Maybe<Array<Maybe<DataJsonProjects>>>;
+  resume?: Maybe<File>;
   geisel?: Maybe<File>;
   courses?: Maybe<Array<Maybe<Scalars['String']>>>;
+  projects?: Maybe<Array<Maybe<DataJsonProjects>>>;
+  linkedIn?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  gitHub?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
 };
 
 export type DataJsonConnection = {
@@ -325,10 +330,6 @@ export enum DataJsonFieldsEnum {
   Key = 'key',
   Title = 'title',
   Content = 'content',
-  LinkedIn = 'linkedIn',
-  Instagram = 'instagram',
-  GitHub = 'gitHub',
-  NumSections = 'numSections',
   LeetCodeLogoId = 'leetCodeLogo___id',
   LeetCodeLogoParentId = 'leetCodeLogo___parent___id',
   LeetCodeLogoParentParentId = 'leetCodeLogo___parent___parent___id',
@@ -401,6 +402,7 @@ export enum DataJsonFieldsEnum {
   LeetCodeLogoCtime = 'leetCodeLogo___ctime',
   LeetCodeLogoBirthtime = 'leetCodeLogo___birthtime',
   LeetCodeLogoPublicUrl = 'leetCodeLogo___publicURL',
+  NumSections = 'numSections',
   Faces = 'faces',
   FacesId = 'faces___id',
   FacesParentId = 'faces___parent___id',
@@ -479,10 +481,78 @@ export enum DataJsonFieldsEnum {
   OtherSkillsDescription = 'otherSkills___description',
   OtherSkillsSkills = 'otherSkills___skills',
   Footer = 'footer',
-  Projects = 'projects',
-  ProjectsTitle = 'projects___title',
-  ProjectsContent = 'projects___content',
-  ProjectsLink = 'projects___link',
+  ResumeId = 'resume___id',
+  ResumeParentId = 'resume___parent___id',
+  ResumeParentParentId = 'resume___parent___parent___id',
+  ResumeParentParentChildren = 'resume___parent___parent___children',
+  ResumeParentChildren = 'resume___parent___children',
+  ResumeParentChildrenId = 'resume___parent___children___id',
+  ResumeParentChildrenChildren = 'resume___parent___children___children',
+  ResumeParentInternalContent = 'resume___parent___internal___content',
+  ResumeParentInternalContentDigest = 'resume___parent___internal___contentDigest',
+  ResumeParentInternalDescription = 'resume___parent___internal___description',
+  ResumeParentInternalFieldOwners = 'resume___parent___internal___fieldOwners',
+  ResumeParentInternalIgnoreType = 'resume___parent___internal___ignoreType',
+  ResumeParentInternalMediaType = 'resume___parent___internal___mediaType',
+  ResumeParentInternalOwner = 'resume___parent___internal___owner',
+  ResumeParentInternalType = 'resume___parent___internal___type',
+  ResumeChildren = 'resume___children',
+  ResumeChildrenId = 'resume___children___id',
+  ResumeChildrenParentId = 'resume___children___parent___id',
+  ResumeChildrenParentChildren = 'resume___children___parent___children',
+  ResumeChildrenChildren = 'resume___children___children',
+  ResumeChildrenChildrenId = 'resume___children___children___id',
+  ResumeChildrenChildrenChildren = 'resume___children___children___children',
+  ResumeChildrenInternalContent = 'resume___children___internal___content',
+  ResumeChildrenInternalContentDigest = 'resume___children___internal___contentDigest',
+  ResumeChildrenInternalDescription = 'resume___children___internal___description',
+  ResumeChildrenInternalFieldOwners = 'resume___children___internal___fieldOwners',
+  ResumeChildrenInternalIgnoreType = 'resume___children___internal___ignoreType',
+  ResumeChildrenInternalMediaType = 'resume___children___internal___mediaType',
+  ResumeChildrenInternalOwner = 'resume___children___internal___owner',
+  ResumeChildrenInternalType = 'resume___children___internal___type',
+  ResumeInternalContent = 'resume___internal___content',
+  ResumeInternalContentDigest = 'resume___internal___contentDigest',
+  ResumeInternalDescription = 'resume___internal___description',
+  ResumeInternalFieldOwners = 'resume___internal___fieldOwners',
+  ResumeInternalIgnoreType = 'resume___internal___ignoreType',
+  ResumeInternalMediaType = 'resume___internal___mediaType',
+  ResumeInternalOwner = 'resume___internal___owner',
+  ResumeInternalType = 'resume___internal___type',
+  ResumeSourceInstanceName = 'resume___sourceInstanceName',
+  ResumeAbsolutePath = 'resume___absolutePath',
+  ResumeRelativePath = 'resume___relativePath',
+  ResumeExtension = 'resume___extension',
+  ResumeSize = 'resume___size',
+  ResumePrettySize = 'resume___prettySize',
+  ResumeModifiedTime = 'resume___modifiedTime',
+  ResumeAccessTime = 'resume___accessTime',
+  ResumeChangeTime = 'resume___changeTime',
+  ResumeBirthTime = 'resume___birthTime',
+  ResumeRoot = 'resume___root',
+  ResumeDir = 'resume___dir',
+  ResumeBase = 'resume___base',
+  ResumeExt = 'resume___ext',
+  ResumeName = 'resume___name',
+  ResumeRelativeDirectory = 'resume___relativeDirectory',
+  ResumeDev = 'resume___dev',
+  ResumeMode = 'resume___mode',
+  ResumeNlink = 'resume___nlink',
+  ResumeUid = 'resume___uid',
+  ResumeGid = 'resume___gid',
+  ResumeRdev = 'resume___rdev',
+  ResumeBlksize = 'resume___blksize',
+  ResumeIno = 'resume___ino',
+  ResumeBlocks = 'resume___blocks',
+  ResumeAtimeMs = 'resume___atimeMs',
+  ResumeMtimeMs = 'resume___mtimeMs',
+  ResumeCtimeMs = 'resume___ctimeMs',
+  ResumeBirthtimeMs = 'resume___birthtimeMs',
+  ResumeAtime = 'resume___atime',
+  ResumeMtime = 'resume___mtime',
+  ResumeCtime = 'resume___ctime',
+  ResumeBirthtime = 'resume___birthtime',
+  ResumePublicUrl = 'resume___publicURL',
   GeiselId = 'geisel___id',
   GeiselParentId = 'geisel___parent___id',
   GeiselParentParentId = 'geisel___parent___parent___id',
@@ -556,6 +626,14 @@ export enum DataJsonFieldsEnum {
   GeiselBirthtime = 'geisel___birthtime',
   GeiselPublicUrl = 'geisel___publicURL',
   Courses = 'courses',
+  Projects = 'projects',
+  ProjectsTitle = 'projects___title',
+  ProjectsContent = 'projects___content',
+  ProjectsLink = 'projects___link',
+  LinkedIn = 'linkedIn',
+  Instagram = 'instagram',
+  GitHub = 'gitHub',
+  Email = 'email',
 }
 
 export type DataJsonFilterInput = {
@@ -566,18 +644,20 @@ export type DataJsonFilterInput = {
   key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
-  linkedIn?: Maybe<StringQueryOperatorInput>;
-  instagram?: Maybe<StringQueryOperatorInput>;
-  gitHub?: Maybe<StringQueryOperatorInput>;
-  numSections?: Maybe<IntQueryOperatorInput>;
   leetCodeLogo?: Maybe<FileFilterInput>;
+  numSections?: Maybe<IntQueryOperatorInput>;
   faces?: Maybe<FileFilterListInput>;
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
-  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  resume?: Maybe<FileFilterInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  linkedIn?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  gitHub?: Maybe<StringQueryOperatorInput>;
+  email?: Maybe<StringQueryOperatorInput>;
 };
 
 export type DataJsonGroupConnection = {
@@ -1756,6 +1836,7 @@ export type IntroJson = Node & {
   familiarSkills: Skills;
   otherSkills: Skills;
   footer: Scalars['String'];
+  resume: File;
   numSections: Scalars['Int'];
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -1869,6 +1950,78 @@ export enum IntroJsonFieldsEnum {
   OtherSkillsDescription = 'otherSkills___description',
   OtherSkillsSkills = 'otherSkills___skills',
   Footer = 'footer',
+  ResumeId = 'resume___id',
+  ResumeParentId = 'resume___parent___id',
+  ResumeParentParentId = 'resume___parent___parent___id',
+  ResumeParentParentChildren = 'resume___parent___parent___children',
+  ResumeParentChildren = 'resume___parent___children',
+  ResumeParentChildrenId = 'resume___parent___children___id',
+  ResumeParentChildrenChildren = 'resume___parent___children___children',
+  ResumeParentInternalContent = 'resume___parent___internal___content',
+  ResumeParentInternalContentDigest = 'resume___parent___internal___contentDigest',
+  ResumeParentInternalDescription = 'resume___parent___internal___description',
+  ResumeParentInternalFieldOwners = 'resume___parent___internal___fieldOwners',
+  ResumeParentInternalIgnoreType = 'resume___parent___internal___ignoreType',
+  ResumeParentInternalMediaType = 'resume___parent___internal___mediaType',
+  ResumeParentInternalOwner = 'resume___parent___internal___owner',
+  ResumeParentInternalType = 'resume___parent___internal___type',
+  ResumeChildren = 'resume___children',
+  ResumeChildrenId = 'resume___children___id',
+  ResumeChildrenParentId = 'resume___children___parent___id',
+  ResumeChildrenParentChildren = 'resume___children___parent___children',
+  ResumeChildrenChildren = 'resume___children___children',
+  ResumeChildrenChildrenId = 'resume___children___children___id',
+  ResumeChildrenChildrenChildren = 'resume___children___children___children',
+  ResumeChildrenInternalContent = 'resume___children___internal___content',
+  ResumeChildrenInternalContentDigest = 'resume___children___internal___contentDigest',
+  ResumeChildrenInternalDescription = 'resume___children___internal___description',
+  ResumeChildrenInternalFieldOwners = 'resume___children___internal___fieldOwners',
+  ResumeChildrenInternalIgnoreType = 'resume___children___internal___ignoreType',
+  ResumeChildrenInternalMediaType = 'resume___children___internal___mediaType',
+  ResumeChildrenInternalOwner = 'resume___children___internal___owner',
+  ResumeChildrenInternalType = 'resume___children___internal___type',
+  ResumeInternalContent = 'resume___internal___content',
+  ResumeInternalContentDigest = 'resume___internal___contentDigest',
+  ResumeInternalDescription = 'resume___internal___description',
+  ResumeInternalFieldOwners = 'resume___internal___fieldOwners',
+  ResumeInternalIgnoreType = 'resume___internal___ignoreType',
+  ResumeInternalMediaType = 'resume___internal___mediaType',
+  ResumeInternalOwner = 'resume___internal___owner',
+  ResumeInternalType = 'resume___internal___type',
+  ResumeSourceInstanceName = 'resume___sourceInstanceName',
+  ResumeAbsolutePath = 'resume___absolutePath',
+  ResumeRelativePath = 'resume___relativePath',
+  ResumeExtension = 'resume___extension',
+  ResumeSize = 'resume___size',
+  ResumePrettySize = 'resume___prettySize',
+  ResumeModifiedTime = 'resume___modifiedTime',
+  ResumeAccessTime = 'resume___accessTime',
+  ResumeChangeTime = 'resume___changeTime',
+  ResumeBirthTime = 'resume___birthTime',
+  ResumeRoot = 'resume___root',
+  ResumeDir = 'resume___dir',
+  ResumeBase = 'resume___base',
+  ResumeExt = 'resume___ext',
+  ResumeName = 'resume___name',
+  ResumeRelativeDirectory = 'resume___relativeDirectory',
+  ResumeDev = 'resume___dev',
+  ResumeMode = 'resume___mode',
+  ResumeNlink = 'resume___nlink',
+  ResumeUid = 'resume___uid',
+  ResumeGid = 'resume___gid',
+  ResumeRdev = 'resume___rdev',
+  ResumeBlksize = 'resume___blksize',
+  ResumeIno = 'resume___ino',
+  ResumeBlocks = 'resume___blocks',
+  ResumeAtimeMs = 'resume___atimeMs',
+  ResumeMtimeMs = 'resume___mtimeMs',
+  ResumeCtimeMs = 'resume___ctimeMs',
+  ResumeBirthtimeMs = 'resume___birthtimeMs',
+  ResumeAtime = 'resume___atime',
+  ResumeMtime = 'resume___mtime',
+  ResumeCtime = 'resume___ctime',
+  ResumeBirthtime = 'resume___birthtime',
+  ResumePublicUrl = 'resume___publicURL',
   NumSections = 'numSections',
   Id = 'id',
   ParentId = 'parent___id',
@@ -1965,6 +2118,7 @@ export type IntroJsonFilterInput = {
   familiarSkills?: Maybe<SkillsFilterInput>;
   otherSkills?: Maybe<SkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
+  resume?: Maybe<FileFilterInput>;
   numSections?: Maybe<IntQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2237,6 +2391,7 @@ export type QueryIntroJsonArgs = {
   familiarSkills?: Maybe<SkillsFilterInput>;
   otherSkills?: Maybe<SkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
+  resume?: Maybe<FileFilterInput>;
   numSections?: Maybe<IntQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2312,6 +2467,7 @@ export type QueryContactJsonArgs = {
   linkedIn?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
   gitHub?: Maybe<StringQueryOperatorInput>;
+  email?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2514,18 +2670,20 @@ export type QueryDataJsonArgs = {
   key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
-  linkedIn?: Maybe<StringQueryOperatorInput>;
-  instagram?: Maybe<StringQueryOperatorInput>;
-  gitHub?: Maybe<StringQueryOperatorInput>;
-  numSections?: Maybe<IntQueryOperatorInput>;
   leetCodeLogo?: Maybe<FileFilterInput>;
+  numSections?: Maybe<IntQueryOperatorInput>;
   faces?: Maybe<FileFilterListInput>;
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
-  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  resume?: Maybe<FileFilterInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  linkedIn?: Maybe<StringQueryOperatorInput>;
+  instagram?: Maybe<StringQueryOperatorInput>;
+  gitHub?: Maybe<StringQueryOperatorInput>;
+  email?: Maybe<StringQueryOperatorInput>;
 };
 
 export type QueryAllDataJsonArgs = {
