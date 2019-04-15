@@ -20,5 +20,6 @@
     "description": "I've also worked with:",
     "skills": ["Python + Django", "Java", "node.js", "SQL", "MongoDB"]
   },
-  "footer": "I'm always looking to learn more!"
+  "footer": "I'm always looking to learn more!",
+  "numSections": 1
 }

@@ -5,5 +5,6 @@
     "I worked at <a href=\"https://leetcode.com/\" target=\"_blank\">LeetCode</a> from November 2017 to April 2019.",
     "LeetCode is a web application designed to help software engineers prepare for technical interviews and land their dream jobs. As <a href=\"https://www.reddit.com/r/leetcode/comments/bcfp33/leetcode_is_like_gym_for_your_brain_agreedisagree/\" target=\"_blank\">one redditor put it</a>, \"LeetCode is like gym for your brain.\""
   ],
-  "leetCodeLogo": "./images/LeetCode_logo.png"
+  "leetCodeLogo": "./images/LeetCode_logo.png",
+  "numSections": 0
 }

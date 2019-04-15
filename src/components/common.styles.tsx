@@ -7,7 +7,7 @@ export const Section = styled('section')`
   flex-direction: column;
 
   ${mq[1]} {
-    max-width: 770px;
+    width: 770px;
   }
 `;
 

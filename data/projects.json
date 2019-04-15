@@ -1,0 +1,40 @@
+{
+  "key": "projects",
+  "title": "Projects",
+  "content": ["Let me tell you about some of the things I've built."],
+  "projects": [
+    {
+      "title": "Harrowhold Signups",
+      "content": [
+        "I created Harrowhold Signups to facilitate and organize signups for a 20-man raid in in the MMORPG <a href=\"http://tera.enmasse.com/\">TERA Online</a>. Compared to the Google Forms we used before, it reduced signup times for returning users by an estimated 70% by saving mostly unchanging user information, and saved many hours for the raid organizers as well by automating the signup form creation and notifications.",
+        "Harrowhold Signups is a node.js web application developed in late 2018. It uses Discord OAuth for authentication, saves user information to a MongoDB database, and pushes signups to Airtable using the Airtable API."
+      ],
+      "link": "http://harrowhold.herokuapp.com"
+    },
+    {
+      "title": "Resistance: Avalon",
+      "content": [
+        "I made an online version of the popular social deduction game The Resistance: Avalon. One day, while playing the game with friends, I realized that a web app could solve the cumbersome and error-prone setup, so I decided to make a \"role-assignment app\" for people physically in the same room. Eventually, I realized that the game would work as a standalone web application and game.",
+        "I wrote the original version of this application using jQuery with node.js and socket.io in 2016, then rewrote it in React and Apollo GraphQL in 2018."
+      ],
+      "link": "http://resistance-v2.herokuapp.com"
+    },
+    {
+      "title": "Leveraged-ETF",
+      "content": [
+        "Leveraged ETFs are funds that are engineered to amplify the daily returns of indexes such as the S&P 500 or NASDAQ. Conventional wisdom says that these, due to their increased volatility, are ill-advised long-term holdings. I created this application for Inside-Out Wealth Strategies to test the hypothesis that they could be prudent long-term investments.",
+        "The application uses a node.js backend that retrieves historical data from the Yahoo! Finance API, calculates hypothetical leveraged ETFs based on parameters provided by the user, then displays them in a Highstock chart."
+      ],
+      "link": "http://leveraged-etf.herokuapp.com/"
+    },
+    {
+      "title": "Mount Tyrannas Directory",
+      "content": [
+        "I created an online directory of players in the MMORPG <a href=\"http://tera.enmasse.com/\">TERA Online</a> on the server Mount Tyrannas to expedite guild recruitment. The web application was developed in tandem with a Discord bot that notifies the guild of the application. An in-game client saves the applicant's information in a database so that it is available anytime, even when the applicant is offline.",
+        "The web application received hundreds of unique monthly users in its peak, and reduced the average response time to a guild application by more than 50%."
+      ],
+      "link": "http://mt-directory.herokuapp.com/"
+    }
+  ],
+  "numSections": 4
+}

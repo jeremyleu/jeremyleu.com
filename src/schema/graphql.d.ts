@@ -29,12 +29,13 @@ export type DataJson = Node & {
   key?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<Scalars['String']>>>;
+  projects?: Maybe<Array<Maybe<DataJsonProjects>>>;
+  geisel?: Maybe<File>;
+  courses?: Maybe<Array<Maybe<Scalars['String']>>>;
   faces?: Maybe<Array<Maybe<File>>>;
   familiarSkills?: Maybe<DataJsonFamiliarSkills>;
   otherSkills?: Maybe<DataJsonOtherSkills>;
   footer?: Maybe<Scalars['String']>;
-  geisel?: Maybe<File>;
-  courses?: Maybe<Array<Maybe<Scalars['String']>>>;
   leetCodeLogo?: Maybe<File>;
 };
 
@@ -163,6 +164,83 @@ export enum DataJsonFieldsEnum {
   Key = 'key',
   Title = 'title',
   Content = 'content',
+  Projects = 'projects',
+  ProjectsTitle = 'projects___title',
+  ProjectsContent = 'projects___content',
+  ProjectsLink = 'projects___link',
+  GeiselId = 'geisel___id',
+  GeiselParentId = 'geisel___parent___id',
+  GeiselParentParentId = 'geisel___parent___parent___id',
+  GeiselParentParentChildren = 'geisel___parent___parent___children',
+  GeiselParentChildren = 'geisel___parent___children',
+  GeiselParentChildrenId = 'geisel___parent___children___id',
+  GeiselParentChildrenChildren = 'geisel___parent___children___children',
+  GeiselParentInternalContent = 'geisel___parent___internal___content',
+  GeiselParentInternalContentDigest = 'geisel___parent___internal___contentDigest',
+  GeiselParentInternalDescription = 'geisel___parent___internal___description',
+  GeiselParentInternalFieldOwners = 'geisel___parent___internal___fieldOwners',
+  GeiselParentInternalIgnoreType = 'geisel___parent___internal___ignoreType',
+  GeiselParentInternalMediaType = 'geisel___parent___internal___mediaType',
+  GeiselParentInternalOwner = 'geisel___parent___internal___owner',
+  GeiselParentInternalType = 'geisel___parent___internal___type',
+  GeiselChildren = 'geisel___children',
+  GeiselChildrenId = 'geisel___children___id',
+  GeiselChildrenParentId = 'geisel___children___parent___id',
+  GeiselChildrenParentChildren = 'geisel___children___parent___children',
+  GeiselChildrenChildren = 'geisel___children___children',
+  GeiselChildrenChildrenId = 'geisel___children___children___id',
+  GeiselChildrenChildrenChildren = 'geisel___children___children___children',
+  GeiselChildrenInternalContent = 'geisel___children___internal___content',
+  GeiselChildrenInternalContentDigest = 'geisel___children___internal___contentDigest',
+  GeiselChildrenInternalDescription = 'geisel___children___internal___description',
+  GeiselChildrenInternalFieldOwners = 'geisel___children___internal___fieldOwners',
+  GeiselChildrenInternalIgnoreType = 'geisel___children___internal___ignoreType',
+  GeiselChildrenInternalMediaType = 'geisel___children___internal___mediaType',
+  GeiselChildrenInternalOwner = 'geisel___children___internal___owner',
+  GeiselChildrenInternalType = 'geisel___children___internal___type',
+  GeiselInternalContent = 'geisel___internal___content',
+  GeiselInternalContentDigest = 'geisel___internal___contentDigest',
+  GeiselInternalDescription = 'geisel___internal___description',
+  GeiselInternalFieldOwners = 'geisel___internal___fieldOwners',
+  GeiselInternalIgnoreType = 'geisel___internal___ignoreType',
+  GeiselInternalMediaType = 'geisel___internal___mediaType',
+  GeiselInternalOwner = 'geisel___internal___owner',
+  GeiselInternalType = 'geisel___internal___type',
+  GeiselSourceInstanceName = 'geisel___sourceInstanceName',
+  GeiselAbsolutePath = 'geisel___absolutePath',
+  GeiselRelativePath = 'geisel___relativePath',
+  GeiselExtension = 'geisel___extension',
+  GeiselSize = 'geisel___size',
+  GeiselPrettySize = 'geisel___prettySize',
+  GeiselModifiedTime = 'geisel___modifiedTime',
+  GeiselAccessTime = 'geisel___accessTime',
+  GeiselChangeTime = 'geisel___changeTime',
+  GeiselBirthTime = 'geisel___birthTime',
+  GeiselRoot = 'geisel___root',
+  GeiselDir = 'geisel___dir',
+  GeiselBase = 'geisel___base',
+  GeiselExt = 'geisel___ext',
+  GeiselName = 'geisel___name',
+  GeiselRelativeDirectory = 'geisel___relativeDirectory',
+  GeiselDev = 'geisel___dev',
+  GeiselMode = 'geisel___mode',
+  GeiselNlink = 'geisel___nlink',
+  GeiselUid = 'geisel___uid',
+  GeiselGid = 'geisel___gid',
+  GeiselRdev = 'geisel___rdev',
+  GeiselBlksize = 'geisel___blksize',
+  GeiselIno = 'geisel___ino',
+  GeiselBlocks = 'geisel___blocks',
+  GeiselAtimeMs = 'geisel___atimeMs',
+  GeiselMtimeMs = 'geisel___mtimeMs',
+  GeiselCtimeMs = 'geisel___ctimeMs',
+  GeiselBirthtimeMs = 'geisel___birthtimeMs',
+  GeiselAtime = 'geisel___atime',
+  GeiselMtime = 'geisel___mtime',
+  GeiselCtime = 'geisel___ctime',
+  GeiselBirthtime = 'geisel___birthtime',
+  GeiselPublicUrl = 'geisel___publicURL',
+  Courses = 'courses',
   Faces = 'faces',
   FacesId = 'faces___id',
   FacesParentId = 'faces___parent___id',
@@ -241,79 +319,6 @@ export enum DataJsonFieldsEnum {
   OtherSkillsDescription = 'otherSkills___description',
   OtherSkillsSkills = 'otherSkills___skills',
   Footer = 'footer',
-  GeiselId = 'geisel___id',
-  GeiselParentId = 'geisel___parent___id',
-  GeiselParentParentId = 'geisel___parent___parent___id',
-  GeiselParentParentChildren = 'geisel___parent___parent___children',
-  GeiselParentChildren = 'geisel___parent___children',
-  GeiselParentChildrenId = 'geisel___parent___children___id',
-  GeiselParentChildrenChildren = 'geisel___parent___children___children',
-  GeiselParentInternalContent = 'geisel___parent___internal___content',
-  GeiselParentInternalContentDigest = 'geisel___parent___internal___contentDigest',
-  GeiselParentInternalDescription = 'geisel___parent___internal___description',
-  GeiselParentInternalFieldOwners = 'geisel___parent___internal___fieldOwners',
-  GeiselParentInternalIgnoreType = 'geisel___parent___internal___ignoreType',
-  GeiselParentInternalMediaType = 'geisel___parent___internal___mediaType',
-  GeiselParentInternalOwner = 'geisel___parent___internal___owner',
-  GeiselParentInternalType = 'geisel___parent___internal___type',
-  GeiselChildren = 'geisel___children',
-  GeiselChildrenId = 'geisel___children___id',
-  GeiselChildrenParentId = 'geisel___children___parent___id',
-  GeiselChildrenParentChildren = 'geisel___children___parent___children',
-  GeiselChildrenChildren = 'geisel___children___children',
-  GeiselChildrenChildrenId = 'geisel___children___children___id',
-  GeiselChildrenChildrenChildren = 'geisel___children___children___children',
-  GeiselChildrenInternalContent = 'geisel___children___internal___content',
-  GeiselChildrenInternalContentDigest = 'geisel___children___internal___contentDigest',
-  GeiselChildrenInternalDescription = 'geisel___children___internal___description',
-  GeiselChildrenInternalFieldOwners = 'geisel___children___internal___fieldOwners',
-  GeiselChildrenInternalIgnoreType = 'geisel___children___internal___ignoreType',
-  GeiselChildrenInternalMediaType = 'geisel___children___internal___mediaType',
-  GeiselChildrenInternalOwner = 'geisel___children___internal___owner',
-  GeiselChildrenInternalType = 'geisel___children___internal___type',
-  GeiselInternalContent = 'geisel___internal___content',
-  GeiselInternalContentDigest = 'geisel___internal___contentDigest',
-  GeiselInternalDescription = 'geisel___internal___description',
-  GeiselInternalFieldOwners = 'geisel___internal___fieldOwners',
-  GeiselInternalIgnoreType = 'geisel___internal___ignoreType',
-  GeiselInternalMediaType = 'geisel___internal___mediaType',
-  GeiselInternalOwner = 'geisel___internal___owner',
-  GeiselInternalType = 'geisel___internal___type',
-  GeiselSourceInstanceName = 'geisel___sourceInstanceName',
-  GeiselAbsolutePath = 'geisel___absolutePath',
-  GeiselRelativePath = 'geisel___relativePath',
-  GeiselExtension = 'geisel___extension',
-  GeiselSize = 'geisel___size',
-  GeiselPrettySize = 'geisel___prettySize',
-  GeiselModifiedTime = 'geisel___modifiedTime',
-  GeiselAccessTime = 'geisel___accessTime',
-  GeiselChangeTime = 'geisel___changeTime',
-  GeiselBirthTime = 'geisel___birthTime',
-  GeiselRoot = 'geisel___root',
-  GeiselDir = 'geisel___dir',
-  GeiselBase = 'geisel___base',
-  GeiselExt = 'geisel___ext',
-  GeiselName = 'geisel___name',
-  GeiselRelativeDirectory = 'geisel___relativeDirectory',
-  GeiselDev = 'geisel___dev',
-  GeiselMode = 'geisel___mode',
-  GeiselNlink = 'geisel___nlink',
-  GeiselUid = 'geisel___uid',
-  GeiselGid = 'geisel___gid',
-  GeiselRdev = 'geisel___rdev',
-  GeiselBlksize = 'geisel___blksize',
-  GeiselIno = 'geisel___ino',
-  GeiselBlocks = 'geisel___blocks',
-  GeiselAtimeMs = 'geisel___atimeMs',
-  GeiselMtimeMs = 'geisel___mtimeMs',
-  GeiselCtimeMs = 'geisel___ctimeMs',
-  GeiselBirthtimeMs = 'geisel___birthtimeMs',
-  GeiselAtime = 'geisel___atime',
-  GeiselMtime = 'geisel___mtime',
-  GeiselCtime = 'geisel___ctime',
-  GeiselBirthtime = 'geisel___birthtime',
-  GeiselPublicUrl = 'geisel___publicURL',
-  Courses = 'courses',
   LeetCodeLogoId = 'leetCodeLogo___id',
   LeetCodeLogoParentId = 'leetCodeLogo___parent___id',
   LeetCodeLogoParentParentId = 'leetCodeLogo___parent___parent___id',
@@ -396,12 +401,13 @@ export type DataJsonFilterInput = {
   key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  geisel?: Maybe<FileFilterInput>;
+  courses?: Maybe<StringQueryOperatorInput>;
   faces?: Maybe<FileFilterListInput>;
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
-  geisel?: Maybe<FileFilterInput>;
-  courses?: Maybe<StringQueryOperatorInput>;
   leetCodeLogo?: Maybe<FileFilterInput>;
 };
 
@@ -422,6 +428,22 @@ export type DataJsonOtherSkills = {
 export type DataJsonOtherSkillsFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
   skills?: Maybe<StringQueryOperatorInput>;
+};
+
+export type DataJsonProjects = {
+  title?: Maybe<Scalars['String']>;
+  content?: Maybe<Array<Maybe<Scalars['String']>>>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type DataJsonProjectsFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+};
+
+export type DataJsonProjectsFilterListInput = {
+  elemMatch?: Maybe<DataJsonProjectsFilterInput>;
 };
 
 export type DataJsonSortInput = {
@@ -1836,6 +1858,176 @@ export enum PotraceTurnPolicy {
   TurnpolicyMajority = 'TURNPOLICY_MAJORITY',
 }
 
+export type Project = {
+  title: Scalars['String'];
+  content: Array<Scalars['String']>;
+  link: Scalars['String'];
+};
+
+export type ProjectFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ProjectFilterListInput = {
+  elemMatch?: Maybe<ProjectFilterInput>;
+};
+
+export type ProjectsJson = Node & {
+  title: Scalars['String'];
+  content: Array<Scalars['String']>;
+  projects: Array<Project>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type ProjectsJsonConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ProjectsJsonEdge>;
+  nodes: Array<ProjectsJson>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ProjectsJsonGroupConnection>;
+};
+
+export type ProjectsJsonConnectionDistinctArgs = {
+  field: ProjectsJsonFieldsEnum;
+};
+
+export type ProjectsJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ProjectsJsonFieldsEnum;
+};
+
+export type ProjectsJsonEdge = {
+  next?: Maybe<ProjectsJson>;
+  node: ProjectsJson;
+  previous?: Maybe<ProjectsJson>;
+};
+
+export enum ProjectsJsonFieldsEnum {
+  Title = 'title',
+  Content = 'content',
+  Projects = 'projects',
+  ProjectsTitle = 'projects___title',
+  ProjectsContent = 'projects___content',
+  ProjectsLink = 'projects___link',
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+}
+
+export type ProjectsJsonFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<ProjectFilterListInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type ProjectsJsonGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ProjectsJsonEdge>;
+  nodes: Array<ProjectsJson>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ProjectsJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ProjectsJsonFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type Query = {
   introJson?: Maybe<IntroJson>;
   allIntroJson?: Maybe<IntroJsonConnection>;
@@ -1843,6 +2035,8 @@ export type Query = {
   allSchoolJson?: Maybe<SchoolJsonConnection>;
   workJson?: Maybe<WorkJson>;
   allWorkJson?: Maybe<WorkJsonConnection>;
+  projectsJson?: Maybe<ProjectsJson>;
+  allProjectsJson?: Maybe<ProjectsJsonConnection>;
   file?: Maybe<File>;
   allFile?: Maybe<FileConnection>;
   sitePage?: Maybe<SitePage>;
@@ -1910,6 +2104,23 @@ export type QueryWorkJsonArgs = {
 export type QueryAllWorkJsonArgs = {
   filter?: Maybe<WorkJsonFilterInput>;
   sort?: Maybe<WorkJsonSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryProjectsJsonArgs = {
+  title?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<ProjectFilterListInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type QueryAllProjectsJsonArgs = {
+  filter?: Maybe<ProjectsJsonFilterInput>;
+  sort?: Maybe<ProjectsJsonSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2103,12 +2314,13 @@ export type QueryDataJsonArgs = {
   key?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
+  projects?: Maybe<DataJsonProjectsFilterListInput>;
+  geisel?: Maybe<FileFilterInput>;
+  courses?: Maybe<StringQueryOperatorInput>;
   faces?: Maybe<FileFilterListInput>;
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   footer?: Maybe<StringQueryOperatorInput>;
-  geisel?: Maybe<FileFilterInput>;
-  courses?: Maybe<StringQueryOperatorInput>;
   leetCodeLogo?: Maybe<FileFilterInput>;
 };
 

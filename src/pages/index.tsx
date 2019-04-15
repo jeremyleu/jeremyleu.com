@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Transition } from 'react-transition-group';
 import { TransitionStatus } from 'react-transition-group/Transition';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import {
   PageWrapper,
@@ -14,9 +15,15 @@ import { useExpander } from '../hooks';
 import Intro from './Intro';
 import School from './School';
 import Work from './Work';
+import Projects from './Projects';
 import { Direction } from '../utils';
 
-const pages = [Intro, School, Work];
+const pages = [
+  { key: 'intro', Component: Intro },
+  { key: 'school', Component: School },
+  { key: 'work', Component: Work },
+  { key: 'projects', Component: Projects },
+];
 
 interface ArrowButtonsProps {
   onUp: () => void;
@@ -42,10 +49,30 @@ const ArrowButtons = ({ onUp, onDown, onLeft, onRight }: ArrowButtonsProps) => (
   </ArrowButtonsContainer>
 );
 
+const query = graphql`
+  query {
+    allDataJson {
+      nodes {
+        key
+        numSections
+      }
+    }
+  }
+`;
+
 const IndexPage = () => {
   const [currentPageIdx, setCurrentPageIdx] = React.useState<number>(0);
   const [prevPageIdx, setPrevPageIdx] = React.useState<number>(0);
   const [score, setScore] = React.useState<number>(0);
+  const data = useStaticQuery(query);
+  const orderedNumSections: Array<number> = [];
+  data.allDataJson.nodes.forEach(
+    ({ key, numSections }: { key: string; numSections: number }) => {
+      orderedNumSections[
+        pages.findIndex(pageObj => pageObj.key === key)
+      ] = numSections;
+    }
+  );
   const {
     currentSections,
     prevSections,
@@ -53,7 +80,7 @@ const IndexPage = () => {
     goToPrevSection,
     isMoving,
     setIsMoving,
-  } = useExpander(pages.map(page => page.sections.length), currentPageIdx);
+  } = useExpander(orderedNumSections, currentPageIdx);
 
   const goToPrevPage = React.useCallback(() => {
     setCurrentPageIdx(oldPageIdx => {
@@ -98,7 +125,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      {pages.map((PageElement, idx) => (
+      {pages.map((pageObj, idx) => (
         <Transition
           in={idx === currentPageIdx}
           timeout={{ enter: 0, exit: 400 }}
@@ -111,7 +138,7 @@ const IndexPage = () => {
               status={status}
             >
               {
-                <PageElement
+                <pageObj.Component
                   currentSectionIdx={currentSections[idx]}
                   prevSectionIdx={prevSections[idx]}
                   goToNextSection={goToNextSection}
