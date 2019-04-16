@@ -6,8 +6,6 @@ import {
   EXITING,
 } from 'react-transition-group/Transition';
 
-import { mq } from '../utils';
-
 const rise = keyframes`
   from {
     transform: translateY(100%);

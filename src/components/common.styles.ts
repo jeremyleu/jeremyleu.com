@@ -33,6 +33,10 @@ export const Button = styled('button')`
   border: 0px;
   transition: 0.2s background ease-in-out;
 
+  &:active {
+    background: rgb(0, 0, 0, 0.9);
+  }
+
   &:disabled {
     background: rgb(0, 0, 0, 0.2);
     cursor: not-allowed;
