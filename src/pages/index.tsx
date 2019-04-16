@@ -31,20 +31,45 @@ interface ArrowButtonsProps {
   onLeft: () => void;
   onDown: () => void;
   onRight: () => void;
+  upDisabled: boolean;
+  leftDisabled: boolean;
+  downDisabled: boolean;
+  rightDisabled: boolean;
 }
 
-const ArrowButtons = ({ onUp, onDown, onLeft, onRight }: ArrowButtonsProps) => (
+const ArrowButtons = ({
+  onUp,
+  onDown,
+  onLeft,
+  onRight,
+  upDisabled,
+  leftDisabled,
+  downDisabled,
+  rightDisabled,
+}: ArrowButtonsProps) => (
   <ArrowButtonsContainer>
-    <ArrowButton direction={Direction.Up} onClick={onUp}>
+    <ArrowButton direction={Direction.Up} onClick={onUp} disabled={upDisabled}>
       <i className="fas fa-caret-up" />
     </ArrowButton>
-    <ArrowButton direction={Direction.Left} onClick={onLeft}>
+    <ArrowButton
+      direction={Direction.Left}
+      onClick={onLeft}
+      disabled={leftDisabled}
+    >
       <i className="fas fa-caret-left" />
     </ArrowButton>
-    <ArrowButton direction={Direction.Down} onClick={onDown}>
+    <ArrowButton
+      direction={Direction.Down}
+      onClick={onDown}
+      disabled={downDisabled}
+    >
       <i className="fas fa-caret-down" />
     </ArrowButton>
-    <ArrowButton direction={Direction.Right} onClick={onRight}>
+    <ArrowButton
+      direction={Direction.Right}
+      onClick={onRight}
+      disabled={rightDisabled}
+    >
       <i className="fas fa-caret-right" />
     </ArrowButton>
   </ArrowButtonsContainer>
@@ -79,9 +104,14 @@ const IndexPage = () => {
     prevSections,
     goToNextSection,
     goToPrevSection,
+    nextSectionExists,
+    prevSectionExists,
     isMoving,
     setIsMoving,
   } = useExpander(orderedNumSections, currentPageIdx);
+
+  const nextPageExists = currentPageIdx < pages.length - 1;
+  const prevPageExists = currentPageIdx > 0;
 
   const goToPrevPage = React.useCallback(() => {
     setCurrentPageIdx(oldPageIdx => {
@@ -160,6 +190,10 @@ const IndexPage = () => {
         onLeft={goToPrevPage}
         onDown={goToPrevSection}
         onRight={goToNextPage}
+        upDisabled={!nextSectionExists}
+        leftDisabled={!prevPageExists}
+        downDisabled={!prevSectionExists}
+        rightDisabled={!nextPageExists}
       />
       {!!score && <ScoreDisplay>Score: {score}</ScoreDisplay>}
     </Layout>

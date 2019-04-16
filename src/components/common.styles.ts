@@ -31,6 +31,12 @@ export const Button = styled('button')`
   font-size: 14.4px;
   padding: 12px;
   border: 0px;
+  transition: 0.2s background ease-in-out;
+
+  &:disabled {
+    background: rgb(0, 0, 0, 0.2);
+    cursor: not-allowed;
+  }
 `;
 
 export const EqualFlexColumn = styled('div')`

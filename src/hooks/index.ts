@@ -46,11 +46,17 @@ export function useExpander(
     });
   }, [currentPageIdx]);
 
+  const nextSectionExists =
+    currentSections[currentPageIdx] < numsSections[currentPageIdx] - 1;
+  const prevSectionExists = currentSections[currentPageIdx] > -1;
+
   return {
     currentSections,
     prevSections,
     goToNextSection,
     goToPrevSection,
+    nextSectionExists,
+    prevSectionExists,
     isMoving,
     setIsMoving,
   };
