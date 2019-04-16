@@ -37,7 +37,7 @@ export function useExpander(
         return originalSections;
       }
       setPrevSections(originalSections);
-      if (originalSections[currentPageIdx] === 0 && setIsMoving) {
+      if (currentPageIdx === 0 && setIsMoving) {
         setIsMoving(true);
       }
       const newSections = [...originalSections];
