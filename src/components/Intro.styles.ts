@@ -47,6 +47,9 @@ export const MyFaceContainer = styled(Container)<MyFaceContainerProps>`
   display: inline-block;
   ${({ status }: MyFaceProps) =>
     `display: ${status === EXITED || status === EXITING ? 'none' : 'block'};`}
+  &:hover {
+    transform: rotate(6deg);
+  }
 `;
 
 interface MyFaceProps {
@@ -54,8 +57,9 @@ interface MyFaceProps {
 }
 
 export const MyFace = styled('div')<MyFaceProps>(
-  ({ status }: MyFaceProps) =>
-    `display: ${status === EXITED || status === EXITING ? 'none' : 'block'};`
+  ({ status }: MyFaceProps) => `
+    display: ${status === EXITED || status === EXITING ? 'none' : 'block'};
+  `
 );
 
 export const MyRisingFace = styled('div')`
