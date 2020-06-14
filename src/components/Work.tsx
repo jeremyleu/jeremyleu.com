@@ -8,6 +8,7 @@ import {
   FlexSection,
   Title,
   SmallTitle,
+  TitleEmoji,
 } from './common.styles';
 import NavButtons from './NavButtons';
 import ExpandableSection from './ExpandableSection';
@@ -16,6 +17,8 @@ const query = graphql`
   query getWorkData {
     dataJson(key: { eq: "work" }) {
       title
+      titleEmoji
+      titleEmojiLabel
       content
       work {
         title
@@ -64,28 +67,14 @@ const Work: React.FC<WorkProps> = ({
 }) => {
   const data = useStaticQuery<WorkData>(query);
   return (
-    // <Section>
-    //   <FlexColumnContainer>
-    //     <Title>{data.dataJson.title}</Title>
-    //     <FlexRowContainer>
-    //       <FlexColumnContainer>
-    //         <FlexSection marginTop={20}>
-    //           <div
-    //             dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }}
-    //           />
-    //         </FlexSection>
-    //         <FlexSection marginTop={30}>
-    //           <div
-    //             dangerouslySetInnerHTML={{ __html: data.dataJson.content[1] }}
-    //           />
-    //         </FlexSection>
-    //       </FlexColumnContainer>
-    //     </FlexRowContainer>
-    //   </FlexColumnContainer>
-    // </Section>
     <Section>
       <FlexColumnContainer>
-        <Title>{data.dataJson.title}</Title>
+        <Title>
+          {data.dataJson.title}
+          <TitleEmoji role="img" aria-label={data.dataJson.titleEmojiLabel}>
+            {data.dataJson.titleEmoji}
+          </TitleEmoji>
+        </Title>
         <FlexSection marginTop={20}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }} />
         </FlexSection>

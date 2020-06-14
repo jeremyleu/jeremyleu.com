@@ -11,6 +11,7 @@ import {
   EqualFlexColumn,
   List,
   ListItem,
+  TitleEmoji,
 } from './common.styles';
 import { SchoolJson } from '../schema/graphql';
 import { Geisel } from './School.styles';
@@ -21,6 +22,8 @@ const query = graphql`
   query getSchoolData {
     dataJson(key: { eq: "school" }) {
       title
+      titleEmoji
+      titleEmojiLabel
       content
       geisel {
         childImageSharp {
@@ -86,7 +89,12 @@ const School = ({
   return (
     <Section>
       <FlexColumnContainer>
-        <Title>School</Title>
+        <Title>
+          School
+          <TitleEmoji role="img" aria-label={data.dataJson.titleEmojiLabel}>
+            {data.dataJson.titleEmoji}
+          </TitleEmoji>
+        </Title>
         <FlexSection marginTop={20}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }} />
           <Geisel>

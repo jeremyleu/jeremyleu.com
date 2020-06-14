@@ -76,6 +76,6 @@ export const ScoreContainer = styled(Container)`
 `;
 
 export const ButtonContainer = styled('div')`
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
 `;

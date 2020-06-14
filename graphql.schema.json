@@ -977,46 +977,6 @@
                 "defaultValue": null
               },
               {
-                "name": "id",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "StringQueryOperatorInput",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "parent",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "NodeFilterInput",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "children",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "NodeFilterListInput",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "internal",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "InternalFilterInput",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
                 "name": "isCreatedByStatefulCreatePages",
                 "description": null,
                 "type": {
@@ -1052,6 +1012,46 @@
                 "type": {
                   "kind": "INPUT_OBJECT",
                   "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "id",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "parent",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "NodeFilterInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "children",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "NodeFilterListInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "internal",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "InternalFilterInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -1667,6 +1667,26 @@
                 "defaultValue": null
               },
               {
+                "name": "titleEmoji",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "titleEmojiLabel",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "content",
                 "description": null,
                 "type": {
@@ -2127,6 +2147,26 @@
                 "defaultValue": null
               },
               {
+                "name": "titleEmoji",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "titleEmojiLabel",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "content",
                 "description": null,
                 "type": {
@@ -2467,6 +2507,16 @@
                 "defaultValue": null
               },
               {
+                "name": "titleEmoji",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "projects",
                 "description": null,
                 "type": {
@@ -2502,6 +2552,16 @@
                 "type": {
                   "kind": "INPUT_OBJECT",
                   "name": "DataJsonWorkFilterListInput",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "titleEmojiLabel",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -4430,6 +4490,16 @@
             "defaultValue": null
           },
           {
+            "name": "titleEmoji",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "projects",
             "description": "",
             "type": {
@@ -4465,6 +4535,16 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "DataJsonWorkFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null
@@ -5017,6 +5097,16 @@
           },
           {
             "name": "link",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "codeLink",
             "description": "",
             "type": {
               "kind": "INPUT_OBJECT",
@@ -8840,6 +8930,18 @@
             "deprecationReason": null
           },
           {
+            "name": "titleEmoji",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "projects",
             "description": null,
             "args": [],
@@ -8895,6 +8997,18 @@
                 "name": "DataJsonWork",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -9024,6 +9138,18 @@
           },
           {
             "name": "link",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "codeLink",
             "description": null,
             "args": [],
             "type": {
@@ -11089,6 +11215,12 @@
             "deprecationReason": null
           },
           {
+            "name": "childDataJson___faces___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "childDataJson___faces___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -11102,6 +11234,12 @@
           },
           {
             "name": "childDataJson___faces___childDataJson___work",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childDataJson___faces___childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -11503,6 +11641,12 @@
             "deprecationReason": null
           },
           {
+            "name": "childDataJson___resume___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "childDataJson___resume___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -11516,6 +11660,18 @@
           },
           {
             "name": "childDataJson___resume___childDataJson___work",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childDataJson___resume___childDataJson___titleEmojiLabel",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childDataJson___titleEmoji",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -11540,6 +11696,12 @@
           },
           {
             "name": "childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -11923,6 +12085,12 @@
             "deprecationReason": null
           },
           {
+            "name": "childDataJson___geisel___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "childDataJson___geisel___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -11936,6 +12104,12 @@
           },
           {
             "name": "childDataJson___geisel___childDataJson___work",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childDataJson___geisel___childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -11972,6 +12146,12 @@
           },
           {
             "name": "childDataJson___work___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -15016,7 +15196,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "pathToConfigModule",
+            "name": "name",
             "description": "",
             "type": {
               "kind": "INPUT_OBJECT",
@@ -15027,6 +15207,16 @@
           },
           {
             "name": "path",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "pathToConfigModule",
             "description": "",
             "type": {
               "kind": "INPUT_OBJECT",
@@ -15510,6 +15700,54 @@
             "deprecationReason": null
           },
           {
+            "name": "isCreatedByStatefulCreatePages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "SitePlugin",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreatorId",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "componentPath",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "args": [],
@@ -15573,54 +15811,6 @@
                 "name": "Internal",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "isCreatedByStatefulCreatePages",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "SitePlugin",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreatorId",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "componentPath",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -15848,7 +16038,7 @@
         "description": null,
         "fields": [
           {
-            "name": "pathToConfigModule",
+            "name": "name",
             "description": null,
             "args": [],
             "type": {
@@ -15861,6 +16051,18 @@
           },
           {
             "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pathToConfigModule",
             "description": null,
             "args": [],
             "type": {
@@ -16329,46 +16531,6 @@
             "defaultValue": null
           },
           {
-            "name": "id",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "parent",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "NodeFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "children",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "NodeFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "internal",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "InternalFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "isCreatedByStatefulCreatePages",
             "description": "",
             "type": {
@@ -16404,6 +16566,46 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "id",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "parent",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "NodeFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "children",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "NodeFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "internal",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "InternalFilterInput",
               "ofType": null
             },
             "defaultValue": null
@@ -16486,6 +16688,468 @@
           },
           {
             "name": "matchPath",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isCreatedByStatefulCreatePages",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___parent___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___parent___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___children___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___children___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___content",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___contentDigest",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___fieldOwners",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___ignoreType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___mediaType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___owner",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___parent___internal___type",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___parent___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___parent___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___children___id",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___children___children",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___content",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___contentDigest",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___fieldOwners",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___ignoreType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___mediaType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___owner",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___children___internal___type",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___content",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___contentDigest",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___fieldOwners",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___ignoreType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___mediaType",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___owner",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___internal___type",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___resolve",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___version",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___path",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___pathToConfigModule",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___logo",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___android",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___appleIcon",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___appleStartup",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___coast",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___favicons",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___firefox",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___yandex",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___icons___windows",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___pathCheck",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___nodeAPIs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___browserAPIs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___ssrAPIs",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginFilepath",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___description",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___version",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___main",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___author",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___license",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___dependencies",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___dependencies___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___dependencies___version",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___devDependencies",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___devDependencies___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___devDependencies___version",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___peerDependencies",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___peerDependencies___name",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___peerDependencies___version",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___packageJson___keywords",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreatorId",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "componentPath",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -17005,462 +17669,6 @@
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "isCreatedByStatefulCreatePages",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___parent___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___parent___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___children___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___children___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___content",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___contentDigest",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___ignoreType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___mediaType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___owner",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___parent___internal___type",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___parent___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___parent___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___children___id",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___children___children",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___content",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___contentDigest",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___ignoreType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___mediaType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___owner",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___children___internal___type",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___content",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___contentDigest",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___ignoreType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___mediaType",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___owner",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___internal___type",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___resolve",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___name",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___version",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___pathToConfigModule",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___path",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___logo",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___android",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___appleIcon",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___appleStartup",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___coast",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___favicons",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___firefox",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___yandex",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___icons___windows",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginOptions___pathCheck",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___nodeAPIs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___browserAPIs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___ssrAPIs",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___pluginFilepath",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___name",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___version",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___main",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___author",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___license",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___dependencies",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___dependencies___name",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___dependencies___version",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___devDependencies",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___devDependencies___name",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___devDependencies___version",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___peerDependencies",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___peerDependencies___name",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___peerDependencies___version",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreator___packageJson___keywords",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pluginCreatorId",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "componentPath",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -17661,7 +17869,7 @@
         "fields": [
           {
             "name": "next",
-            "description": "",
+            "description": null,
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -17689,7 +17897,7 @@
           },
           {
             "name": "previous",
-            "description": "",
+            "description": null,
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -22364,6 +22572,12 @@
             "deprecationReason": null
           },
           {
+            "name": "faces___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "faces___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -22383,6 +22597,12 @@
           },
           {
             "name": "faces___childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "faces___childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -22641,6 +22861,12 @@
           },
           {
             "name": "faces___childDataJson___work___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "faces___childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -24110,6 +24336,12 @@
             "deprecationReason": null
           },
           {
+            "name": "resume___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "resume___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -24129,6 +24361,12 @@
           },
           {
             "name": "resume___childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "resume___childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -24387,6 +24625,12 @@
           },
           {
             "name": "resume___childDataJson___work___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "resume___childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -25297,6 +25541,38 @@
             "deprecationReason": null
           },
           {
+            "name": "titleEmoji",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "content",
             "description": null,
             "args": [],
@@ -25473,6 +25749,26 @@
             "defaultValue": null
           },
           {
+            "name": "titleEmoji",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "content",
             "description": "",
             "type": {
@@ -25606,6 +25902,18 @@
         "enumValues": [
           {
             "name": "title",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -27051,6 +27359,12 @@
             "deprecationReason": null
           },
           {
+            "name": "geisel___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "geisel___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -27070,6 +27384,12 @@
           },
           {
             "name": "geisel___childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "geisel___childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -27328,6 +27648,12 @@
           },
           {
             "name": "geisel___childDataJson___work___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "geisel___childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -29644,6 +29970,26 @@
             "defaultValue": null
           },
           {
+            "name": "titleEmoji",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "mobileTitle",
             "description": "",
             "type": {
@@ -29665,6 +30011,16 @@
           },
           {
             "name": "link",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "codeLink",
             "description": "",
             "type": {
               "kind": "INPUT_OBJECT",
@@ -29865,6 +30221,38 @@
             "deprecationReason": null
           },
           {
+            "name": "titleEmoji",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "mobileTitle",
             "description": null,
             "args": [],
@@ -29905,13 +30293,21 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "codeLink",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -30085,6 +30481,18 @@
             "deprecationReason": null
           },
           {
+            "name": "projects___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projects___titleEmojiLabel",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "projects___mobileTitle",
             "description": null,
             "isDeprecated": false,
@@ -30098,6 +30506,12 @@
           },
           {
             "name": "projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -31008,6 +31422,38 @@
             "deprecationReason": null
           },
           {
+            "name": "titleEmoji",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "content",
             "description": null,
             "args": [],
@@ -31208,6 +31654,26 @@
             "defaultValue": null
           },
           {
+            "name": "titleEmoji",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "titleEmojiLabel",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "content",
             "description": "",
             "type": {
@@ -31361,6 +31827,18 @@
         "enumValues": [
           {
             "name": "title",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -34337,6 +34815,12 @@
             "deprecationReason": null
           },
           {
+            "name": "faces___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "faces___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -34356,6 +34840,12 @@
           },
           {
             "name": "faces___childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "faces___childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -34614,6 +35104,12 @@
           },
           {
             "name": "faces___childDataJson___work___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "faces___childDataJson___titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -36077,6 +36573,12 @@
             "deprecationReason": null
           },
           {
+            "name": "resume___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "resume___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -36096,6 +36598,12 @@
           },
           {
             "name": "resume___childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "resume___childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -36359,6 +36867,18 @@
             "deprecationReason": null
           },
           {
+            "name": "resume___childDataJson___titleEmojiLabel",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "projects",
             "description": null,
             "isDeprecated": false,
@@ -36378,6 +36898,12 @@
           },
           {
             "name": "projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -37823,6 +38349,12 @@
             "deprecationReason": null
           },
           {
+            "name": "geisel___childDataJson___titleEmoji",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "geisel___childDataJson___projects",
             "description": null,
             "isDeprecated": false,
@@ -37842,6 +38374,12 @@
           },
           {
             "name": "geisel___childDataJson___projects___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "geisel___childDataJson___projects___codeLink",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -38105,6 +38643,12 @@
             "deprecationReason": null
           },
           {
+            "name": "geisel___childDataJson___titleEmojiLabel",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "courses",
             "description": null,
             "isDeprecated": false,
@@ -38136,6 +38680,12 @@
           },
           {
             "name": "work___link",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "titleEmojiLabel",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -40214,13 +40764,19 @@
             "deprecationReason": null
           },
           {
-            "name": "pluginOptions___pathToConfigModule",
+            "name": "pluginOptions___name",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
             "name": "pluginOptions___path",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___pathToConfigModule",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

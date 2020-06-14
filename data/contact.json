@@ -1,6 +1,8 @@
 {
   "key": "contact",
-  "title": "Get in touch!",
+  "title": "Contact",
+  "titleEmoji": "💬",
+  "titleEmojiLabel": "speech-balloon",
   "content": [
     "Feel free to reach out if you have any questions or want to work together. (I'm especially keen to meet some designer friends!)"
   ],

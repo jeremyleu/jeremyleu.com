@@ -1,18 +1,13 @@
 import styled from '@emotion/styled';
 import { mq } from '../utils';
 
-import { Button } from './common.styles';
-
-export const LaunchButton = styled(Button)`
-  margin-left: 20px;
-`;
-
 export const LaunchButtonAnchor = styled('a')`
   display: inline-flex;
   flex: 0 0 110px;
+  margin-left: 20px;
 
   ${mq[1]} {
-    flex: auto;
+    flex: 0 0 auto;
   }
 `;
 

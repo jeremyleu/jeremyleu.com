@@ -8,10 +8,11 @@ import {
   FlexSection,
   Title,
   SmallTitle,
+  Button,
+  TitleEmoji,
 } from './common.styles';
 
 import {
-  LaunchButton,
   LaunchButtonAnchor,
   MobileOnly,
   HideOnMobile,
@@ -23,12 +24,14 @@ const query = graphql`
   query getProjectsData {
     dataJson(key: { eq: "projects" }) {
       title
+      titleEmoji
       content
       projects {
         title
         mobileTitle
         content
         link
+        codeLink
       }
     }
   }
@@ -49,9 +52,20 @@ const ProjectInfoTemplate = ({ project }: { project: Project }) => (
       ) : (
         project.title
       )}
-      <LaunchButtonAnchor href={project.link} target="_blank">
-        <LaunchButton>Launch Web App</LaunchButton>
-      </LaunchButtonAnchor>
+      {project.link && (
+        <LaunchButtonAnchor href={project.link} target="_blank" rel="noopener">
+          <Button>Launch web app</Button>
+        </LaunchButtonAnchor>
+      )}
+      {project.codeLink && (
+        <LaunchButtonAnchor
+          href={project.codeLink}
+          target="_blank"
+          rel="noopener"
+        >
+          <Button>View code</Button>
+        </LaunchButtonAnchor>
+      )}
     </SmallTitle>
     <FlexSection marginTop={30} column={true} small={true}>
       {project.content.map((contentPiece, idx) => (
@@ -78,9 +92,17 @@ const Projects = ({
   return (
     <Section>
       <FlexColumnContainer>
-        <Title>{data.dataJson.title}</Title>
+        <Title>
+          {data.dataJson.title}
+          <TitleEmoji role="img" aria-label="video-game">
+            {data.dataJson.titleEmoji}
+          </TitleEmoji>
+        </Title>
         <FlexSection marginTop={20}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }} />
+        </FlexSection>
+        <FlexSection marginTop={20}>
+          <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[1] }} />
         </FlexSection>
       </FlexColumnContainer>
       <NavButtons

@@ -1,12 +1,25 @@
 {
   "key": "projects",
   "title": "Projects",
-  "content": ["Let me tell you about some of my creations outside of work."],
+  "titleEmoji": "🎮",
+  "content": [
+    "I've very much enjoyed tinkering with projects and learning more in my own time.",
+    "I love games of all kinds, and the pursuit of a better gaming experience for myself and others motivated many of these projects."
+  ],
   "projects": [
+    {
+      "title": "DofusLab",
+      "content": [
+        "I started DofusLab, an equipment build previewer for the French MMORPG <a href=\"https://dofus.com/\" target=\"_blank\" rel=\"noopener\">Dofus</a> in late 2019 with one other developer and a designer. We built DofusLab with next.js, React, TypeScript, and Apollo GraphQL on the frontend and Python, Graphene, and Flask on the backend.",
+        "Since its launch in April 2020, DofusLab has averaged hundreds of users a day and over 100,000 pageviews a month."
+      ],
+      "link": "https://dofuslab.io",
+      "codeLink": "https://github.com/dofuslab/dofuslab"
+    },
     {
       "title": "Harrowhold Signups",
       "content": [
-        "I created Harrowhold Signups to facilitate and organize signups for a 20-man raid in in the MMORPG <a href=\"http://tera.enmasse.com/\">TERA Online</a>. Compared to the Google Forms we used before, it reduced signup times for returning users by an estimated 70% by saving mostly unchanging user information, and saved many hours for the raid organizers as well by automating the signup form creation and notifications.",
+        "I created Harrowhold Signups to facilitate and organize signups for a 20-man raid in in the MMORPG <a href=\"https://tera.enmasse.com/\" target=\"_blank\" rel=\"noopener\">TERA Online</a>. Compared to the Google Forms we used before, it reduced signup times for returning users by an estimated 70% by saving mostly unchanging user information, and saved many hours for the raid organizers as well by automating the signup form creation and notifications.",
         "Harrowhold Signups is a node.js web application developed in late 2018. It uses Discord OAuth for authentication, saves user information to a MongoDB database, and pushes signups to Airtable using the Airtable API."
       ],
       "link": "http://harrowhold.herokuapp.com"
@@ -17,7 +30,7 @@
         "I made an online version of the popular social deduction game The Resistance: Avalon. One day, while playing the game with friends, I realized that a web app could solve the cumbersome and error-prone setup, so I decided to make a \"role-assignment app\" for people physically in the same room. Eventually, I realized that the game would work as a standalone web application and game.",
         "I wrote the original version of this application using jQuery with node.js and socket.io in 2016, then rewrote it in React and Apollo GraphQL in 2018."
       ],
-      "link": "http://resistance-v2.herokuapp.com"
+      "link": "http://resistance-v2.herokuapp.com/"
     },
     {
       "title": "Leveraged-ETF",
@@ -28,14 +41,13 @@
       "link": "http://leveraged-etf.herokuapp.com/"
     },
     {
-      "title": "Mount Tyrannas Directory",
+      "title": "MT Directory",
       "mobileTitle": "MT Directory",
       "content": [
-        "I created an online directory of players in the MMORPG <a href=\"http://tera.enmasse.com/\">TERA Online</a> on the server Mount Tyrannas to expedite guild recruitment. The web application was developed in tandem with a Discord bot that notifies the guild of the application. An in-game client saves the applicant's information in a database so that it is available anytime, even when the applicant is offline.",
+        "I created an online directory of players in the MMORPG <a href=\"https://tera.enmasse.com/\" target=\"_blank\" rel=\"noopener\">TERA Online</a> on the server Mount Tyrannas to expedite guild recruitment. The web application was developed in tandem with a Discord bot that notifies the guild of the application. An in-game client saves the applicant's information in a database so that it is available anytime, even when the applicant is offline.",
         "The web application received hundreds of unique monthly users in its peak, and reduced the average response time to a guild application by more than 50%."
-      ],
-      "link": "http://mt-directory.herokuapp.com/"
+      ]
     }
   ],
-  "numSections": 4
+  "numSections": 5
 }

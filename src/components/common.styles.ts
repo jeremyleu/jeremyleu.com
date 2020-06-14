@@ -111,6 +111,10 @@ export const Title = styled('header')<TitleProps>`
   }
 `;
 
+export const TitleEmoji = styled('span')`
+  margin-left: 20px;
+`;
+
 export const BigTitle = styled(Title)`
   font-size: 3.4em;
   ${mq[1]} {

@@ -150,14 +150,14 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -239,6 +239,8 @@ export type QueryAllIntroJsonArgs = {
 
 export type QuerySchoolJsonArgs = {
   title?: Maybe<StringQueryOperatorInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
@@ -300,6 +302,8 @@ export type QueryAllProjectsJsonArgs = {
 
 export type QueryContactJsonArgs = {
   title?: Maybe<StringQueryOperatorInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
   linkedIn?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
@@ -339,10 +343,12 @@ export type QueryDataJsonArgs = {
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   resume?: Maybe<FileFilterInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
   projects?: Maybe<DataJsonProjectsFilterListInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
   work?: Maybe<DataJsonWorkFilterListInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -569,10 +575,12 @@ export type DataJsonFilterInput = {
   familiarSkills?: Maybe<DataJsonFamiliarSkillsFilterInput>;
   otherSkills?: Maybe<DataJsonOtherSkillsFilterInput>;
   resume?: Maybe<FileFilterInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
   projects?: Maybe<DataJsonProjectsFilterListInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
   work?: Maybe<DataJsonWorkFilterListInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
 };
 
 export type FileFilterListInput = {
@@ -640,6 +648,7 @@ export type DataJsonProjectsFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
   link?: Maybe<StringQueryOperatorInput>;
+  codeLink?: Maybe<StringQueryOperatorInput>;
   mobileTitle?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -1064,10 +1073,12 @@ export type DataJson = Node & {
   familiarSkills?: Maybe<DataJsonFamiliarSkills>;
   otherSkills?: Maybe<DataJsonOtherSkills>;
   resume?: Maybe<File>;
+  titleEmoji?: Maybe<Scalars['String']>;
   projects?: Maybe<Array<Maybe<DataJsonProjects>>>;
   geisel?: Maybe<File>;
   courses?: Maybe<Array<Maybe<Scalars['String']>>>;
   work?: Maybe<Array<Maybe<DataJsonWork>>>;
+  titleEmojiLabel?: Maybe<Scalars['String']>;
 };
 
 export type DataJsonFamiliarSkills = {
@@ -1087,6 +1098,7 @@ export type DataJsonProjects = {
   title?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<Scalars['String']>>>;
   link?: Maybe<Scalars['String']>;
+  codeLink?: Maybe<Scalars['String']>;
   mobileTitle?: Maybe<Scalars['String']>;
 };
 
@@ -1425,9 +1437,11 @@ export enum FileFieldsEnum {
   ChildDataJsonFacesChildDataJsonFooter = 'childDataJson___faces___childDataJson___footer',
   ChildDataJsonFacesChildDataJsonNumSections = 'childDataJson___faces___childDataJson___numSections',
   ChildDataJsonFacesChildDataJsonFaces = 'childDataJson___faces___childDataJson___faces',
+  ChildDataJsonFacesChildDataJsonTitleEmoji = 'childDataJson___faces___childDataJson___titleEmoji',
   ChildDataJsonFacesChildDataJsonProjects = 'childDataJson___faces___childDataJson___projects',
   ChildDataJsonFacesChildDataJsonCourses = 'childDataJson___faces___childDataJson___courses',
   ChildDataJsonFacesChildDataJsonWork = 'childDataJson___faces___childDataJson___work',
+  ChildDataJsonFacesChildDataJsonTitleEmojiLabel = 'childDataJson___faces___childDataJson___titleEmojiLabel',
   ChildDataJsonFamiliarSkillsDescription = 'childDataJson___familiarSkills___description',
   ChildDataJsonFamiliarSkillsSkills = 'childDataJson___familiarSkills___skills',
   ChildDataJsonOtherSkillsDescription = 'childDataJson___otherSkills___description',
@@ -1494,13 +1508,17 @@ export enum FileFieldsEnum {
   ChildDataJsonResumeChildDataJsonFooter = 'childDataJson___resume___childDataJson___footer',
   ChildDataJsonResumeChildDataJsonNumSections = 'childDataJson___resume___childDataJson___numSections',
   ChildDataJsonResumeChildDataJsonFaces = 'childDataJson___resume___childDataJson___faces',
+  ChildDataJsonResumeChildDataJsonTitleEmoji = 'childDataJson___resume___childDataJson___titleEmoji',
   ChildDataJsonResumeChildDataJsonProjects = 'childDataJson___resume___childDataJson___projects',
   ChildDataJsonResumeChildDataJsonCourses = 'childDataJson___resume___childDataJson___courses',
   ChildDataJsonResumeChildDataJsonWork = 'childDataJson___resume___childDataJson___work',
+  ChildDataJsonResumeChildDataJsonTitleEmojiLabel = 'childDataJson___resume___childDataJson___titleEmojiLabel',
+  ChildDataJsonTitleEmoji = 'childDataJson___titleEmoji',
   ChildDataJsonProjects = 'childDataJson___projects',
   ChildDataJsonProjectsTitle = 'childDataJson___projects___title',
   ChildDataJsonProjectsContent = 'childDataJson___projects___content',
   ChildDataJsonProjectsLink = 'childDataJson___projects___link',
+  ChildDataJsonProjectsCodeLink = 'childDataJson___projects___codeLink',
   ChildDataJsonProjectsMobileTitle = 'childDataJson___projects___mobileTitle',
   ChildDataJsonGeiselSourceInstanceName = 'childDataJson___geisel___sourceInstanceName',
   ChildDataJsonGeiselAbsolutePath = 'childDataJson___geisel___absolutePath',
@@ -1564,15 +1582,18 @@ export enum FileFieldsEnum {
   ChildDataJsonGeiselChildDataJsonFooter = 'childDataJson___geisel___childDataJson___footer',
   ChildDataJsonGeiselChildDataJsonNumSections = 'childDataJson___geisel___childDataJson___numSections',
   ChildDataJsonGeiselChildDataJsonFaces = 'childDataJson___geisel___childDataJson___faces',
+  ChildDataJsonGeiselChildDataJsonTitleEmoji = 'childDataJson___geisel___childDataJson___titleEmoji',
   ChildDataJsonGeiselChildDataJsonProjects = 'childDataJson___geisel___childDataJson___projects',
   ChildDataJsonGeiselChildDataJsonCourses = 'childDataJson___geisel___childDataJson___courses',
   ChildDataJsonGeiselChildDataJsonWork = 'childDataJson___geisel___childDataJson___work',
+  ChildDataJsonGeiselChildDataJsonTitleEmojiLabel = 'childDataJson___geisel___childDataJson___titleEmojiLabel',
   ChildDataJsonCourses = 'childDataJson___courses',
   ChildDataJsonWork = 'childDataJson___work',
   ChildDataJsonWorkTitle = 'childDataJson___work___title',
   ChildDataJsonWorkDate = 'childDataJson___work___date',
   ChildDataJsonWorkContent = 'childDataJson___work___content',
-  ChildDataJsonWorkLink = 'childDataJson___work___link'
+  ChildDataJsonWorkLink = 'childDataJson___work___link',
+  ChildDataJsonTitleEmojiLabel = 'childDataJson___titleEmojiLabel'
 }
 
 export enum SortOrderEnum {
@@ -1952,8 +1973,9 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
-  pathToConfigModule?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  pathToConfigModule?: Maybe<StringQueryOperatorInput>;
   logo?: Maybe<StringQueryOperatorInput>;
   icons?: Maybe<SitePluginPluginOptionsIconsFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
@@ -2017,14 +2039,14 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
 };
 
 export type SitePlugin = Node & {
@@ -2046,8 +2068,9 @@ export type SitePlugin = Node & {
 
 export type SitePluginPluginOptions = {
   __typename?: 'SitePluginPluginOptions';
-  pathToConfigModule?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  pathToConfigModule?: Maybe<Scalars['String']>;
   logo?: Maybe<Scalars['String']>;
   icons?: Maybe<SitePluginPluginOptionsIcons>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -2103,14 +2126,14 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageSortInput = {
@@ -2124,6 +2147,83 @@ export enum SitePageFieldsEnum {
   InternalComponentName = 'internalComponentName',
   ComponentChunkName = 'componentChunkName',
   MatchPath = 'matchPath',
+  IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  PluginCreatorId = 'pluginCreator___id',
+  PluginCreatorParentId = 'pluginCreator___parent___id',
+  PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
+  PluginCreatorParentParentChildren = 'pluginCreator___parent___parent___children',
+  PluginCreatorParentChildren = 'pluginCreator___parent___children',
+  PluginCreatorParentChildrenId = 'pluginCreator___parent___children___id',
+  PluginCreatorParentChildrenChildren = 'pluginCreator___parent___children___children',
+  PluginCreatorParentInternalContent = 'pluginCreator___parent___internal___content',
+  PluginCreatorParentInternalContentDigest = 'pluginCreator___parent___internal___contentDigest',
+  PluginCreatorParentInternalDescription = 'pluginCreator___parent___internal___description',
+  PluginCreatorParentInternalFieldOwners = 'pluginCreator___parent___internal___fieldOwners',
+  PluginCreatorParentInternalIgnoreType = 'pluginCreator___parent___internal___ignoreType',
+  PluginCreatorParentInternalMediaType = 'pluginCreator___parent___internal___mediaType',
+  PluginCreatorParentInternalOwner = 'pluginCreator___parent___internal___owner',
+  PluginCreatorParentInternalType = 'pluginCreator___parent___internal___type',
+  PluginCreatorChildren = 'pluginCreator___children',
+  PluginCreatorChildrenId = 'pluginCreator___children___id',
+  PluginCreatorChildrenParentId = 'pluginCreator___children___parent___id',
+  PluginCreatorChildrenParentChildren = 'pluginCreator___children___parent___children',
+  PluginCreatorChildrenChildren = 'pluginCreator___children___children',
+  PluginCreatorChildrenChildrenId = 'pluginCreator___children___children___id',
+  PluginCreatorChildrenChildrenChildren = 'pluginCreator___children___children___children',
+  PluginCreatorChildrenInternalContent = 'pluginCreator___children___internal___content',
+  PluginCreatorChildrenInternalContentDigest = 'pluginCreator___children___internal___contentDigest',
+  PluginCreatorChildrenInternalDescription = 'pluginCreator___children___internal___description',
+  PluginCreatorChildrenInternalFieldOwners = 'pluginCreator___children___internal___fieldOwners',
+  PluginCreatorChildrenInternalIgnoreType = 'pluginCreator___children___internal___ignoreType',
+  PluginCreatorChildrenInternalMediaType = 'pluginCreator___children___internal___mediaType',
+  PluginCreatorChildrenInternalOwner = 'pluginCreator___children___internal___owner',
+  PluginCreatorChildrenInternalType = 'pluginCreator___children___internal___type',
+  PluginCreatorInternalContent = 'pluginCreator___internal___content',
+  PluginCreatorInternalContentDigest = 'pluginCreator___internal___contentDigest',
+  PluginCreatorInternalDescription = 'pluginCreator___internal___description',
+  PluginCreatorInternalFieldOwners = 'pluginCreator___internal___fieldOwners',
+  PluginCreatorInternalIgnoreType = 'pluginCreator___internal___ignoreType',
+  PluginCreatorInternalMediaType = 'pluginCreator___internal___mediaType',
+  PluginCreatorInternalOwner = 'pluginCreator___internal___owner',
+  PluginCreatorInternalType = 'pluginCreator___internal___type',
+  PluginCreatorResolve = 'pluginCreator___resolve',
+  PluginCreatorName = 'pluginCreator___name',
+  PluginCreatorVersion = 'pluginCreator___version',
+  PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
+  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
+  PluginCreatorPluginOptionsPathToConfigModule = 'pluginCreator___pluginOptions___pathToConfigModule',
+  PluginCreatorPluginOptionsLogo = 'pluginCreator___pluginOptions___logo',
+  PluginCreatorPluginOptionsIconsAndroid = 'pluginCreator___pluginOptions___icons___android',
+  PluginCreatorPluginOptionsIconsAppleIcon = 'pluginCreator___pluginOptions___icons___appleIcon',
+  PluginCreatorPluginOptionsIconsAppleStartup = 'pluginCreator___pluginOptions___icons___appleStartup',
+  PluginCreatorPluginOptionsIconsCoast = 'pluginCreator___pluginOptions___icons___coast',
+  PluginCreatorPluginOptionsIconsFavicons = 'pluginCreator___pluginOptions___icons___favicons',
+  PluginCreatorPluginOptionsIconsFirefox = 'pluginCreator___pluginOptions___icons___firefox',
+  PluginCreatorPluginOptionsIconsYandex = 'pluginCreator___pluginOptions___icons___yandex',
+  PluginCreatorPluginOptionsIconsWindows = 'pluginCreator___pluginOptions___icons___windows',
+  PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
+  PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
+  PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
+  PluginCreatorSsrApIs = 'pluginCreator___ssrAPIs',
+  PluginCreatorPluginFilepath = 'pluginCreator___pluginFilepath',
+  PluginCreatorPackageJsonName = 'pluginCreator___packageJson___name',
+  PluginCreatorPackageJsonDescription = 'pluginCreator___packageJson___description',
+  PluginCreatorPackageJsonVersion = 'pluginCreator___packageJson___version',
+  PluginCreatorPackageJsonMain = 'pluginCreator___packageJson___main',
+  PluginCreatorPackageJsonAuthor = 'pluginCreator___packageJson___author',
+  PluginCreatorPackageJsonLicense = 'pluginCreator___packageJson___license',
+  PluginCreatorPackageJsonDependencies = 'pluginCreator___packageJson___dependencies',
+  PluginCreatorPackageJsonDependenciesName = 'pluginCreator___packageJson___dependencies___name',
+  PluginCreatorPackageJsonDependenciesVersion = 'pluginCreator___packageJson___dependencies___version',
+  PluginCreatorPackageJsonDevDependencies = 'pluginCreator___packageJson___devDependencies',
+  PluginCreatorPackageJsonDevDependenciesName = 'pluginCreator___packageJson___devDependencies___name',
+  PluginCreatorPackageJsonDevDependenciesVersion = 'pluginCreator___packageJson___devDependencies___version',
+  PluginCreatorPackageJsonPeerDependencies = 'pluginCreator___packageJson___peerDependencies',
+  PluginCreatorPackageJsonPeerDependenciesName = 'pluginCreator___packageJson___peerDependencies___name',
+  PluginCreatorPackageJsonPeerDependenciesVersion = 'pluginCreator___packageJson___peerDependencies___version',
+  PluginCreatorPackageJsonKeywords = 'pluginCreator___packageJson___keywords',
+  PluginCreatorId = 'pluginCreatorId',
+  ComponentPath = 'componentPath',
   Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
@@ -2209,83 +2309,7 @@ export enum SitePageFieldsEnum {
   InternalIgnoreType = 'internal___ignoreType',
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
-  InternalType = 'internal___type',
-  IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-  PluginCreatorId = 'pluginCreator___id',
-  PluginCreatorParentId = 'pluginCreator___parent___id',
-  PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
-  PluginCreatorParentParentChildren = 'pluginCreator___parent___parent___children',
-  PluginCreatorParentChildren = 'pluginCreator___parent___children',
-  PluginCreatorParentChildrenId = 'pluginCreator___parent___children___id',
-  PluginCreatorParentChildrenChildren = 'pluginCreator___parent___children___children',
-  PluginCreatorParentInternalContent = 'pluginCreator___parent___internal___content',
-  PluginCreatorParentInternalContentDigest = 'pluginCreator___parent___internal___contentDigest',
-  PluginCreatorParentInternalDescription = 'pluginCreator___parent___internal___description',
-  PluginCreatorParentInternalFieldOwners = 'pluginCreator___parent___internal___fieldOwners',
-  PluginCreatorParentInternalIgnoreType = 'pluginCreator___parent___internal___ignoreType',
-  PluginCreatorParentInternalMediaType = 'pluginCreator___parent___internal___mediaType',
-  PluginCreatorParentInternalOwner = 'pluginCreator___parent___internal___owner',
-  PluginCreatorParentInternalType = 'pluginCreator___parent___internal___type',
-  PluginCreatorChildren = 'pluginCreator___children',
-  PluginCreatorChildrenId = 'pluginCreator___children___id',
-  PluginCreatorChildrenParentId = 'pluginCreator___children___parent___id',
-  PluginCreatorChildrenParentChildren = 'pluginCreator___children___parent___children',
-  PluginCreatorChildrenChildren = 'pluginCreator___children___children',
-  PluginCreatorChildrenChildrenId = 'pluginCreator___children___children___id',
-  PluginCreatorChildrenChildrenChildren = 'pluginCreator___children___children___children',
-  PluginCreatorChildrenInternalContent = 'pluginCreator___children___internal___content',
-  PluginCreatorChildrenInternalContentDigest = 'pluginCreator___children___internal___contentDigest',
-  PluginCreatorChildrenInternalDescription = 'pluginCreator___children___internal___description',
-  PluginCreatorChildrenInternalFieldOwners = 'pluginCreator___children___internal___fieldOwners',
-  PluginCreatorChildrenInternalIgnoreType = 'pluginCreator___children___internal___ignoreType',
-  PluginCreatorChildrenInternalMediaType = 'pluginCreator___children___internal___mediaType',
-  PluginCreatorChildrenInternalOwner = 'pluginCreator___children___internal___owner',
-  PluginCreatorChildrenInternalType = 'pluginCreator___children___internal___type',
-  PluginCreatorInternalContent = 'pluginCreator___internal___content',
-  PluginCreatorInternalContentDigest = 'pluginCreator___internal___contentDigest',
-  PluginCreatorInternalDescription = 'pluginCreator___internal___description',
-  PluginCreatorInternalFieldOwners = 'pluginCreator___internal___fieldOwners',
-  PluginCreatorInternalIgnoreType = 'pluginCreator___internal___ignoreType',
-  PluginCreatorInternalMediaType = 'pluginCreator___internal___mediaType',
-  PluginCreatorInternalOwner = 'pluginCreator___internal___owner',
-  PluginCreatorInternalType = 'pluginCreator___internal___type',
-  PluginCreatorResolve = 'pluginCreator___resolve',
-  PluginCreatorName = 'pluginCreator___name',
-  PluginCreatorVersion = 'pluginCreator___version',
-  PluginCreatorPluginOptionsPathToConfigModule = 'pluginCreator___pluginOptions___pathToConfigModule',
-  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
-  PluginCreatorPluginOptionsLogo = 'pluginCreator___pluginOptions___logo',
-  PluginCreatorPluginOptionsIconsAndroid = 'pluginCreator___pluginOptions___icons___android',
-  PluginCreatorPluginOptionsIconsAppleIcon = 'pluginCreator___pluginOptions___icons___appleIcon',
-  PluginCreatorPluginOptionsIconsAppleStartup = 'pluginCreator___pluginOptions___icons___appleStartup',
-  PluginCreatorPluginOptionsIconsCoast = 'pluginCreator___pluginOptions___icons___coast',
-  PluginCreatorPluginOptionsIconsFavicons = 'pluginCreator___pluginOptions___icons___favicons',
-  PluginCreatorPluginOptionsIconsFirefox = 'pluginCreator___pluginOptions___icons___firefox',
-  PluginCreatorPluginOptionsIconsYandex = 'pluginCreator___pluginOptions___icons___yandex',
-  PluginCreatorPluginOptionsIconsWindows = 'pluginCreator___pluginOptions___icons___windows',
-  PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
-  PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
-  PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
-  PluginCreatorSsrApIs = 'pluginCreator___ssrAPIs',
-  PluginCreatorPluginFilepath = 'pluginCreator___pluginFilepath',
-  PluginCreatorPackageJsonName = 'pluginCreator___packageJson___name',
-  PluginCreatorPackageJsonDescription = 'pluginCreator___packageJson___description',
-  PluginCreatorPackageJsonVersion = 'pluginCreator___packageJson___version',
-  PluginCreatorPackageJsonMain = 'pluginCreator___packageJson___main',
-  PluginCreatorPackageJsonAuthor = 'pluginCreator___packageJson___author',
-  PluginCreatorPackageJsonLicense = 'pluginCreator___packageJson___license',
-  PluginCreatorPackageJsonDependencies = 'pluginCreator___packageJson___dependencies',
-  PluginCreatorPackageJsonDependenciesName = 'pluginCreator___packageJson___dependencies___name',
-  PluginCreatorPackageJsonDependenciesVersion = 'pluginCreator___packageJson___dependencies___version',
-  PluginCreatorPackageJsonDevDependencies = 'pluginCreator___packageJson___devDependencies',
-  PluginCreatorPackageJsonDevDependenciesName = 'pluginCreator___packageJson___devDependencies___name',
-  PluginCreatorPackageJsonDevDependenciesVersion = 'pluginCreator___packageJson___devDependencies___version',
-  PluginCreatorPackageJsonPeerDependencies = 'pluginCreator___packageJson___peerDependencies',
-  PluginCreatorPackageJsonPeerDependenciesName = 'pluginCreator___packageJson___peerDependencies___name',
-  PluginCreatorPackageJsonPeerDependenciesVersion = 'pluginCreator___packageJson___peerDependencies___version',
-  PluginCreatorPackageJsonKeywords = 'pluginCreator___packageJson___keywords',
-  PluginCreatorId = 'pluginCreatorId',
-  ComponentPath = 'componentPath'
+  InternalType = 'internal___type'
 }
 
 export type SitePageConnection = {
@@ -2994,10 +3018,12 @@ export enum IntroJsonFieldsEnum {
   FacesChildDataJsonResumePublicUrl = 'faces___childDataJson___resume___publicURL',
   FacesChildDataJsonResumeId = 'faces___childDataJson___resume___id',
   FacesChildDataJsonResumeChildren = 'faces___childDataJson___resume___children',
+  FacesChildDataJsonTitleEmoji = 'faces___childDataJson___titleEmoji',
   FacesChildDataJsonProjects = 'faces___childDataJson___projects',
   FacesChildDataJsonProjectsTitle = 'faces___childDataJson___projects___title',
   FacesChildDataJsonProjectsContent = 'faces___childDataJson___projects___content',
   FacesChildDataJsonProjectsLink = 'faces___childDataJson___projects___link',
+  FacesChildDataJsonProjectsCodeLink = 'faces___childDataJson___projects___codeLink',
   FacesChildDataJsonProjectsMobileTitle = 'faces___childDataJson___projects___mobileTitle',
   FacesChildDataJsonGeiselSourceInstanceName = 'faces___childDataJson___geisel___sourceInstanceName',
   FacesChildDataJsonGeiselAbsolutePath = 'faces___childDataJson___geisel___absolutePath',
@@ -3041,6 +3067,7 @@ export enum IntroJsonFieldsEnum {
   FacesChildDataJsonWorkDate = 'faces___childDataJson___work___date',
   FacesChildDataJsonWorkContent = 'faces___childDataJson___work___content',
   FacesChildDataJsonWorkLink = 'faces___childDataJson___work___link',
+  FacesChildDataJsonTitleEmojiLabel = 'faces___childDataJson___titleEmojiLabel',
   FamiliarSkillsDescription = 'familiarSkills___description',
   FamiliarSkillsSkills = 'familiarSkills___skills',
   OtherSkillsDescription = 'otherSkills___description',
@@ -3285,10 +3312,12 @@ export enum IntroJsonFieldsEnum {
   ResumeChildDataJsonResumePublicUrl = 'resume___childDataJson___resume___publicURL',
   ResumeChildDataJsonResumeId = 'resume___childDataJson___resume___id',
   ResumeChildDataJsonResumeChildren = 'resume___childDataJson___resume___children',
+  ResumeChildDataJsonTitleEmoji = 'resume___childDataJson___titleEmoji',
   ResumeChildDataJsonProjects = 'resume___childDataJson___projects',
   ResumeChildDataJsonProjectsTitle = 'resume___childDataJson___projects___title',
   ResumeChildDataJsonProjectsContent = 'resume___childDataJson___projects___content',
   ResumeChildDataJsonProjectsLink = 'resume___childDataJson___projects___link',
+  ResumeChildDataJsonProjectsCodeLink = 'resume___childDataJson___projects___codeLink',
   ResumeChildDataJsonProjectsMobileTitle = 'resume___childDataJson___projects___mobileTitle',
   ResumeChildDataJsonGeiselSourceInstanceName = 'resume___childDataJson___geisel___sourceInstanceName',
   ResumeChildDataJsonGeiselAbsolutePath = 'resume___childDataJson___geisel___absolutePath',
@@ -3332,6 +3361,7 @@ export enum IntroJsonFieldsEnum {
   ResumeChildDataJsonWorkDate = 'resume___childDataJson___work___date',
   ResumeChildDataJsonWorkContent = 'resume___childDataJson___work___content',
   ResumeChildDataJsonWorkLink = 'resume___childDataJson___work___link',
+  ResumeChildDataJsonTitleEmojiLabel = 'resume___childDataJson___titleEmojiLabel',
   NumSections = 'numSections',
   Id = 'id',
   ParentId = 'parent___id',
@@ -3463,6 +3493,8 @@ export type IntroJsonGroupConnection = {
 export type SchoolJson = Node & {
   __typename?: 'SchoolJson';
   title: Scalars['String'];
+  titleEmoji: Scalars['String'];
+  titleEmojiLabel: Scalars['String'];
   content: Array<Scalars['String']>;
   geisel: File;
   courses: Array<Scalars['String']>;
@@ -3475,6 +3507,8 @@ export type SchoolJson = Node & {
 
 export type SchoolJsonFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
   geisel?: Maybe<FileFilterInput>;
   courses?: Maybe<StringQueryOperatorInput>;
@@ -3492,6 +3526,8 @@ export type SchoolJsonSortInput = {
 
 export enum SchoolJsonFieldsEnum {
   Title = 'title',
+  TitleEmoji = 'titleEmoji',
+  TitleEmojiLabel = 'titleEmojiLabel',
   Content = 'content',
   GeiselSourceInstanceName = 'geisel___sourceInstanceName',
   GeiselAbsolutePath = 'geisel___absolutePath',
@@ -3732,10 +3768,12 @@ export enum SchoolJsonFieldsEnum {
   GeiselChildDataJsonResumePublicUrl = 'geisel___childDataJson___resume___publicURL',
   GeiselChildDataJsonResumeId = 'geisel___childDataJson___resume___id',
   GeiselChildDataJsonResumeChildren = 'geisel___childDataJson___resume___children',
+  GeiselChildDataJsonTitleEmoji = 'geisel___childDataJson___titleEmoji',
   GeiselChildDataJsonProjects = 'geisel___childDataJson___projects',
   GeiselChildDataJsonProjectsTitle = 'geisel___childDataJson___projects___title',
   GeiselChildDataJsonProjectsContent = 'geisel___childDataJson___projects___content',
   GeiselChildDataJsonProjectsLink = 'geisel___childDataJson___projects___link',
+  GeiselChildDataJsonProjectsCodeLink = 'geisel___childDataJson___projects___codeLink',
   GeiselChildDataJsonProjectsMobileTitle = 'geisel___childDataJson___projects___mobileTitle',
   GeiselChildDataJsonGeiselSourceInstanceName = 'geisel___childDataJson___geisel___sourceInstanceName',
   GeiselChildDataJsonGeiselAbsolutePath = 'geisel___childDataJson___geisel___absolutePath',
@@ -3779,6 +3817,7 @@ export enum SchoolJsonFieldsEnum {
   GeiselChildDataJsonWorkDate = 'geisel___childDataJson___work___date',
   GeiselChildDataJsonWorkContent = 'geisel___childDataJson___work___content',
   GeiselChildDataJsonWorkLink = 'geisel___childDataJson___work___link',
+  GeiselChildDataJsonTitleEmojiLabel = 'geisel___childDataJson___titleEmojiLabel',
   Courses = 'courses',
   NumSections = 'numSections',
   Id = 'id',
@@ -4097,9 +4136,12 @@ export type ProjectFilterListInput = {
 
 export type ProjectFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
   mobileTitle?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
   link?: Maybe<StringQueryOperatorInput>;
+  codeLink?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ProjectsJson = Node & {
@@ -4117,9 +4159,12 @@ export type ProjectsJson = Node & {
 export type Project = {
   __typename?: 'Project';
   title: Scalars['String'];
+  titleEmoji: Scalars['String'];
+  titleEmojiLabel: Scalars['String'];
   mobileTitle?: Maybe<Scalars['String']>;
   content: Array<Scalars['String']>;
-  link: Scalars['String'];
+  link?: Maybe<Scalars['String']>;
+  codeLink?: Maybe<Scalars['String']>;
 };
 
 export type ProjectsJsonFilterInput = {
@@ -4143,9 +4188,12 @@ export enum ProjectsJsonFieldsEnum {
   Content = 'content',
   Projects = 'projects',
   ProjectsTitle = 'projects___title',
+  ProjectsTitleEmoji = 'projects___titleEmoji',
+  ProjectsTitleEmojiLabel = 'projects___titleEmojiLabel',
   ProjectsMobileTitle = 'projects___mobileTitle',
   ProjectsContent = 'projects___content',
   ProjectsLink = 'projects___link',
+  ProjectsCodeLink = 'projects___codeLink',
   NumSections = 'numSections',
   Id = 'id',
   ParentId = 'parent___id',
@@ -4277,6 +4325,8 @@ export type ProjectsJsonGroupConnection = {
 export type ContactJson = Node & {
   __typename?: 'ContactJson';
   title: Scalars['String'];
+  titleEmoji: Scalars['String'];
+  titleEmojiLabel: Scalars['String'];
   content: Array<Scalars['String']>;
   linkedIn: Scalars['String'];
   instagram: Scalars['String'];
@@ -4291,6 +4341,8 @@ export type ContactJson = Node & {
 
 export type ContactJsonFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
+  titleEmoji?: Maybe<StringQueryOperatorInput>;
+  titleEmojiLabel?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
   linkedIn?: Maybe<StringQueryOperatorInput>;
   instagram?: Maybe<StringQueryOperatorInput>;
@@ -4310,6 +4362,8 @@ export type ContactJsonSortInput = {
 
 export enum ContactJsonFieldsEnum {
   Title = 'title',
+  TitleEmoji = 'titleEmoji',
+  TitleEmojiLabel = 'titleEmojiLabel',
   Content = 'content',
   LinkedIn = 'linkedIn',
   Instagram = 'instagram',
@@ -4784,10 +4838,12 @@ export enum DataJsonFieldsEnum {
   FacesChildDataJsonResumePublicUrl = 'faces___childDataJson___resume___publicURL',
   FacesChildDataJsonResumeId = 'faces___childDataJson___resume___id',
   FacesChildDataJsonResumeChildren = 'faces___childDataJson___resume___children',
+  FacesChildDataJsonTitleEmoji = 'faces___childDataJson___titleEmoji',
   FacesChildDataJsonProjects = 'faces___childDataJson___projects',
   FacesChildDataJsonProjectsTitle = 'faces___childDataJson___projects___title',
   FacesChildDataJsonProjectsContent = 'faces___childDataJson___projects___content',
   FacesChildDataJsonProjectsLink = 'faces___childDataJson___projects___link',
+  FacesChildDataJsonProjectsCodeLink = 'faces___childDataJson___projects___codeLink',
   FacesChildDataJsonProjectsMobileTitle = 'faces___childDataJson___projects___mobileTitle',
   FacesChildDataJsonGeiselSourceInstanceName = 'faces___childDataJson___geisel___sourceInstanceName',
   FacesChildDataJsonGeiselAbsolutePath = 'faces___childDataJson___geisel___absolutePath',
@@ -4831,6 +4887,7 @@ export enum DataJsonFieldsEnum {
   FacesChildDataJsonWorkDate = 'faces___childDataJson___work___date',
   FacesChildDataJsonWorkContent = 'faces___childDataJson___work___content',
   FacesChildDataJsonWorkLink = 'faces___childDataJson___work___link',
+  FacesChildDataJsonTitleEmojiLabel = 'faces___childDataJson___titleEmojiLabel',
   FamiliarSkillsDescription = 'familiarSkills___description',
   FamiliarSkillsSkills = 'familiarSkills___skills',
   OtherSkillsDescription = 'otherSkills___description',
@@ -5074,10 +5131,12 @@ export enum DataJsonFieldsEnum {
   ResumeChildDataJsonResumePublicUrl = 'resume___childDataJson___resume___publicURL',
   ResumeChildDataJsonResumeId = 'resume___childDataJson___resume___id',
   ResumeChildDataJsonResumeChildren = 'resume___childDataJson___resume___children',
+  ResumeChildDataJsonTitleEmoji = 'resume___childDataJson___titleEmoji',
   ResumeChildDataJsonProjects = 'resume___childDataJson___projects',
   ResumeChildDataJsonProjectsTitle = 'resume___childDataJson___projects___title',
   ResumeChildDataJsonProjectsContent = 'resume___childDataJson___projects___content',
   ResumeChildDataJsonProjectsLink = 'resume___childDataJson___projects___link',
+  ResumeChildDataJsonProjectsCodeLink = 'resume___childDataJson___projects___codeLink',
   ResumeChildDataJsonProjectsMobileTitle = 'resume___childDataJson___projects___mobileTitle',
   ResumeChildDataJsonGeiselSourceInstanceName = 'resume___childDataJson___geisel___sourceInstanceName',
   ResumeChildDataJsonGeiselAbsolutePath = 'resume___childDataJson___geisel___absolutePath',
@@ -5121,10 +5180,13 @@ export enum DataJsonFieldsEnum {
   ResumeChildDataJsonWorkDate = 'resume___childDataJson___work___date',
   ResumeChildDataJsonWorkContent = 'resume___childDataJson___work___content',
   ResumeChildDataJsonWorkLink = 'resume___childDataJson___work___link',
+  ResumeChildDataJsonTitleEmojiLabel = 'resume___childDataJson___titleEmojiLabel',
+  TitleEmoji = 'titleEmoji',
   Projects = 'projects',
   ProjectsTitle = 'projects___title',
   ProjectsContent = 'projects___content',
   ProjectsLink = 'projects___link',
+  ProjectsCodeLink = 'projects___codeLink',
   ProjectsMobileTitle = 'projects___mobileTitle',
   GeiselSourceInstanceName = 'geisel___sourceInstanceName',
   GeiselAbsolutePath = 'geisel___absolutePath',
@@ -5365,10 +5427,12 @@ export enum DataJsonFieldsEnum {
   GeiselChildDataJsonResumePublicUrl = 'geisel___childDataJson___resume___publicURL',
   GeiselChildDataJsonResumeId = 'geisel___childDataJson___resume___id',
   GeiselChildDataJsonResumeChildren = 'geisel___childDataJson___resume___children',
+  GeiselChildDataJsonTitleEmoji = 'geisel___childDataJson___titleEmoji',
   GeiselChildDataJsonProjects = 'geisel___childDataJson___projects',
   GeiselChildDataJsonProjectsTitle = 'geisel___childDataJson___projects___title',
   GeiselChildDataJsonProjectsContent = 'geisel___childDataJson___projects___content',
   GeiselChildDataJsonProjectsLink = 'geisel___childDataJson___projects___link',
+  GeiselChildDataJsonProjectsCodeLink = 'geisel___childDataJson___projects___codeLink',
   GeiselChildDataJsonProjectsMobileTitle = 'geisel___childDataJson___projects___mobileTitle',
   GeiselChildDataJsonGeiselSourceInstanceName = 'geisel___childDataJson___geisel___sourceInstanceName',
   GeiselChildDataJsonGeiselAbsolutePath = 'geisel___childDataJson___geisel___absolutePath',
@@ -5412,12 +5476,14 @@ export enum DataJsonFieldsEnum {
   GeiselChildDataJsonWorkDate = 'geisel___childDataJson___work___date',
   GeiselChildDataJsonWorkContent = 'geisel___childDataJson___work___content',
   GeiselChildDataJsonWorkLink = 'geisel___childDataJson___work___link',
+  GeiselChildDataJsonTitleEmojiLabel = 'geisel___childDataJson___titleEmojiLabel',
   Courses = 'courses',
   Work = 'work',
   WorkTitle = 'work___title',
   WorkDate = 'work___date',
   WorkContent = 'work___content',
-  WorkLink = 'work___link'
+  WorkLink = 'work___link',
+  TitleEmojiLabel = 'titleEmojiLabel'
 }
 
 export type DataJsonConnection = {
@@ -5713,8 +5779,9 @@ export enum SitePluginFieldsEnum {
   Resolve = 'resolve',
   Name = 'name',
   Version = 'version',
-  PluginOptionsPathToConfigModule = 'pluginOptions___pathToConfigModule',
+  PluginOptionsName = 'pluginOptions___name',
   PluginOptionsPath = 'pluginOptions___path',
+  PluginOptionsPathToConfigModule = 'pluginOptions___pathToConfigModule',
   PluginOptionsLogo = 'pluginOptions___logo',
   PluginOptionsIconsAndroid = 'pluginOptions___icons___android',
   PluginOptionsIconsAppleIcon = 'pluginOptions___icons___appleIcon',

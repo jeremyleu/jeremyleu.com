@@ -25,6 +25,8 @@ exports.sourceNodes = ({ actions }) => {
     }
     type SchoolJson implements Node {
       title: String!
+      titleEmoji: String!
+      titleEmojiLabel: String!
       content: [String!]!
       geisel: File!
       courses: [String!]!
@@ -44,9 +46,12 @@ exports.sourceNodes = ({ actions }) => {
     }
     type Project {
       title: String!
+      titleEmoji: String!
+      titleEmojiLabel: String!
       mobileTitle: String
       content: [String!]!
-      link: String!
+      link: String
+      codeLink: String
     }
     type ProjectsJson implements Node {
       title: String!
@@ -56,6 +61,8 @@ exports.sourceNodes = ({ actions }) => {
     }
     type ContactJson implements Node {
       title: String!
+      titleEmoji: String!
+      titleEmojiLabel: String!
       content: [String!]!
       linkedIn: String!
       instagram: String!
