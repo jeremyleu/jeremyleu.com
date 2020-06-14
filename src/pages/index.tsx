@@ -20,8 +20,8 @@ import { Direction } from '../utils';
 
 const pages = [
   { key: 'intro', Component: Intro },
-  { key: 'school', Component: School },
   { key: 'work', Component: Work },
+  { key: 'school', Component: School },
   { key: 'projects', Component: Projects },
   { key: 'contact', Component: Contact },
 ];
@@ -95,7 +95,7 @@ const IndexPage = () => {
   data.allDataJson.nodes.forEach(
     ({ key, numSections }: { key: string; numSections: number }) => {
       orderedNumSections[
-        pages.findIndex(pageObj => pageObj.key === key)
+        pages.findIndex((pageObj) => pageObj.key === key)
       ] = numSections;
     }
   );
@@ -114,7 +114,7 @@ const IndexPage = () => {
   const prevPageExists = currentPageIdx > 0;
 
   const goToPrevPage = React.useCallback(() => {
-    setCurrentPageIdx(oldPageIdx => {
+    setCurrentPageIdx((oldPageIdx) => {
       if (oldPageIdx === 0) return oldPageIdx;
       setPrevPageIdx(oldPageIdx);
       return oldPageIdx - 1;
@@ -122,7 +122,7 @@ const IndexPage = () => {
   }, []);
 
   const goToNextPage = React.useCallback(() => {
-    setCurrentPageIdx(oldPageIdx => {
+    setCurrentPageIdx((oldPageIdx) => {
       if (oldPageIdx === pages.length - 1) return oldPageIdx;
       setPrevPageIdx(oldPageIdx);
       return oldPageIdx + 1;

@@ -35,8 +35,6 @@ interface WorkData {
   dataJson: WorkJson;
 }
 
-// interface WorkinfoTemplateProps {}
-
 interface WorkProps {
   currentSectionIdx: number;
   prevSectionIdx: number;
