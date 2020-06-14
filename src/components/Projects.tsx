@@ -58,13 +58,15 @@ const ProjectInfoTemplate = ({ project }: { project: Project }) => (
         </LaunchButtonAnchor>
       )}
       {project.codeLink && (
-        <LaunchButtonAnchor
-          href={project.codeLink}
-          target="_blank"
-          rel="noopener"
-        >
-          <Button>View code</Button>
-        </LaunchButtonAnchor>
+        <HideOnMobile>
+          <LaunchButtonAnchor
+            href={project.codeLink}
+            target="_blank"
+            rel="noopener"
+          >
+            <Button>View code</Button>
+          </LaunchButtonAnchor>
+        </HideOnMobile>
       )}
     </SmallTitle>
     <FlexSection marginTop={30} column={true} small={true}>
