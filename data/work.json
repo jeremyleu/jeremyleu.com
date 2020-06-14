@@ -2,9 +2,27 @@
   "key": "work",
   "title": "Work",
   "content": [
-    "I worked at <a href=\"https://leetcode.com/\" target=\"_blank\">LeetCode</a> as a full-stack software engineer from November 2017 to April 2019.",
-    "LeetCode is a web application designed to help software engineers prepare for technical interviews and land their dream jobs. As <a href=\"https://www.reddit.com/r/leetcode/comments/bcfp33/leetcode_is_like_gym_for_your_brain_agreedisagree/\" target=\"_blank\">one redditor put it</a>, \"LeetCode is like gym for your brain.\""
+    "I've been lucky to work on some high-impact projects in dynamic companies."
   ],
-  "leetCodeLogo": "./images/LeetCode_logo.png",
-  "numSections": 0
+  "work": [
+    {
+      "title": "Rubrik",
+      "date": "May 2019 - present",
+      "content": [
+        "I'm currently a software engineer at Rubrik, working on the data classification product <a href=\"https://www.rubrik.com/en/solutions/sonar-data-governance\" target=\"_blank\">Sonar</a>.",
+        "Most of my work there has been on Polaris UI, working on a React/Typescript/Apollo GraphQL stack, but I've also had the opportunity to dive deeper in the stack as well as triage customer issues."
+      ],
+      "link": "https://www.rubrik.com/"
+    },
+    {
+      "title": "LeetCode",
+      "date": "November 2017 - April 2019",
+      "content": [
+        "I worked at <a href=\"https://leetcode.com/\" target=\"_blank\">LeetCode</a> as a full-stack software engineer from November 2017 to April 2019.",
+        "LeetCode is a web application designed to help software engineers prepare for technical interviews and land their dream jobs. As <a href=\"https://www.reddit.com/r/leetcode/comments/bcfp33/leetcode_is_like_gym_for_your_brain_agreedisagree/\" target=\"_blank\">one redditor put it</a>, \"LeetCode is like gym for your brain.\""
+      ],
+      "link": "https://www.leetcode.com"
+    }
+  ],
+  "numSections": 2
 }

@@ -66,6 +66,7 @@ interface FlexSectionProps {
   marginTop: number;
   column?: boolean;
   small?: boolean;
+  italic?: boolean;
 }
 
 export const FlexSection = styled('div')<FlexSectionProps>`
@@ -77,6 +78,8 @@ export const FlexSection = styled('div')<FlexSectionProps>`
   display: flex;
   flex-direction: ${({ column }: FlexSectionProps) =>
     column ? 'column' : 'row'};
+  font-style: ${({ italic }: FlexSectionProps) =>
+    italic ? 'italic' : 'normal'};
 `;
 
 export const ResponsiveFlexSection = styled(FlexSection)`

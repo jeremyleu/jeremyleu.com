@@ -57,11 +57,13 @@ interface MyFaceProps {
 export const MyFace = styled('div')<MyFaceProps>(
   ({ status }: MyFaceProps) => `
     display: ${status === EXITED || status === EXITING ? 'none' : 'block'};
+    position: relative;
   `
 );
 
 export const MyRisingFace = styled('div')`
   animation: ${rise} 2s ease-in-out forwards;
+  position: relative;
 `;
 
 export const ScoreContainer = styled(Container)`

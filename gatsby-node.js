@@ -30,10 +30,16 @@ exports.sourceNodes = ({ actions }) => {
       courses: [String!]!
       numSections: Int!
     }
+    type Job {
+      title: String!
+      date: String!
+      content: [String!]!
+      link: String!
+    }
     type WorkJson implements Node {
       title: String!
       content: [String!]!
-      leetCodeLogo: File!
+      work: [Job!]!
       numSections: Int!
     }
     type Project {

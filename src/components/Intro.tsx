@@ -1,3 +1,6 @@
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
@@ -68,6 +71,8 @@ const query = graphql`
     }
   }
 `;
+
+const NUM_FACES = 3;
 
 const IntroSectionTemplate = ({ introData }: { introData: IntroJson }) => (
   <FlexColumnContainer>
@@ -141,19 +146,45 @@ const IntroWithData = ({
               <MyFaceContainer status={status} onClick={addScore}>
                 {status === ENTERING ? (
                   <MyRisingFace>
-                    <Image
-                      fixed={
-                        introData.faces[face].childImageSharp!.fixed! as any
-                      }
-                    />
+                    {Array(NUM_FACES)
+                      .fill(null)
+                      .map((_, idx) => (
+                        <Image
+                          key={idx}
+                          fixed={
+                            introData.faces[idx].childImageSharp!.fixed! as any
+                          }
+                          css={{
+                            position: 'absolute !important' as any,
+                            top: 0,
+                            left: 0,
+                            opacity: idx === face ? 1 : 0,
+                            transition: 'opacity 0.2s ease-in-out',
+                          }}
+                          loading="eager"
+                        />
+                      ))}
                   </MyRisingFace>
                 ) : (
                   <MyFace status={status}>
-                    <Image
-                      fixed={
-                        introData.faces[face].childImageSharp!.fixed! as any
-                      }
-                    />
+                    {Array(NUM_FACES)
+                      .fill(null)
+                      .map((_, idx) => (
+                        <Image
+                          key={idx}
+                          fixed={
+                            introData.faces[idx].childImageSharp!.fixed! as any
+                          }
+                          css={{
+                            position: 'absolute !important' as any,
+                            top: 0,
+                            left: 0,
+                            opacity: idx === face ? 1 : 0,
+                            transition: 'opacity 0.2s ease-in-out',
+                          }}
+                          loading="eager"
+                        />
+                      ))}
                   </MyFace>
                 )}
               </MyFaceContainer>
