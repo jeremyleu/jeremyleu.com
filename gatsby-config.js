@@ -3,6 +3,13 @@ module.exports = {
     title: 'jeremyleu.com',
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data/`,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-typography`,
@@ -24,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./src/favicon.png",
+        logo: './src/favicon.png',
         icons: {
           android: true,
           appleIcon: true,
@@ -33,9 +40,9 @@ module.exports = {
           favicons: true,
           firefox: true,
           yandex: true,
-          windows: true
-        }
-      }
-    }
+          windows: true,
+        },
+      },
+    },
   ],
 };
