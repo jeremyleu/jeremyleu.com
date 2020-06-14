@@ -15,7 +15,7 @@ export const HideOnMobile = styled('span')`
   display: none;
 
   ${mq[1]} {
-    display: inline;
+    display: inline-flex;
   }
 `;
 
