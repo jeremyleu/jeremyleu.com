@@ -23,7 +23,7 @@
   },
   "otherSkills": {
     "description": "I've also worked with:",
-    "skills": ["Python + Django", "Java", "node.js", "SQL", "MongoDB"]
+    "skills": ["Python", "Django", "Flask", "node.js", "SQL"]
   },
   "footer": "I'm always looking to learn more!",
   "resume": "./Jeremy_Leu_Resume.pdf",

@@ -90,7 +90,10 @@ const School = ({
         <FlexSection marginTop={20}>
           <div dangerouslySetInnerHTML={{ __html: data.dataJson.content[0] }} />
           <Geisel>
-            <Image fixed={data.dataJson.geisel.childImageSharp!.fixed} />
+            <Image
+              fixed={data.dataJson.geisel.childImageSharp!.fixed as any}
+              loading="eager"
+            />
           </Geisel>
         </FlexSection>
         <FlexSection marginTop={10}>
