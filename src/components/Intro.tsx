@@ -9,7 +9,6 @@ import {
   MyFaceContainer,
   ScoreContainer,
   ButtonContainer,
-  ResumeAnchor,
   MyRisingFace,
 } from './Intro.styles';
 import {
@@ -111,7 +110,7 @@ const IntroWithData = ({
     if (isGold) {
       pointsGained *= 3;
     }
-    setScore(prevScore => prevScore + pointsGained);
+    setScore((prevScore) => prevScore + pointsGained);
     setPoints(pointsGained);
     setIsGold(false);
     setTimeout(() => {
@@ -125,7 +124,7 @@ const IntroWithData = ({
   let face = 0;
 
   if (isMoving) {
-    face = isGold ? 3 : 1;
+    face = isGold ? 2 : 1;
   } else {
     face = isGold ? 2 : 0;
   }
@@ -143,13 +142,17 @@ const IntroWithData = ({
                 {status === ENTERING ? (
                   <MyRisingFace>
                     <Image
-                      fixed={introData.faces[face].childImageSharp!.fixed!}
+                      fixed={
+                        introData.faces[face].childImageSharp!.fixed! as any
+                      }
                     />
                   </MyRisingFace>
                 ) : (
                   <MyFace status={status}>
                     <Image
-                      fixed={introData.faces[face].childImageSharp!.fixed!}
+                      fixed={
+                        introData.faces[face].childImageSharp!.fixed! as any
+                      }
                     />
                   </MyFace>
                 )}
