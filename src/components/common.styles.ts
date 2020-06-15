@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { vmq, mq } from '../utils/constants';
+import { notMobileMq } from '../utils/constants';
 
 interface SectionProps {
   mobilePaddingBottom?: number;
@@ -13,7 +13,7 @@ export const Section = styled('section')<SectionProps>`
     20px;
   flex-direction: column;
 
-  ${mq[1]} {
+  ${notMobileMq} {
     width: 770px;
     padding: 20px;
   }
@@ -47,7 +47,7 @@ export const EqualFlexColumn = styled('div')`
   flex: 1 1 0;
   &:not(:first-of-type) {
     margin-top: 20px;
-    ${mq[1]} {
+    ${notMobileMq} {
       margin-top: 0;
       margin-left: 20px;
     }
@@ -70,10 +70,7 @@ interface FlexSectionProps {
 }
 
 export const FlexSection = styled('div')<FlexSectionProps>`
-  margin-top: ${(props: FlexSectionProps) => props.marginTop / 2}px;
-  ${vmq[0]} {
-    margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
-  }
+  margin-top: ${(props: FlexSectionProps) => props.marginTop}px;
   font-size: ${(props: FlexSectionProps) => (props.small ? '1.2em' : '1.6em')};
   display: flex;
   flex-direction: ${({ column }: FlexSectionProps) =>
@@ -84,7 +81,7 @@ export const FlexSection = styled('div')<FlexSectionProps>`
 
 export const ResponsiveFlexSection = styled(FlexSection)`
   flex-direction: column;
-  ${mq[1]} {
+  ${notMobileMq} {
     flex-direction: row;
   }
 `;
@@ -105,7 +102,7 @@ export const Title = styled('header')<TitleProps>`
   align-items: center;
   margin-top: ${(props: TitleProps) => props.marginTop || 0}px;
 
-  ${mq[1]} {
+  ${notMobileMq} {
     font-size: 3.6em;
     justify-content: flex-start;
   }
@@ -117,7 +114,7 @@ export const TitleEmoji = styled('span')`
 
 export const BigTitle = styled(Title)`
   font-size: 3.4em;
-  ${mq[1]} {
+  ${notMobileMq} {
     font-size: 4.8em;
   }
 `;
@@ -125,7 +122,7 @@ export const BigTitle = styled(Title)`
 export const SmallTitle = styled(Title)`
   font-size: 2em;
 
-  ${mq[1]} {
+  ${notMobileMq} {
     font-size: 2.4em;
   }
 `;

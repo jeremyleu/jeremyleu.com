@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { mq, vmq } from '../utils/constants';
+import { vmq, notMobileMq } from '../utils/constants';
 
 export const Main = styled('main')`
-  ${mq[1]} {
+  ${notMobileMq} {
     position: absolute;
     left: 0;
     top: 0;
@@ -21,10 +21,10 @@ export const globalStyles = css`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
       'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
       sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    ${mq[1]} {
+    ${notMobileMq} {
       overflow: hidden;
     }
-    ${vmq[0]} {
+    ${vmq[1]} {
       font-size: 0.8em;
     }
   }

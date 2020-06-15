@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
-import { mq } from '../utils';
+import { notMobileMq } from '../utils';
 
 export const Geisel = styled('div')`
   display: none;
-  ${mq[1]} {
+  ${notMobileMq} {
     display: inline;
     margin-left: 20px;
     flex: 0 0 180px;

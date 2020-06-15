@@ -12,11 +12,13 @@ const ExpandableSection = ({
   currentSectionIdx,
   prevSectionIdx,
   setIsMoving,
+  height,
 }: {
   sections: Array<React.ReactNode>;
   prevSectionIdx: number;
   currentSectionIdx: number;
   setIsMoving?: React.Dispatch<React.SetStateAction<boolean>>;
+  height?: number;
 }) => {
   const expandableSectionWrapper = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
@@ -43,6 +45,7 @@ const ExpandableSection = ({
     <ExpandableSectionWrapper
       currentSectionIdx={currentSectionIdx}
       ref={expandableSectionWrapper}
+      height={height}
     >
       {sections.map((section, idx) => (
         <Transition

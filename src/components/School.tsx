@@ -122,6 +122,7 @@ const School = ({
           ))}
         currentSectionIdx={currentSectionIdx}
         prevSectionIdx={prevSectionIdx}
+        height={240}
       />
     </Section>
   );

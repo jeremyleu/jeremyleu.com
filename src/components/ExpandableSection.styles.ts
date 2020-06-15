@@ -6,15 +6,18 @@ import {
   ENTERING,
 } from 'react-transition-group/Transition';
 
-import { mq, getTransformFromDifference } from '../utils';
+import { getTransformFromDifference, notMobileMq } from '../utils';
 
 export const ExpandableSectionWrapper = styled('div')<{
   currentSectionIdx: number;
+  height?: number;
 }>(
-  ({ currentSectionIdx }: { currentSectionIdx: number }) => `
-    ${mq[1]} {
+  ({ currentSectionIdx, height }) => `
+    ${notMobileMq} {
       position: relative;
-      height: ${currentSectionIdx >= 0 ? '350px' : 0};
+      height: ${
+        currentSectionIdx >= 0 ? (height ? `${height}px` : '350px') : 0
+      };
       transition: 0.4s height ease-in-out;
     }
   `
@@ -36,7 +39,7 @@ export const ScrollingSection = styled('div')<ScrollingSectionProps>(
     }
     return `
       width: 100%;
-      ${mq[1]} {
+      ${notMobileMq} {
         transform: ${transform};
         opacity: ${status === ENTERED ? 1 : 0};
         display: ${status === EXITED ? 'none' : 'block'};

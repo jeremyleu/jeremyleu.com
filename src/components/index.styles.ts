@@ -7,7 +7,7 @@ import {
 } from 'react-transition-group/Transition';
 import { Button } from './common.styles';
 
-import { getTransformFromDifference, mq, Direction } from '../utils';
+import { getTransformFromDifference, Direction, notMobileMq } from '../utils';
 
 interface PageWrapperProps {
   difference: number;
@@ -25,7 +25,7 @@ export const PageWrapper = styled('div')<PageWrapperProps>(
     }
     return `
       width: 100%;
-      ${mq[1]} {
+      ${notMobileMq} {
         transform: ${transform};
         opacity: ${status === ENTERED ? 1 : 0};
         display: flex;
@@ -46,7 +46,7 @@ const BUTTON_SIZE = 50;
 
 export const ArrowButtonsContainer = styled('div')`
   display: none;
-  ${mq[1]} {
+  ${notMobileMq} {
     width: ${BUTTON_SIZE * 3 + GRID_GAP * 2}px;
     height: ${BUTTON_SIZE * 2 + GRID_GAP}px;
     display: grid;
@@ -81,7 +81,7 @@ export const ArrowButton = styled(Button)<ArrowButtonProps>`
 
 export const ScoreDisplay = styled('div')`
   display: none;
-  ${mq[1]} {
+  ${notMobileMq} {
     display: block;
     position: absolute;
     text-transform: uppercase;

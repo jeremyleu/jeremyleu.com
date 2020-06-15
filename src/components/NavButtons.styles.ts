@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { mq } from '../utils/constants';
+import { notMobileMq } from '../utils/constants';
 import { Button } from './common.styles';
 
 export const NavButton = styled(Button)`
@@ -33,7 +33,7 @@ export const NavButtonContainer = styled('div')<NavButtonContainerProps>`
   align-self: flex-start;
   display: none;
 
-  ${mq[1]} {
+  ${notMobileMq} {
     display: block;
   }
 `;
