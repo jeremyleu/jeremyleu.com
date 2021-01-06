@@ -3,15 +3,21 @@
   "title": "Work",
   "titleEmoji": "🏢",
   "titleEmojiLabel": "office-building",
-  "content": [
-    "I've been lucky to work on some high-impact projects at dynamic companies."
-  ],
+  "content": ["I've been lucky to work on cool projects at cool companies."],
   "work": [
     {
-      "title": "Rubrik",
-      "date": "May 2019 - present",
+      "title": "Robinhood",
+      "date": "September 2020 - present",
       "content": [
-        "I'm currently a software engineer at <a href=\"https://rubrik.com/\" target=\"_blank\" rel=\"noopener\">Rubrik</a>, working on the data classification product <a href=\"https://www.rubrik.com/en/solutions/sonar-data-governance\" target=\"_blank\">Sonar</a>.",
+        "I'm currently a software engineer at <a href=\"https://robinhood.com/\" target=\"_blank\" rel=\"noopener\">Robinhood</a> on the CX Pathfinder team, working on products and tools to improve the experiences of both users and CX agents."
+      ],
+      "link": "https://www.robinhood.com/"
+    },
+    {
+      "title": "Rubrik",
+      "date": "May 2019 - August 2020",
+      "content": [
+        "I was a software engineer at <a href=\"https://rubrik.com/\" target=\"_blank\" rel=\"noopener\">Rubrik</a>, working on the data classification product <a href=\"https://www.rubrik.com/en/solutions/sonar-data-governance\" target=\"_blank\">Sonar</a>.",
         "Most of my work there has been on Polaris UI, working on a React/Typescript/Apollo GraphQL stack, but I've also had the opportunity to dive deeper in the stack as well as triage customer issues."
       ],
       "link": "https://www.rubrik.com/"
