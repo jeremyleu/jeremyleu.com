@@ -16,7 +16,7 @@ export const Main = styled('main')`
 export const globalStyles = css`
   body {
     transition: font-size 0.18s ease-in-out;
-    background-color: #eee;
+    background-color: #fff;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
       'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
