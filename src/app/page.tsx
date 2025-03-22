@@ -19,10 +19,11 @@ export default function Home() {
           priority
         />
         <div>
-          <p>Hey, I'm Jeremy Leu.</p>
+          <p>Hey, I&apos;m Jeremy Leu.</p>
           <br />
           <p>
-            I'm a product engineer based in San Francisco currently working at{" "}
+            I&apos;m a product engineer based in San Francisco currently working
+            at{" "}
             <a
               href="https://ziphq.com"
               target="_blank"
@@ -30,8 +31,8 @@ export default function Home() {
             >
               Zip
             </a>
-            , and I love building polished products that people use. I've also
-            worked at{" "}
+            , and I love building polished products that people use. I&apos;ve
+            also worked at{" "}
             <a
               href="https://leetcode.com/"
               rel="noreferrer noopener"
