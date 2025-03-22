@@ -82,30 +82,32 @@ export default function Home() {
           >
             View my resume
           </a>
-          <a
-            href="https://github.com/jeremyleu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#383838] dark:hover:text-[#ccc] transition-colors"
-          >
-            <FontAwesomeIcon icon={faGithub} className="h-12 w-12" />
-          </a>
-          <a
-            href="https://github.com/lightyearsaway"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#383838] dark:hover:text-[#ccc] transition-colors"
-          >
-            <FontAwesomeIcon icon={faGithub} className="h-12 w-12" />
-          </a>
-          <a
-            href="https://linkedin.com/in/jeremyleu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#383838] dark:hover:text-[#ccc] transition-colors"
-          >
-            <FontAwesomeIcon icon={faLinkedin} className="h-12 w-12" />
-          </a>
+          <div className="flex gap-4 items-center">
+            <a
+              href="https://github.com/jeremyleu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#383838] dark:hover:text-[#ccc] transition-colors"
+            >
+              <FontAwesomeIcon icon={faGithub} className="h-12 w-12" />
+            </a>
+            <a
+              href="https://github.com/lightyearsaway"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#383838] dark:hover:text-[#ccc] transition-colors"
+            >
+              <FontAwesomeIcon icon={faGithub} className="h-12 w-12" />
+            </a>
+            <a
+              href="https://linkedin.com/in/jeremyleu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#383838] dark:hover:text-[#ccc] transition-colors"
+            >
+              <FontAwesomeIcon icon={faLinkedin} className="h-12 w-12" />
+            </a>
+          </div>
         </div>
       </main>
     </div>
